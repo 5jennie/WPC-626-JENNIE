@@ -7,9 +7,74 @@
     <meta charset="UTF-8" />
     <!-- vieport : 모바일 크기 처리(규격화 된 정규 사이즈로 자동으로 맞춰준다) -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <!-- title : 브라우저 탭 메뉴 타이틀 -->
     <title>네이버 요약 뉴스</title>
+
+    <!-- style sat 인터널방식 코딩 구역 -->
+    <style>
+      /* css문법만 사용하는 구역 */
+      /* 기본문법 선택자 {속성:값;} */
+
+      /* 기본값 초기화 - 마진, 패딩 0 */
+      html,
+      body,
+      h1,
+      h2,
+      h3,
+      ul{
+        margin: 0;
+        padding: 0;
+      }
+
+      /* 1.상단영역 */
+      .top-area {
+        /* 박스 테두리bd - border:두께 / 종류 / 색상 */
+        border: 10px dotted #3f63bf;
+
+        /* 박스 속 백그라운드 컬러 */
+        background-color: #3f63bf;
+        
+        /* 글자중앙정렬 tac */
+        text-align: center;
+
+        /* 패딩 p
+        패딩 셋팅법 (마진도 동일함)
+        padding: 값; (4방향 공통)
+        padding: 값 값; (위 아래 양쪽)
+        padding: 값 값 값 (위 양쪽 아래)
+        padding: 값 값 값 값 (위 오른 아래 왼)
+        -> 물론 방향별 속성이 따로 있음
+        padding-top, padding-bottom
+        padding-right, padding-left */
+        padding: 15px;
+
+        /* 타이틀 텍스트 컬러 */
+        color: #ffffff;
+      }
+
+      /*2.메뉴 박스  */
+      .menu ul {
+        /* list style : none 기본블릿 없애기 */
+        list-style: none;
+        /* disply : flex 자식 요소 옆으로 흐르게 */
+        /* gap : 10px 사이 간격 */
+      }
+
+      /* 3.리스트 요소 */
+      .menu li {
+        /* 인라인 블록으로 dispaly 변경 */
+        display: inline-block;
+        /* 패딩 */
+        padding: 0 5px;
+        /* 카테고리 색상 변경 */
+        color: #ffffff;
+      }
+
+
+    </style>
   </head>
+
   <!-- boby : 웹문서 본문 출력 -->
   <body>
     <!-- 1.상단영역 -->
@@ -19,7 +84,13 @@
 
       <!-- div : 구역 설정 -->
       <nav class="menu">
-        <ul style="list-style: none; display: flex; gap: 10px">
+        <!-- stlye 속성에 값으로 css를 세팅할 수 있다 -->
+        <!-- style="list-style: none; display: flex; gap: 10px" -->
+
+        <!-- ul : 순서 없는 리스트 (언오더드 리스트 unordered list)  -->
+        <!-- 하위 요소는 li외 사용할 수 없다 -->
+
+        <ul>
           <li>네이버로고</li>
           <li>경제</li>
           <li>사회</li>
@@ -34,7 +105,11 @@
     <!-- 2.메인영역 -->
     <main class="main-area">
       <!-- 메인이미지 -->
-      <img src="images/02.뉴스-콘텐츠.jpg" alt="CNN뉴스이미지" style="width: 100%;"/>
+      <img
+        src="images/02.뉴스-콘텐츠.jpg"
+        alt="CNN뉴스이미지"
+        style="width: 100%"
+      />
     </main>
 
     <!-- 3.하단영역 -->

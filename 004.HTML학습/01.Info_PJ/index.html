@@ -22,19 +22,34 @@
       h1,
       h2,
       h3,
-      ul{
+      ul {
         margin: 0;
         padding: 0;
       }
 
       /* 1.상단영역 */
       .top-area {
+        /* 가로 사이즈 w - width:크기값
+          가로 사이즈를 입력하지 않으면 오토(auto)가 기본 값이다. */
+        width: 1280;
+        /* 크기를 주면 기본적으로 내부 컨텐트 영역의 크기이며,
+          패딩과 보더는 바깥쪽에 생긴다 
+          이런 박스를 컨텐트 박스라고 한다*/
+
+        /* 보더박스 만들기(크기에 보더까지 포함) */
+        box-sizing: border-box;
+
+        /* 블록요소 가로 중앙정렬하기 
+          ->양쪽 마진을 오토(auto)로 주면된다.
+          마진 0 오토 -> 마영오 라고 부른다 */
+        margin: 0 auto;
+
         /* 박스 테두리bd - border:두께 / 종류 / 색상 */
         border: 10px dotted #3f63bf;
 
         /* 박스 속 백그라운드 컬러 */
         background-color: #3f63bf;
-        
+
         /* 글자중앙정렬 tac */
         text-align: center;
 
@@ -70,13 +85,11 @@
         display: inline-block;
 
         /* 패딩 */
-        padding: 10px 0px 0px 0px;
+        padding: 5px;
 
         /* 카테고리 색상 변경 */
         color: #ffffff;
       }
-
-
     </style>
   </head>
 

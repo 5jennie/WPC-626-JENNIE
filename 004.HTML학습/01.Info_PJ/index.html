@@ -31,10 +31,65 @@
       .top-area {
         /* 가로 사이즈 w - width:크기값
           가로 사이즈를 입력하지 않으면 오토(auto)가 기본 값이다. */
-        width: 1280;
+        /* width: 1280; */
         /* 크기를 주면 기본적으로 내부 컨텐트 영역의 크기이며,
           패딩과 보더는 바깥쪽에 생긴다 
           이런 박스를 컨텐트 박스라고 한다*/
+
+        /* 박스 테두리bd - border:두께 / 종류 / 색상 */
+        border: 10px dotted #3f63bf;
+
+        /* 글자중앙정렬 tac */
+        text-align: center;
+
+        /* 타이틀 텍스트 컬러 */
+        color: #ffffff;
+
+        /* 패딩 p
+        패딩 셋팅법(마진도 동일함)
+          padding: 값; (4방향공통)
+          padding: 값 값;(위아래 양쪽)
+          padding: 값 값 값;(위 양쪽 아래)
+          padding: 값 값 값 값;(위 오른 아래 왼)
+          
+          -> 물론 방향별 속성이 따로 있음
+          padding-top, padding-bottom
+          padding-right, padding-left 
+          */
+        padding: 30px;
+
+        /* 박스 속 백그라운드 컬러 */
+        background-color: #3f63bf;
+
+      }
+
+      /* 메뉴 박스  */
+      .menu ul {
+        /* list style : none 기본블릿 없애기 */
+        list-style: none;
+
+        /* disply : flex 자식 요소 옆으로 흐르게 */
+        /* gap : 10px 사이 간격 */
+      }
+
+      /* 리스트 요소 */
+      .menu li {
+        /* 인라인 블록으로 dispaly 변경 */
+        display: inline-block;
+
+        /* 패딩 */
+        padding: 0 5px;
+
+        /* 카테고리 색상 변경 */
+        color: #ffffff;
+      }
+
+      /* 공통클래스 */
+      .common-box{
+        /* 최대가로크기 maw */
+        max-width: 
+        /* 효과는? 1280px보다 부모박스 크기가 작아지면
+          auto로 전환되고 이것보다 커지면 더 이상 커지지 않고 크기를 유지한다 */
 
         /* 보더박스 만들기(크기에 보더까지 포함) */
         box-sizing: border-box;
@@ -44,51 +99,6 @@
           마진 0 오토 -> 마영오 라고 부른다 */
         margin: 0 auto;
 
-        /* 박스 테두리bd - border:두께 / 종류 / 색상 */
-        border: 10px dotted #3f63bf;
-
-        /* 박스 속 백그라운드 컬러 */
-        background-color: #3f63bf;
-
-        /* 글자중앙정렬 tac */
-        text-align: center;
-
-        /* 패딩 p
-          패딩 셋팅법(마진도 동일함)
-          padding: 값; (4방향공통)
-          padding: 값 값;(위아래 양쪽)
-          padding: 값 값 값;(위 양쪽 아래)
-          padding: 값 값 값 값;(위 오른 아래 왼)
-
-        -> 물론 방향별 속성이 따로 있음
-          padding-top, padding-bottom
-          padding-right, padding-left 
-        */
-        padding: 5px;
-
-        /* 타이틀 텍스트 컬러 */
-        color: #ffffff;
-      }
-
-      /*2.메뉴 박스  */
-      .menu ul {
-        /* list style : none 기본블릿 없애기 */
-        list-style: none;
-
-        /* disply : flex 자식 요소 옆으로 흐르게 */
-        /* gap : 10px 사이 간격 */
-      }
-
-      /* 3.리스트 요소 */
-      .menu li {
-        /* 인라인 블록으로 dispaly 변경 */
-        display: inline-block;
-
-        /* 패딩 */
-        padding: 5px;
-
-        /* 카테고리 색상 변경 */
-        color: #ffffff;
       }
     </style>
   </head>
@@ -96,7 +106,7 @@
   <!-- boby : 웹문서 본문 출력 -->
   <body>
     <!-- 1.상단영역 -->
-    <header class="top-area">
+    <header class="top-area common-box">
       <!-- title h1 큰제목 h2 중간제목 -->
       <h1 id="main-title">네이버 요약 뉴스</h1>
 
@@ -116,12 +126,10 @@
           <li>TV/연예</li>
         </ul>
       </nav>
-
-      <!-- br : 줄바꿈 -->
-      <br />
     </header>
+
     <!-- 2.메인영역 -->
-    <main class="main-area">
+    <main class="main-area common-box">
       <!-- 메인이미지 -->
       <img
         src="images/02.뉴스-콘텐츠.jpg"
@@ -131,7 +139,7 @@
     </main>
 
     <!-- 3.하단영역 -->
-    <footer class="bottom-area">
+    <footer class="bottom-area common-box">
       <!-- 하단 정보 -->
       <div>
         <address>

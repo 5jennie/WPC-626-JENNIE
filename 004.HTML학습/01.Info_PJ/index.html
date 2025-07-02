@@ -33,9 +33,8 @@
           가로 사이즈를 입력하지 않으면 오토(auto)가 기본 값이다. */
         /* width: 1280; */
         /* 크기를 주면 기본적으로 내부 컨텐트 영역의 크기이며,
-          패딩과 보더는 바깥쪽에 생긴다 
+          패딩과 보더는 바깥쪽에 생긴다
           이런 박스를 컨텐트 박스라고 한다*/
-
 
         /* 글자중앙정렬 tac */
         text-align: center;
@@ -43,10 +42,8 @@
         /* 타이틀 텍스트 컬러 */
         color: #ffffff;
 
-
         /* 박스 속 백그라운드 컬러 */
         background-color: #3f63bf;
-
       }
 
       /* 메뉴 박스  */
@@ -71,36 +68,57 @@
       }
 
       /* 공통클래스 */
-      .common-box{
+      .common-box {
         /* 최대가로크기 maw */
-        max-width: 
+        max-width: 1280;
         /* 효과는? 1280px보다 부모박스 크기가 작아지면
           auto로 전환되고 이것보다 커지면 더 이상 커지지 않고 크기를 유지한다 */
 
         /* 보더박스 만들기(크기에 보더까지 포함) */
         box-sizing: border-box;
 
-        /* 블록요소 가로 중앙정렬하기 
+        /* 블록요소 가로 중앙정렬하기
           ->양쪽 마진을 오토(auto)로 주면된다.
           마진 0 오토 -> 마영오 라고 부른다 */
         margin: 0 auto;
 
         /* 박스 테두리bd - border:두께 / 종류 / 색상 */
         border: 4px dashed #3f63bf;
-        
+
         /* 패딩 p
         패딩 셋팅법(마진도 동일함)
           padding: 값; (4방향공통)
           padding: 값 값;(위아래 양쪽)
           padding: 값 값 값;(위 양쪽 아래)
           padding: 값 값 값 값;(위 오른 아래 왼)
-          
+
           -> 물론 방향별 속성이 따로 있음
           padding-top, padding-bottom
-          padding-right, padding-left 
+          padding-right, padding-left
           */
         padding: 30px;
 
+        /* 둥근 보더 모서리 bdrs - border-radius */
+        border-radius: 20px;
+      }
+
+      /* 2.메인 영역 */
+      .main-area{
+        /* 위 아래 마진 */
+        margin-top: 20px;
+        margin-bottom: 20px;
+      }
+
+      /* 3.하단 영역 */
+      .bottom-area{
+        /* 블록내부 인라인 중앙정렬 tac */
+        text-align: center;
+
+        /* 배경색 bgc */
+        background-color: #3f63bf;
+        
+        /* 텍스트 컬러 */
+        color: #ffffff;
       }
     </style>
   </head>

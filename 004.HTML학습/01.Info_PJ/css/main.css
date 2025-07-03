@@ -134,6 +134,9 @@ color: lightskyblue;
   text-decoration: overline;
 /* 줄 종류 변경 : 파도모양 wavy */
 text-decoration-style: wavy;
+/* 그림자 생성 ts */
+text-shadow: 2px 2px 2px lightskyblue;
+
 }
 
 /* NAVER logo */

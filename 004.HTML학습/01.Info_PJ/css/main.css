@@ -86,6 +86,9 @@ ul {
 
   /* 그림자 효과 추가 */
   /* text-shadow: 1px 1px 5px #ffffff65; */
+
+  /* 하단 마진 mb */
+  margin-bottom: 20px;
 }
 
 /* 메뉴 박스  */
@@ -194,6 +197,24 @@ text-shadow: 2px 2px 2px lightskyblue;
   /* 배경색 bgc */
   background-color: #3f63bf;
 
+  
   /* 텍스트 컬러 */
   color: #ffffff;
+}
+
+/* 주소요소 세팅 */
+.bottom-area address{
+  /* 폰트 스타일 기울기(italic) 설정 풀기
+  (html에서 하단 영역을 어드레스(address) 코드로 묶으면 기울기 효과가 자동으로 생김) */
+  font-style: normal;
+  font-size: 12px;
+  /* 줄간격 lh(line-height) */
+  /* 숫자를 입력하면 기본 폰트의 배수가 입력된다
+  폰트 20px line-height를 2 입력하면 line-height를 주면 20의 2배
+  단위를 사용하면 구체적인 크기로 글자 줄 간격을 줄 수 있음 */
+  line-height: 2;
+
+  /* 글자 컬러 */
+  color: lightgray;
+
 }

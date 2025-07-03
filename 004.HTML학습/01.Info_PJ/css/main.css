@@ -179,7 +179,7 @@ text-shadow: 2px 2px 2px lightskyblue;
   padding: 30px;
 
   /* 둥근 보더 모서리 bdrs - border-radius */
-  border-radius: 20px;
+  border-radius: 10px;
 }
 
 /* 2.메인 영역 */
@@ -187,6 +187,9 @@ text-shadow: 2px 2px 2px lightskyblue;
   /* 위 아래 마진 */
   margin-top: 20px;
   margin-bottom: 20px;
+
+  /* 배경컬러 */
+  background-color: #cfcfcf;
 }
 
 /* 3.하단 영역 */

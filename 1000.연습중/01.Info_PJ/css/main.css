@@ -1,0 +1,14 @@
+@charset "utf-8";
+/* 외부 css파일 상단엔 반드시 문자셋
+설정 코드가 있어야 한다 */
+
+/* 메인 페이지css - main.css */
+@import url(./common.css);
+
+/* 메인 페이지에만 적용되는 코드 */
+
+/* 메인 */
+.main-area {
+  /* 배경컬러 */
+  /* background-color: #cfcfcf; */
+}

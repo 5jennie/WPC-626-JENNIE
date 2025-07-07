@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>01-1.배경연습</title>
+    <style>
+      /* css 인터널 코딩 구역 */
+      h1{
+        /* 글자 중앙 정렬 tac */
+        text-align: center;}
+      
+      /* body 배경셋팅하기 */
+      body{
+        /* 배경색 bgc */
+      background-color: rgb(81, 141, 148);
+
+      /* 배경이미지 bai */
+      /* 기본적으로 배경이미지는 패턴으로 반복됨으로 no-repeat 설정을 해줘야한다 */
+      background-image: url(imgs/bg_logo_a_01.png);
+
+      /* 배경 반복여부 bgr */
+      /* 값 : no-repeat(반복 안함)
+              repeat-x(x 축으로만 반복)
+              repeat-y(y 축으로만 반복) */
+      background-repeat: no-repeat;
+
+      /* 화면 고정 bga*/
+      /* 내가 픽스한 이미지는 내가 정한 위치에 고정되어 스크롤을 움직여도 따라온다 */
+      background-attachment: fixed;
+
+      /* 배경 위치 bgp */
+      /* 값 : center(중앙/기본값)
+              left(왼쪽으로)
+              right(오른쪽으로)
+              bottom(아래쪽으로) */
+      background-position: left;
+
+      /* 배경 사이즈 bgz */
+      /* 값 : contain(박스에 이미지 모두 보이기)
+              cover(박스에 비율 맞춰 이미지 꽉 채우기)
+              값을 2개 쓰면 가로x세로 */
+      background-size: 100px;
+
+      /* 화면 고정 테스트를 위해 높이값 주기 */
+      height: 2000px;
+    }
+
+      /* .wrap 박스에 배경 여러개 넣기 */
+      .wrap{
+        /* 높이값을 body가 같게함 */
+        height: 100%;
+        
+        /* 배경 이미지를 여러개 넣으려면 한번에 셋팅하는 
+        background속성을 이용하여 콤마로 연결한다 */
+        /* background: 배경색 이미지 반복 고정 위치/크기; */
+
+        /* 배경 크기를 %로 쓰면 현제 박스 크기의 비율이다
+        (여기서 박스는 전체 스크린 화면 사이즈를 말하는 것) */
+        
+        background: 
+        /* 공유 */
+        url(imgs/dc1.png) no-repeat left top / 300px,
+
+        /* 김고은 */
+        url(imgs/dc2.png) no-repeat top / 300px,
+
+        /* 이동욱 */
+        url(imgs/dc3.png) no-repeat right top / 300px,
+
+        /* 유인나 */
+        url(imgs/dc4.png) no-repeat left 10% / 300px,
+
+        /* 메인 포스터 */
+        url(imgs/bg_mainvisual.jpg) no-repeat center 10% / 400px,
+        
+        /* 배경 추가(위치 값 50%는 센터와 같다) */
+        url(imgs/eachBG.jpg) no-repeat 50% top / 40% 100%;
+
+      }
+
+
+
+      
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <!-- <h1>01-1.배경넣기 연습</h1> -->
+    </div>
+  </body>
+</html>

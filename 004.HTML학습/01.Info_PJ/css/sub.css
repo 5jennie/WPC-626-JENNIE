@@ -1,102 +1,179 @@
 @charset "utf-8";
-/* 서브 페이지 css - sub.css */
+/* 서브 페이지 CSS - sub.css */
 
-/* 공통 외부 css 불러오기 */
+/* 공통 외부 CSS 불러오기 */
 /* @import url(경로/파일명); */
 
-/* 상단, 하단 공통 css */
-@import url(./common.css);
-
-/* 리셋 css */
+/* 초기화CSS */
 @import url(./reset.css);
 
-/* 공통 설정 */
-/* .main-area 직계자식 > 모두 선택
-    " * " 별 은 모든 것을 선택하는 문자열이다 */
+/* 상단,하단 공통모듈 */
+@import url(./common.css);
+
+/* 공통설정 */
+/* .main-area 직계자식(>) 모두 선택
+별(*)은 모든것을 선택하는 문자열 */
 .main-area > * {
   margin-bottom: 20px;
 }
 
-/* 2-1. 서브 타이틀 */
+/* 2-1. 서브타이틀 */
 .sub-title {
-  /* (1) 박스 디자인 */
-  /* 패딩 */
+  /* (1)박스디자인 */
+  /* 패딩 p40 */
   padding: 40px;
-  /* 글자 중앙정렬 */
+  /* 글자중앙 tac */
   text-align: center;
-  /* 테두리 */
-  border: 2px solid #3f63bf;
-  /* 둥근 모서리 */
+  /* 테두리 bd */
+  border: 2px solid darkblue;
+  /* 둥근모서리 bdrs20 */
   border-radius: 20px;
-  /* 배경 공통 */
+
+  /* 배경공통 */
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
 
-  /* (2) 텍스트 디자인 */
-  /* 폰트 사이즈 */
-  font-size: 30px;
-  /* 폰트 디자인 */
-  font-family: "Do Hyeon", sans-serif;
+  /* 배경넣기 bg -> 색이반고윙/크 */
+  /* background: url(../images/titbg4.jpg) no-repeat 0/cover; */
 
-  /* 글자 테두리
-    테두리 두께를 더 얇게 하려면
-    px단위 숫자를 소수점 아래로 쓴다 */
+  /* (2)글자디자인 */
+  /* 글자체 ff */
+  font-family: "Jua", sans-serif;
+  /* 글자크기 fz30 */
+  font-size: 40px;
+
+  /* 글자테두리 webtst
+    -> 테두리 두께를 더 얇게 하려면
+    px단위 숫자를 소수점 아래로 쓰면됨 */
   -webkit-text-stroke: 0.1px #000;
-  /* 접두어란?
-    속성앞에 -webkit-라고 쓰면
-    크롬, 사파리 브라우저용 속성이다
-    -ms-마이크로 소프트
-    -o-오페라 브라우저
-    -moz-파이어폭스
+  /* 접두어란? 
+    속성앞에 -webkit- 라고 쓰면
+    크롬, 사파리 브라우저용 속성임
+    -ms- 마이크로소프트
+    -o- 오페라 브라우저
+    -moz- 파이어폭스
     이 속성은 이미 공식적으로는 아니지만
-    다른 최신브라우저에서 사용됨 */
+    다른 최신브라우저에서 사용됨!
+    */
 }
-
-/* 각 서브페이지 별 타이틀 세팅 변경 */
-/* 경제 economy */
-/* 사회 social */
-/* IT/과학 it */
-/* TV/연애 tv */
-
-/* (1) 경제 페이지 */
-.economy {
-  color: rgb(216, 207, 112);
+/* 각 서브별 타이틀 셋팅 변경하기 */
+/* (1) 경제페이지 */
+.economics {
+  color: lightsalmon;
   background-image: url(../images/titbg2.jpg);
 }
-
-/* (2) 사회 페이지 */
+/* (2) 사회페이지 */
 .social {
-  color: rgb(112, 174, 216);
+  color: lightgreen;
   background-image: url(../images/titbg3.jpg);
 }
-
-/* (3) IT/과학 페이지 */
-/* 폰트 컬러 */
+/* (3) IT/과학페이지 */
 .it {
-  color: rgb(142, 112, 216);
+  color: aqua;
   background-image: url(../images/titbg4.jpg);
 }
-
-/* (4) TV/연애 페이지 */
+/* (4) TV/연예페이지 */
 .tv {
-  color: palevioletred;
+  color: lightgoldenrodyellow;
   background-image: url(../images/titbg5.jpg);
 }
 
-/* 2-2. 언론사 로고 */
+/* 2-2. 언론사로고 */
 .press-logo img {
   height: 32px;
 }
-
-/* 2-3. 기사 제목 */
+/* 2-3. 기사제목 */
 .article-title {
   font-size: 33px;
 }
 
-/* 2-4. 기사 사진 및 정보 */
-.article-picture {
+/* 스페셜 박스(추가정보박스) */
+.special-box {
+  font-size: 18px;
 }
-/* 2-5. 기사 내용 */
-/* 2-6. 기자 정보 */
-/* 2-7. 기사 원문 */
+/* 스페셜 제목 */
+.special-box h4 {
+  /* 왼쪽 보더 bl */
+  border-left: 3px solid #000;
+  /* 왼쪽패딩 pl */
+  padding-left: 20px;
+  /* 아랫쪽 간격 mb */
+  margin-bottom: 40px;
+}
+/* 스페션 내용 */
+.special-box p {
+  line-height: 1.7;
+}
+
+/* 2-4. 기사사진  */
+.article-picture img {
+  width: 100%;
+}
+/* 이미지설명 */
+.article-picture figcaption {
+  /* 박스설정 */
+  /* 마진 위아래 20px 양쪽0 */
+  margin: 20px 0;
+  text-align: center;
+
+  /* 글자설정 */
+  font-size: 15px;
+  color: #555;
+}
+/* 2-5. 기사내용 */
+.contents p {
+  /* 글자설정 */
+  font-size: 18px;
+  /* 줄간격 lh - 숫자값은 배수임! */
+  line-height: 1.7;
+}
+/* 2-6. 기자정보 */
+.reporter {
+  font-size: 16px;
+  color: #333;
+}
+/* 2-7. 기사원문 */
+.article-link {
+  /* 인라인 오른쪽 정렬 */
+  text-align: right;
+}
+/* 버튼 a요소 */
+.article-link a {
+  /* 디자인 적용 및 부모박스의 문자열
+    정렬 적용되도록 인라인블록으로 변경! */
+  display: inline-block;
+
+  /* (1) 박스설정 */
+  width: 100px;
+  height: 100px;
+  border: 2px solid #000;
+  border-radius: 50%;
+  background-color: #ccc;
+  text-align: center;
+  line-height: 100px;
+
+  /* (2) 글자설정 */
+  font-family: "Single Day", cursive;
+  font-size: 25px;
+  color: darkblue;
+}
+
+/* 버튼 a 마우스 오버시
+-> 가상클래스 :hover사용! */
+.article-link a:hover{
+    /* 배경색 bgc */
+    background-color: lightgreen;
+    /* 박스그림자 bxsh
+    box-shadow: 
+    inset(내부그림자) x축 y축 블러 확장 그림자색; 
+    -> 글자그림자에는 없는 "확장"(spread)가 있음
+    즉, 그림자를 크게 만들 수 있음!
+    그리고 콤마로 설정을 연결하면 여러개의 그림자 사용가능!
+    */
+    box-shadow: 
+    /* 내부그림자 */
+    inset 0 0 5px 5px #0062ffb4,
+    /* 외부그림자 */
+    5px 5px 3px #00000052;
+}

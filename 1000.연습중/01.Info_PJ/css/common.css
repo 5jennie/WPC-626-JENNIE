@@ -41,7 +41,40 @@ ul {
   /* text-align: center; */
 
   /* 박스 속 백그라운드 컬러 */
-  background-color: #3f63bf;
+
+/* 1줄 메뉴 */
+.nav-top {
+  background-color: #3f63bf; /* 파란색 */
+  padding: 10px 20px;
+}
+
+.nav-top ul {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+}
+
+.nav-top a {
+  color: white;
+  font-weight: 500;
+}
+
+/* 2줄 메뉴 */
+.nav-sub {
+  background-color: white;
+
+  border-bottom: 1px solid #b7b7b7; /* 연한 회색 선 */
+}
+
+.nav-sub ul {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+}
+
+.nav-sub a {
+  color: black;
+}
 
 }
 /* 메인타이틀 */

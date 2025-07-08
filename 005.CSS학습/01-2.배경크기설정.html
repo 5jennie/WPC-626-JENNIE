@@ -1,24 +1,52 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>01-2.배경 크기 설정</title>
-    <style></style>
-</head>
-<body>
+    <style>
+      /* 타이틀 */
+      .tit {
+        text-align: center;
+        font-size: 40px;
+      }
+
+      /* 큰제목 */
+      .t1 {
+        font-size: 50px;
+      }
+
+      /* 배경박스 부모 */
+      .wrap {
+        padding: 20px;
+      }
+
+      /* 배경박스 공통 */
+      .wrap > div {
+        /* 공통배경 세팅 */
+        background-image: url(./imgs/bg_mainvisual.jpg);
+        /* 배경 반복 여부 */
+        background-repeat: no-repeat;
+        /* 배경 위치 */
+        background-position: center;
+        /* center 값을 하나만 주면 x축 중앙을 세팅함 */
+        /* 단 세로값은 center가 기본값이기 때문에 자동 중앙 정렬 */
+      }
+      
+    </style>
+  </head>
+  <body>
     <h1 class="tit t1">배경연습 - background-size</h1>
     <div class="wrap">
-        <h2 class="tit">background-size : 100% auto</h2>
-        <div></div>
-        <h2 class="tit">background-size : auto 100%</h2>
-        <div></div>
-        <h2 class="tit">background-size : 100% 100%</h2>
-        <div></div>
-        <h2 class="tit">background-size : contain</h2>
-        <div></div>
-        <h2 class="tit">background-size : cover</h2>
-        <div></div>
+      <h2 class="tit">background-size : 100% auto</h2>
+      <div></div>
+      <h2 class="tit">background-size : auto 100%</h2>
+      <div></div>
+      <h2 class="tit">background-size : 100% 100%</h2>
+      <div></div>
+      <h2 class="tit">background-size : contain</h2>
+      <div></div>
+      <h2 class="tit">background-size : cover</h2>
+      <div></div>
     </div>
-    
-</body>
+  </body>
 </html>

@@ -3,39 +3,47 @@
 
 /* 공통 외부 css 불러오기 */
 /* @import url(경로/파일명); */
+
+/* 상단, 하단 공통 css */
 @import url(./common.css);
 
+/* 리셋 css */
+@import url(./reset.css);
 
+/* 공통 설정 */
+/* .main-area 직계자식 > 모두 선택
+    " * " 별 은 모든 것을 선택하는 문자열이다 */
+.main-area > * {
+  margin-bottom: 20px;
+}
 
 /* 2-1. 서브 타이틀 */
-.sub-title{
-    /* (1) 박스 디자인 */
-    /* 패딩 */
-    padding: 40px;
-    /* 글자 중앙정렬 */
-    text-align: center;
-    /* 테두리 */
-    border: 2px solid #3f63bf;
-    /* 둥근 모서리 */
-    border-radius: 20px;
-    /* 배경 공통 */
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
+.sub-title {
+  /* (1) 박스 디자인 */
+  /* 패딩 */
+  padding: 40px;
+  /* 글자 중앙정렬 */
+  text-align: center;
+  /* 테두리 */
+  border: 2px solid #3f63bf;
+  /* 둥근 모서리 */
+  border-radius: 20px;
+  /* 배경 공통 */
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 
+  /* (2) 텍스트 디자인 */
+  /* 폰트 사이즈 */
+  font-size: 30px;
+  /* 폰트 디자인 */
+  font-family: "Do Hyeon", sans-serif;
 
-
-    /* (2) 텍스트 디자인 */
-    /* 폰트 사이즈 */
-    font-size: 30px;
-    /* 폰트 디자인 */
-    font-family: "Do Hyeon", sans-serif;
-
-    /* 글자 테두리
+  /* 글자 테두리
     테두리 두께를 더 얇게 하려면
     px단위 숫자를 소수점 아래로 쓴다 */
-    -webkit-text-stroke: .1px #000;
-    /* 접두어란?
+  -webkit-text-stroke: 0.1px #000;
+  /* 접두어란?
     속성앞에 -webkit-라고 쓰면
     크롬, 사파리 브라우저용 속성이다
     -ms-마이크로 소프트
@@ -45,8 +53,6 @@
     다른 최신브라우저에서 사용됨 */
 }
 
-
-
 /* 각 서브페이지 별 타이틀 세팅 변경 */
 /* 경제 economy */
 /* 사회 social */
@@ -54,31 +60,43 @@
 /* TV/연애 tv */
 
 /* (1) 경제 페이지 */
-.economy{
-    color: rgb(216, 207, 112);
-    background: url(../images/titbg2.jpg) no-repeat 0/cover;}
+.economy {
+  color: rgb(216, 207, 112);
+  background-image: url(../images/titbg2.jpg);
+}
 
 /* (2) 사회 페이지 */
-.social{
-    color: rgb(112, 174, 216);
-    background: url(../images/titbg3.jpg) no-repeat 0/cover;}
+.social {
+  color: rgb(112, 174, 216);
+  background-image: url(../images/titbg3.jpg);
+}
 
 /* (3) IT/과학 페이지 */
 /* 폰트 컬러 */
-.it{
-    color: rgb(142, 112, 216);
-    background: url(../images/titbg4.jpg) no-repeat 0/cover;}
+.it {
+  color: rgb(142, 112, 216);
+  background-image: url(../images/titbg4.jpg);
+}
 
 /* (4) TV/연애 페이지 */
-.tv{
-    color: palevioletred;
-    background: url(../images/titbg5.jpg) no-repeat 0/cover;}
-
-
+.tv {
+  color: palevioletred;
+  background-image: url(../images/titbg5.jpg);
+}
 
 /* 2-2. 언론사 로고 */
+.press-logo img {
+  height: 32px;
+}
+
 /* 2-3. 기사 제목 */
+.article-title {
+  font-size: 33px;
+}
+
 /* 2-4. 기사 사진 및 정보 */
+.article-picture {
+}
 /* 2-5. 기사 내용 */
 /* 2-6. 기자 정보 */
 /* 2-7. 기사 원문 */

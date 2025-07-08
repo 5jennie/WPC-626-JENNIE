@@ -54,22 +54,30 @@
       요소:nth-child(순번) */
 
       /* 1. div 박스 */
+      /* 가로는 100%로 꽉 채우고, 세로는 비율 유지 */
       .wrap > div:nth-of-type(1) {
         background-size: 100% auto;
       }
       /* 2. div 박스 */
+      /* 세로는 100%로 꽉 채우고, 가로는 비율 유지 */
       .wrap > div:nth-of-type(2) {
         background-size: auto 100%;
       }
       /* 3. div 박스 */
+      /* 가로 세로 100%로 도형에 맞춤
+      디자이너들이 제일 싫어하는 코딩 */
       .wrap > div:nth-of-type(3) {
         background-size: 100% 100%;
       }
       /* 4. div 박스 */
+      /* 박스속 이미지가 비율을 유지하며 전체 다 보인다 */
       .wrap > div:nth-of-type(4) {
         background-size: contain;
       }
       /* 5. div 박스 */
+      /* 정말 많이 사용하는 수식 */
+      /* 박스속의 빈공간 없이
+      이미지 사이즈 비율을 유지하며 키운다 */
       .wrap > div:nth-of-type(5) {
         background-size: cover;
       }

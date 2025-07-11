@@ -1,0 +1,110 @@
+$(function() {
+    function setCookie(name, value, days) {
+        var expires = "";
+        if (days) {
+            var date = new Date();
+            date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+            expires = "; expires=" + date.toUTCString();
+        }
+        document.cookie = name + "=" + (value || "")  + expires + "; path=/";
+    }
+
+    function getCookie(name) {
+        var nameEQ = name + "=";
+        var ca = document.cookie.split(';');
+        for(var i=0;i < ca.length;i++) {
+            var c = ca[i];
+            while (c.charAt(0)==' ') c = c.substring(1,c.length);
+            if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+        }
+        return null;
+    }
+    // story tagline 등장
+    var $tagline = $('#intro-text #tagline');
+    var originalText = '백년을 잇는 향기'.split('').map(char => char === ' ' ? '&nbsp;' : char);
+    $tagline.empty();
+    $.each(originalText, function(i, char) {
+        $tagline.append($('<span>').html(char));
+    });
+    function animateTagline() {
+        $tagline.find('span').each(function(i) {
+            $(this).delay(i * 100).animate({
+                opacity: 1,
+                top: 0
+            }, {
+                duration: 700,
+                easing: 'easeOutCubic',
+                step: function(now, fx) {
+                    if (fx.prop === "opacity") {
+                        var translateY = (1 - now) * 30; // 30px에서 시작해서 0px로
+                        var blurValue = (1 - now) * 10; // 10px에서 시작해서 0px로
+                        $(this).css({
+                            transform: `translateY(${translateY}px)`,
+                            opacity: now,
+                            filter: `blur(${blurValue}px)`
+                        });
+                    }
+                }
+            });
+        });
+    }
+	animateTagline();
+
+	/*
+    if (!getCookie('intro_shown')) {
+        // 인트로 애니메이션 실행
+        $('#intro-text').fadeIn(500).delay(2000).fadeOut(1000);
+        $('#symbol-mark').delay(4000).fadeIn(1000).delay(2000).fadeOut(1000, function() {
+            $('#intro-container').fadeOut(500);
+        });
+
+        // 나이 확인 팝업 표시
+        $('#age-verification-overlay').delay(8000).fadeIn(500);
+    } else {
+        // 쿠키가 있으면 인트로와 팝업을 건너뜁니다
+        $('#intro-container').hide();
+        $('#age-verification-overlay').hide();
+    }
+
+    // Yes 버튼 클릭 시
+    $('#age-yes').click(function() {
+        $('#age-verification-overlay').fadeOut(500);
+        // 쿠키 설정 (1일 동안 유효)
+        setCookie('intro_shown', 'true', 1);
+    });
+
+    // No 버튼 클릭 시
+    $('#age-no').click(function() {
+        alert('죄송합니다. 19세 이상만 입장 가능합니다.');
+        // 여기에 리다이렉션 또는 다른 동작을 추가할 수 있습니다.
+    });
+	*/
+
+    if (!getCookie('intro_shown')) {
+        // 인트로 애니메이션 실행
+        $('#intro-text').fadeIn(500).delay(2000).fadeOut(1000);
+        $('#symbol-mark').delay(2500).fadeIn(700).delay(2000).fadeOut(1000, function() {
+            $('#intro-container').fadeOut(500);
+        });
+
+        // 나이 확인 팝업 표시
+        $('#age-verification-overlay').delay(7000).fadeIn(500);
+    } else {
+        // 쿠키가 있으면 인트로와 팝업을 건너뜁니다
+        $('#intro-container').hide();
+        $('#age-verification-overlay').hide();
+    }
+
+    // Yes 버튼 클릭 시
+    $('#age-yes').click(function() {
+        $('#age-verification-overlay').fadeOut(500);
+        // 쿠키 설정 (1일 동안 유효)
+        setCookie('intro_shown', 'true', 1);
+    });
+
+    // No 버튼 클릭 시
+    $('#age-no').click(function() {
+        alert('죄송합니다. 19세 이상만 입장 가능합니다.');
+        // 여기에 리다이렉션 또는 다른 동작을 추가할 수 있습니다.
+    });
+});

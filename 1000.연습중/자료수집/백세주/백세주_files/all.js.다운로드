@@ -1,0 +1,42 @@
+$(function() {
+    var $subHeader = $('#sub-header');
+    var $main = $('main');
+    var subHeaderHeight = $subHeader.outerHeight();
+    var subHeaderOffset = $subHeader.offset().top;
+
+    $(window).scroll(function() {
+        var scrollTop = $(this).scrollTop();
+        var mainOffset = $main.offset().top;
+
+        if (scrollTop + subHeaderHeight >= mainOffset) {
+            $subHeader.addClass('act');
+        } else {
+            $subHeader.removeClass('act');
+        }
+
+    });
+
+    // 초기 로드 시 한 번 체크
+    $(window).trigger('scroll');
+
+	// hamberger 
+	$('#hamberger').click(function(){
+		$('#hamberger').toggleClass('open');
+		if($(this).hasClass('open')) {
+			$("body").addClass("open");
+		} else {
+			$("body").removeClass("open");
+		}
+	});
+	// end hamberger 
+
+//	$(".rdy").click(function(e) {
+	//	e.preventDefault();
+//		alert("준비중입니다");
+//	});
+});
+
+// jQuery easing 함수 (부드러운 감속 효과)
+jQuery.easing.easeOutCubic = function(x, t, b, c, d) {
+    return c * ((t = t / d - 1) * t * t + 1) + b;
+};

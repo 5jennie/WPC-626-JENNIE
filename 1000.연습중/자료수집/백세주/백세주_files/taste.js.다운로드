@@ -1,0 +1,111 @@
+$(function() {
+    // story tagline 등장
+    var $tagline = $('#vi #tagline');
+    var originalText = '조화의미학ㆍ산뜻한향ㆍ긴여운'.split('').map(char => char === ' ' ? '&nbsp;' : char);
+
+    $tagline.empty();
+
+    $.each(originalText, function(i, char) {
+        $tagline.append($('<span>').html(char));
+    });
+
+    function animateTagline() {
+        $tagline.find('span').each(function(i) {
+            $(this).delay(i * 100).animate({
+                opacity: 1,
+                top: 0
+            }, {
+                duration: 700,
+                easing: 'easeOutCubic',
+                step: function(now, fx) {
+                    if (fx.prop === "opacity") {
+                        var translateY = (1 - now) * 30; // 30px에서 시작해서 0px로
+                        var blurValue = (1 - now) * 10; // 10px에서 시작해서 0px로
+                        $(this).css({
+                            transform: `translateY(${translateY}px)`,
+                            opacity: now,
+                            filter: `blur(${blurValue}px)`
+                        });
+                    }
+                }
+            });
+        });
+    }
+    
+    // vertical-p 애니메이션
+    function animateVerticalP() {
+        $('.vertical-p').each(function() {
+            var $verticalP = $(this);
+            var $spans = $verticalP.find('span');
+            
+            // span 요소가 없으면 텍스트를 span으로 감싸기
+            if ($spans.length === 0) {
+                var text = $verticalP.text().split('');
+                $verticalP.empty();
+                $.each(text, function(i, char) {
+                    $verticalP.append($('<span>').text(char));
+                });
+                $spans = $verticalP.find('span');
+            }
+            
+            if ($verticalP.offset().top < $(window).scrollTop() + $(window).height() * 0.75) {
+                $spans.each(function(i) {
+                    var $span = $(this);
+                    setTimeout(function() {
+                        $span.css({
+                            opacity: 1,
+                            filter: 'blur(0px)',
+                            transform: 'translateY(0)'
+                        });
+                    }, i * 50);  // 각 글자 사이의 지연 시간
+                });
+            }
+        });
+    }
+
+	var video = $('#myVideo')[0];
+	var videoContainer = $('.video-container');
+	var hasPlayed = false;
+
+	$(window).scroll(function() {
+		if (hasPlayed) return; // 이미 재생된 경우 함수 종료
+
+		var windowHeight = $(window).height();
+		var videoTop = videoContainer.offset().top;
+		var videoBottom = videoTop + videoContainer.height();
+		var windowScrollTop = $(window).scrollTop();
+		var windowBottom = windowScrollTop + windowHeight;
+
+		if ((windowScrollTop <= videoBottom) && (windowBottom >= videoTop)) {
+			if (video.paused) {
+				video.play();
+				hasPlayed = true; // 재생 시작 표시
+			}
+		}
+	});
+
+// 비디오 재생 완료 시 hasPlayed 상태 유지
+video.addEventListener('ended', function() {
+hasPlayed = true;
+});
+
+    // 페이지 로드 시 애니메이션 실행
+    $(window).on('load', function() {
+        setTimeout(function() {
+            animateTagline();
+        }, 1000);
+        animateVerticalP();
+    });
+    
+    // 스크롤 이벤트에 animateVerticalP 함수 연결
+    $(window).on('scroll', animateVerticalP);
+
+    // 초기 CSS 설정
+    $('.vertical-p span').css({
+        opacity: 0,
+        filter: 'blur(5px)',
+        transform: 'translateY(20px)',
+        display: 'inline-block',
+        transition: 'opacity 0.5s, filter 0.5s, transform 0.5s'
+    });
+});

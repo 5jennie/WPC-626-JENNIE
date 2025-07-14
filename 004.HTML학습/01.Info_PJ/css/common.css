@@ -124,7 +124,7 @@ ul {
 
   /* 이미지를 포함한 글자 인라인요소간
   진행방향 세로정렬(va) vertical-align */
-  vertical-align: middle;
+  vertical-align: -1px;
   /* 사용값 top/middle/bottom/숫자값 */
 }
 /* a에 마우스 오버시 -> 요소:hover

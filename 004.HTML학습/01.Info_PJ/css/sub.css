@@ -126,9 +126,10 @@
   /* 글자설정 */
   font-size: 18px;
   /* 줄간격 lh - 숫자값은 배수임! */
-  line-height: 1.7;}
+  line-height: 1.7;
+}
 
-  /* mark 요소 디자인 */
+/* mark 요소 디자인 */
 .contents mark {
   /* 기존 inline에서 block으로 변경! */
   display: block;
@@ -179,19 +180,33 @@
 
 /* 버튼 a 마우스 오버시
 -> 가상클래스 :hover사용! */
-.article-link a:hover{
-    /* 배경색 bgc */
-    background-color: lightgreen;
-    /* 박스그림자 bxsh
+.article-link a:hover {
+  /* 배경색 bgc */
+  background-color: lightgreen;
+  /* 박스그림자 bxsh
     box-shadow: 
     inset(내부그림자) x축 y축 블러 확장 그림자색; 
     -> 글자그림자에는 없는 "확장"(spread)가 있음
     즉, 그림자를 크게 만들 수 있음!
     그리고 콤마로 설정을 연결하면 여러개의 그림자 사용가능!
     */
-    box-shadow: 
-    /* 내부그림자 */
-    inset 0 0 5px 5px #0062ffb4,
-    /* 외부그림자 */
-    5px 5px 3px #00000052;
+  box-shadow: 
+    /* 내부그림자 */ inset 0 0 5px 5px #0062ffb4,
+    /* 외부그림자 */ 5px 5px 3px #00000052;
+}
+
+/* <!-- 뉴스 공통 박스 디자인 --> */
+    .news-box {
+  border-top: 2px dashed #ccc;
+  padding: 20px;
+  margin-top: 50px;
+} /* 뉴스 공통 제목 디자인 */
+.news-box h3 {
+  display: inline-block;
+  font-size: 25px;
+  padding: 15px;
+  border: 2px solid gray;
+  border-radius: 20px;
+  background-color: #ededed;
+  margin-bottom: 17px;
 }

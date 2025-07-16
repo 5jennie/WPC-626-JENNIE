@@ -101,7 +101,7 @@
   /* 아랫쪽 간격 mb */
   margin-bottom: 40px;
 }
-/* 스페션 내용 */
+/* 스페셜 내용 */
 .special-box p {
   line-height: 1.7;
 }
@@ -129,22 +129,23 @@
   line-height: 1.7;
 }
 
-/* mark 요소 디자인 */
+/* mark요소 디자인변 */
 .contents mark {
   /* 기존 inline에서 block으로 변경! */
   display: block;
 
-  /* 박스 설정 */
-  background-color: lightblue;
+  /* 박스설정 */
+  background-color: #e7e7e7;
   margin: 20px 100px;
   padding: 60px;
   border-bottom: 2px solid #222;
   border-top: 2px solid #222;
 
-  /* 폰트 설정 */
+  /* 글자설정 */
   font-family: "Jua", sans-serif;
-  font-size: 30px;
-  font-style: italic;
+  font-size: 28px;
+  color: darkorange;
+  text-shadow: 2px 2px 2px #00000073;
 }
 
 /* 2-6. 기자정보 */
@@ -195,20 +196,62 @@
     /* 외부그림자 */ 5px 5px 3px #00000052;
 }
 
-/* 기사 설명 공통 내용박스 디자인 */
-.desc-box h4 + *{
-color: #c70000;
-font-size: 15px;
-
+/* 기사 설명 공통 박스 디자인 */
+.desc-box {
+  /* 경계선을 위와 아래만 설정함 */
+  border-bottom: 2px dashed #ccc;
+  border-top: 2px dashed #ccc;
+  padding: 20px;
+  margin-top: 50px;
 }
 
-/* <!-- 뉴스 공통 박스 디자인 --> */
+/* 기사 설명 공통 제목 디자인 */
+.desc-box h4 {
+  display: inline-block;
+  /* float속성을 인라인요소에 사용할 경우
+    나 자신은 설정한 위치에 오고 다른라인 요소는
+    그 앞으로 흘러간다. 여기서 이미지의 글자는
+    한줄만 옆으로 오는데 이미지 높이 만큼 글자가
+    옆으로 흘러가게 할때 사용한다 */
+  font-size: 25px;
+  padding: 15px;
+  border: 2px solid gray;
+  border-radius: 20px;
+  background-color: #ededed;
+  margin-bottom: 17px;
+}
+
+/* 기사 설명 공통 내용박스 디자인
+  공통이지만 인용블록은 blockquote이고
+  주해는 p요소를 쓰고 있으므로 공통은
+  .desc-box h4 + * 
+  설명: h4요소 다음 형제(+)요소 선택인데
+  별(*)을 사용하여 어떤 타입이든 모든 선택함!
+  */
+.desc-box h4 + * {
+  font-size: 18px;
+  line-height: 1.7;
+  /* 양쪽 정렬은  taxt-align:justify으로 설정한다 */
+  text-align: justify;
+}
+
+/* 인용블록박스 */
+.quote-box img {
+  width: 200px;
+  float: right;
+  margin-left: 20px;
+  border-radius: 20px;
+  box-shadow: 8px 8px 7px #00000057;
+}
+
+/* 뉴스 공통 박스 디자인 */
 .news-box {
   border-top: 2px dashed #ccc;
   padding: 20px;
   margin-top: 50px;
+}
 
-} /* 뉴스 공통 제목 디자인 */
+/* 뉴스 공통 제목 디자인 */
 .news-box h3 {
   display: inline-block;
   font-size: 25px;
@@ -219,21 +262,22 @@ font-size: 15px;
   margin-bottom: 17px;
 }
 
+/* 오늘의 작품&느낌 */
+.work {
+  background-image: linear-gradient(
+    384deg,
+    #1f3d58 16%,
+    #ebbe0bb8 51%,
+    #e85125 87%
+  );
 
-/* <!-- 주석 박스 디자인 --> */
-/* 주석 : 기사 본문속 용어 설명 */
-.desc-box {
-  border-top: 2px dashed #ccc;
-  padding: 20px;
-  margin-top: 50px;
-
-} /* 주석 제목 디자인 */
-.desc-box h4 {
-  display: inline-block;
-  font-size: 25px;
-  padding: 15px;
-  border: 2px solid gray;
-  border-radius: 20px;
-  background-color: #ededed;
-  margin-bottom: 17px;
+  /* 그라데이션 -> 배경 이미지 속성에 사용한다.
+    [ 선형 그라데이션 : linear-gradient ]
+    linear-gradient(방향,색1,색2,...);
+    linear-gradient(방향,색1 몇%,색2 몇%,...);
+    linear-gradient(각도,색1 몇%,색2 몇%,...);
+    - 옵션 : 
+    1. 방향: to top, to bottom, to left, to right
+    2. 각도: 각도deg
+    3. 콤마로 나열된 색상 뒤에 %수치를 쓰면 비율조정가능 */
 }

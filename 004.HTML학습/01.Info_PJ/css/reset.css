@@ -3,7 +3,7 @@
 /* Info PJ 초기화 CSS - reset.css */
 
 /* 1. 모든 기본 마진,패딩을 0으로 초기화 */
-html,body,h1,h2,h3,h4,h5,h6,figure,ul,ol,p{
+html,body,h1,h2,h3,h4,h5,h6,figure,ul,ol,p,blockquote{
     margin: 0;
     padding: 0;
 }

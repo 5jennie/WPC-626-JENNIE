@@ -17,6 +17,10 @@
   margin-bottom: 20px;
 }
 
+
+/* ------------------------------- */
+
+
 /* 2-1. 서브타이틀 */
 .sub-title {
   /* (1)박스디자인 */
@@ -57,6 +61,10 @@
     다른 최신브라우저에서 사용됨!
     */
 }
+
+/* ----------------------------------------------- */
+
+
 /* 각 서브별 타이틀 셋팅 변경하기 */
 /* (1) 경제페이지 */
 .economics {
@@ -192,10 +200,8 @@
     그리고 콤마로 설정을 연결하면 여러개의 그림자 사용가능!
     */
   box-shadow: 
-    /* 내부그림자 */ inset
-      0 0 5px 5px #A2E0E9,
-    /* 외부그림자 */ 5px 5px 3px
-      #00000052;
+    /* 내부그림자 */ inset 0 0 5px 5px #a2e0e9,
+    /* 외부그림자 */ 5px 5px 3px #00000052;
 }
 
 /* 기사 설명 공통 박스 디자인 */
@@ -263,14 +269,14 @@
 }
 
 /* 뉴스 공통 a링크 */
-.news-box a{
+.news-box a {
   font-size: 19px;
   line-height: 38px;
 }
 
 /* a 오버시 가상 클래스 :hover */
-.news-box a:hover{
-  color: #A2E0E9;
+.news-box a:hover {
+  color: #a2e0e9;
   text-shadow: 1px 1px 1px #b0b0b0;
 }
 
@@ -279,20 +285,34 @@
 앞에 넣기 ::before
 뒤에 넣기 ::after */
 .tech-news a::before {
-   content:'🌌';
+  content: "🌌";
 }
+
+/* 테크 뉴스 a요소 텍스트 기본색 변경하기 */
+.tech-news li:first-child a{
+  color: lightslategray;
+}
+.tech-news li:last-child a{
+  color: #8e5858;
+}
+
+
+/* 랭킹뉴스 박스 */
 .rank-news a::before {
-   content:'⭐';}
+  content: "⭐";
+}
 
-
-
+.rank-news ol {
+  /* 리스트 스타일 숫자 스타일로 적용 */
+  list-style: auto;
+  padding-left: 10px;
+}
 
 /* 오늘의 작품&느낌 */
 
-.work{
+.work {
   /* 작품의 뒷 배경 */
-  background-image: 
-  linear-gradient(45deg,lightcoral,lightgreen,#A2E0E9);
+  background-image: linear-gradient(45deg, lightcoral, lightgreen, #a2e0e9);
 
   /* 여백 */
   padding: 16px 46px 35px;
@@ -326,29 +346,29 @@
 
 /* 제목 */
 .work h4 {
-    font-family: "Single Day", cursive;
-    font-weight: normal;
-    font-size: 32px;
-    color: lightyellow;
-    -webkit-text-stroke: 0.6px #8e5858;
-    margin-bottom: 14px;
+  font-family: "Single Day", cursive;
+  font-weight: normal;
+  font-size: 32px;
+  color: lightyellow;
+  -webkit-text-stroke: 0.6px #8e5858;
+  margin-bottom: 14px;
 }
 
 /* 작품 이미지 */
 .work img {
-    border: 20px ridge goldenrod;
+  border: 20px ridge goldenrod;
 }
 
 /* 작품설명 */
 .work figcaption {
-    font-family: "Jua", sans-serif;
-    font-size: 23px;
-    color: rgb(228, 255, 228);
-    margin-top: 12px;
+  font-family: "Jua", sans-serif;
+  font-size: 23px;
+  color: rgb(228, 255, 228);
+  margin-top: 12px;
 }
 
 /* 작품명 */
 .work figcaption cite {
-    font-style: normal;
-    color: rgb(255, 255, 255);
+  font-style: normal;
+  color: rgb(255, 255, 255);
 }

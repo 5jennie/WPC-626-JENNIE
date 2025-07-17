@@ -17,10 +17,16 @@
     <!-- 외부 CSS 연결하기 -->
     <link rel="stylesheet" href="./css/sub.css" />
   </head>
+
+
+
+
+
   <!-- body요소 : 웹문서 본문출력  -->
   <body>
-    <!--********* 1. 상단영역 *********-->
-    <header class="top-area common-box">
+<!--********* 1. 상단영역 *********-->
+  <header class="top-area common-box">
+
       <!-- h1요소 : 큰제목 -->
       <h1 id="main-title">네이버 요약 뉴스</h1>
 
@@ -55,14 +61,16 @@
       </nav>
     </header>
 
+
+
+
+
     <!--********* 2. 메인영역 *********-->
     <main class="main-area common-box">
       <!-- 2-1. 서브타이틀 -->
       <h2 class="sub-title it">IT/과학</h2>
       <!-- 2-2. 언론사로고 -->
-      <div class="press-logo">
-        <img src="./images/press_logo3.png" alt="연합뉴스" />
-      </div>
+
       <!-- 2-3. 기사제목 -->
       <h3 class="article-title">
         [사이테크+] "오랑우탄도 밤잠 설치면 낮잠으로 보충한다"
@@ -397,8 +405,9 @@
         <!-- 제목 -->
         <h3>분야별 뉴스</h3>
         <!-- dl은 반드시 dt,dd가 나와야함! -->
+
+        <!-- 경제파트 -->
         <dl>
-          <!-- 경제파트 -->
           <dt>경제</dt>
           <dd>
             <a
@@ -414,7 +423,10 @@
               >전기·보험료 등 50만원 지원…‘소상공인 부담경감 크레딧’ 개시</a
             >
           </dd>
-          <!-- 사회파트 -->
+        </dl>
+
+        <!-- 사회파트 -->
+        <dl>
           <dt>사회</dt>
           <dd>
             <a
@@ -430,7 +442,10 @@
               >"민생회복 소비쿠폰 차질없이 지급하자"…민관 업무협약</a
             >
           </dd>
-          <!-- TV/연예파트 -->
+        </dl>
+
+        <!-- TV/연예파트 -->
+        <dl>
           <dt>TV/연예</dt>
           <dd>
             <a
@@ -444,7 +459,7 @@
             <a
               href="https://m.entertain.naver.com/home/article/311/0001891113"
               target="_blank"
-              >'이병헌♥' 이민정, 아들과 '26억' 美저택 관리하더니…할리우드 만끽
+              >이병헌♥이민정, 아들과 '26억' 美저택 관리하더니…할리우드 만끽
               [★해시태그]</a
             >
           </dd>
@@ -465,6 +480,58 @@
         한번이상 사용되야 함!!!
         또 주의 - dt와 dd는 형제관계임!(부모자식아님!)
        -->
+      <!-- 참고링크
+         https://www.w3schools.com/html/html_lists_other.asp -->
+
+      <!-- 
+        [ 테이블 요소 : table ]
+        table > tbody > tr > td
+
+        -> tbody는 안쓰고 tr부터 구현해도
+        브라우저가 자동으로 그려준다!
+
+        주의) table > tr 로 직계선택하게 되면
+        위와 같은 구조적인 이유로 선택되지 않는다!
+
+        ________________________________
+
+        ((간단한 테이블 작성시 필수요소 3가지!))
+        table : 테이블 박스 부모요소
+        tr : 테이블 행요소(table row)
+        td : 테이블 데이터요소(table data) -->
+
+      <!-- 사진 뉴스 -->
+      <!-- 사진 뉴스 박스 :table사용 -->
+      <article class="photo-news news-box">
+        <!-- 제목 -->
+        <h3>사진뉴스</h3>
+
+        <table>
+          <!-- 1번줄tr -->
+          <tr>
+            <td>1</td>
+            <td><a href="https://www.digitaltoday.co.kr/news/articleView.html?idxno=577977" target="_blank">차세대 아이폰17 프로, 반사 방지 디스플레이 탑재 예정</a></td>
+            <td><a href="https://www.digitaltoday.co.kr/news/articleView.html?idxno=577977" target="_blank">
+              <img src="images/photo_news1.jpg" alt="포토뉴스썸네일"/></a></td>
+          </tr>
+
+          <!-- 2번줄tr -->
+          <tr>
+            <td>2</td>
+            <td><a href="https://health.chosun.com/site/data/html_dir/2025/05/14/2025051401904.html" target="_blank">고양이는 눈만 깜빡여도 귀여워</a></td>
+            <td><a href="https://health.chosun.com/site/data/html_dir/2025/05/14/2025051401904.html" target="_blank">
+              <img src="images/photo_news2.jpg" alt="포토뉴스썸네일"/></a></td>
+          </tr>
+
+          <!-- 3번줄tr -->
+          <tr>
+            <td>3</td>
+            <td><a href="https://www.edaily.co.kr/News/Read?newsId=04329606642233208&mediaCodeNo=257&OutLnkChk=Y" target="_blank">백종원, 농지법 위반 논란에 백석공장 지난달 폐업</a></td>
+            <td><a href="https://www.edaily.co.kr/News/Read?newsId=04329606642233208&mediaCodeNo=257&OutLnkChk=Y" target="_blank">
+              <img src="images/photo_news3.jpg" alt="포토뉴스썸네일"/></a></td>
+          </tr>
+        </table>
+      </article>
     </main>
 
     <!--*********** 3. 하단영역 ***********-->

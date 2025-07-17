@@ -17,9 +17,7 @@
   margin-bottom: 20px;
 }
 
-
-/* ------------------------------- */
-
+/* ________________________________ */
 
 /* 2-1. 서브타이틀 */
 .sub-title {
@@ -62,8 +60,7 @@
     */
 }
 
-/* ----------------------------------------------- */
-
+/* ________________________________ */
 
 /* 각 서브별 타이틀 셋팅 변경하기 */
 /* (1) 경제페이지 */
@@ -272,6 +269,16 @@
 .news-box a {
   font-size: 19px;
   line-height: 38px;
+
+  /* 화면 창이 작아질때 넘치는 텍스트가 ...으로 요약되는 효과 */
+  /* 1. 넘치는 자식요소 숨기기 */
+  overflow: hidden;
+  /* 2. 넘치는 텍스트 말줄임표시 나오게하기 */
+  text-overflow: ellipsis;
+  /* 3. 줄바꿈 방지 */
+  white-space: nowrap;
+  /* 4. 말줄임 해당박스는 블록요소로 변경 */
+  display: block;
 }
 
 /* a 오버시 가상 클래스 :hover */
@@ -279,6 +286,9 @@
   color: #a2e0e9;
   text-shadow: 1px 1px 1px #b0b0b0;
 }
+
+/* ________________________________ */
+/* 테크뉴스 */
 
 /* 테크뉴스 박스 */
 /* 가상요소를 사용하여 앞에 아이콘 넣기
@@ -289,25 +299,202 @@
 }
 
 /* 테크 뉴스 a요소 텍스트 기본색 변경하기 */
-.tech-news li:first-child a{
+/* 테크뉴스 a요소 기본 색 변경하기
+순서대로 따로 선택하려면 원래 class를 따로주고
+그 이름으로 선택하면 되는데 class이름 주지않고
+선택하는 방법은? 가상클래스 중 first-child
+같은 가상클래스를 사용한것!
+
+  첫번째 자식 -> 선택요소:first-child
+  마지막째 자식 -> 선택요소:last-child
+  n번째 자식 -> 선택요소:nth-child(순번숫자)
+  -> 주의사항 : 같은종류의 자식요소로 구성된 경우에만
+  사용가능하다!!!
+*/
+.tech-news li:nth-child(1) a {
   color: lightslategray;
 }
-.tech-news li:last-child a{
+.tech-news li:nth-child(2) a {
   color: #8e5858;
 }
 
+/* ________________________________ */
+/* 랭킹 뉴스 */
 
 /* 랭킹뉴스 박스 */
 .rank-news a::before {
   content: "⭐";
 }
 
+/* 랭킹뉴스 리스트 스타일 숫자 스타일로 적용 */
 .rank-news ol {
-  /* 리스트 스타일 숫자 스타일로 적용 */
   list-style: auto;
-  padding-left: 10px;
+  padding-left: 20px;
 }
 
+/* ________________________________ */
+/* 분야별 뉴스 */
+
+/* dl - (부모)분류 타이틀 */
+.sec-news dl {
+  overflow: hidden;
+}
+
+/* dt - (자식)분류 타이틀 */
+.sec-news dt {
+  /* 1.분야별 뉴스 박스 */
+  width: 80px;
+  margin: 15px 0 20px 0;
+  padding: 20px;
+  border: 3px dashed #000;
+
+  /* 마진 순서 : 위 오른 아래 왼(시계방향) */
+  margin: 25px 10px 10px 0;
+  padding: 20px;
+
+  /* 원형보더 : 50% */
+  border-radius: 50%;
+  background-color: #a2e0e9;
+
+  /* 박스 속에 들어간 텍스트 정렬 */
+  text-align: center;
+
+  /* 타이틀 글자 랩핑방지(글자줄바꿈방지) */
+  white-space: nowrap;
+
+  /* dt박스 옆으로 dd박스가 오도록 레이아웃 정렬 */
+  /* float:left / float: right (float:흐르다)  */
+  float: left;
+
+  /* 2.분야별 뉴스 텍스트 */
+  font-family: "Jua", sans-serif;
+  font-size: 20px;
+}
+
+/* 개별적으로 dt를 선택하여 글자색, 배경색 바꾸기 */
+.sec-news dl:first-of-type dt {
+  color: red;
+  background-color: lightgreen;
+}
+.sec-news dl:nth-of-type(2) dt {
+  color: rgb(255, 69, 69);
+  background-color: lightsalmon;
+}
+.sec-news dl:last-of-type dt {
+  color: black;
+  background-color: lightblue;
+}
+
+/* dd용어 설명박스 */
+/* dd타입 중에 첫번째 선택하기 */
+
+/* [자식요소가 여러가지 섞인 경우 선택하기]
+가상클래스 of-type...사용
+첫번째 타입 first of-type
+마지막 타입 last of-type
+n번째 타입 nth of-type(순번)
+ */
+.sec-news dd:first-of-type {
+  margin-top: 15px;
+}
+
+/* dd - (자식)분류 타이틀 */
+.sec-news dd a::before {
+  content: "📌";
+}
+
+/* ________________________________ */
+/* 포토뉴스 박스 */
+/* 전체 테이블 */
+.photo-news table {
+  max-width: 500px;
+  margin: 0 auto;
+  border: 2px solid #ccc;
+  border-collapse: collapse;
+}
+
+/* td 비율 설정 */
+/* 포토박스 1열 첫번째 td */
+.photo-news td:nth-child(1) {
+  /* 가로10%에 조금진한 회색배경 글자중앙 글자두껍게 */
+  width: 10%;
+  text-align: center;
+  font-weight: bold;
+  background-color: #a2e0e9;
+}
+
+/* 포토박스 2열 두번째 td */
+.photo-news td:nth-child(2) {
+  /* 가로60%에 옅은회색배경 양쪽패딩 20px */
+  width: 60%;
+  background-color: #e4e4e446;
+  padding: 0 20px;
+}
+
+/* 포토박스 3열 세번째 td */
+.photo-news td:nth-child(3) {
+  /* 가로30%에 옅은회색배경 패딩 5px */
+  width: 30%;
+  padding: 5px;
+  background-color: #e4e4e446;
+}
+
+/* 포토박스 열 사이에 들어가는 라인 tr */
+/* 주의 사항 !디자인은 항상 td 에 한다! */
+.photo-news table tr:nth-child(2) td {
+  border-top: 2px solid #e4e4e498;
+  border-bottom: 2px solid #e4e4e498;
+}
+
+/* a글자 셋팅변경 */
+.photo-news a {
+  /* 줄바꿈 다시 허용! */
+  white-space: normal;
+
+  /* 여러줄 처리 말줄임 셋팅하기 5가지 */
+  /* 1. 웹킷용(-webkit-) 박스 디스플레이 */
+  display: -webkit-box;
+  /* 2. 넘치는 자식요소 숨기기 */
+  overflow: hidden;
+  /* 3. 넘치는 텍스트 말줄임 설정 */
+  text-overflow: ellipsis;
+  /* 4. 말줄임 처리 줄 수 세팅 */
+  -webkit-line-clamp: 2;
+  /* 5. 말출임 처리방향 설정, 라인 진행은 수직(vertical) 방향 */
+  -webkit-box-orient: vertical;
+}
+
+/* 테이블 이미지 */
+.photo-news img {
+  width: 100%;
+  /* 이미지 비율 강제 설정속성
+  aspect-ratio 값을 2/1 가로:세로 가 2:1임 */
+  aspect-ratio: 4/3;
+}
+
+/* ________________________________ */
+/* 포토뉴스 제목 디자인 재 정의! */
+
+.photo-news h3 {
+  /* 배경색제거 글자중앙 최대가로 제거 */
+  background: transparent;
+  text-align: center;
+  max-width: none;
+}
+/* 가상요소 앞에 넣기 */
+.photo-news h3::before {
+  content: "📸";
+  margin-right: 10px;
+}
+/* 가상요소 뒤에 넣기 */
+.photo-news h3::after {
+  content: "📺";
+  margin-left: 10px;
+}
+
+
+
+/* ________________________________ */
 /* 오늘의 작품&느낌 */
 
 .work {

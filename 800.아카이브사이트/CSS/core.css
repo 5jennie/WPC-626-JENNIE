@@ -2,24 +2,33 @@
 
 /* 아카이브 사이트 공통셋팅 CSS - core.css */
 
-/* 1. 웹폰트 */
+/* 1. 웹폰트 @import */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet');
 
-/* 2. 공통 클래스 */
-/* 2-1. 속박스 */
-.inbox{
-    /* 최대크기지정 */
-    max-width: 1580px;
-    /* 마영오! */
-    margin: 0 auto;  
+/* 
+font-family: "Roboto", sans-serif;
+*/
+
+/* 2. 웹폰트 전체 적용 */
+body {
+    font-family: "Roboto", sans-serif;
 }
 
 
-/* 부모박스 clear */
-/* 인박스 clear 셋팅 */
-.inbox::after{
-    content: '';
-    display: block;
-    clear:both;
+/* 2. 공통 클래스 */
+/* 2-1. 속박스 */
+.inbox {
+  /* 최대크기지정 */
+  max-width: 1580px;
+  /* 마영오! */
+  margin: 0 auto;
+}
+
+/* 인박스 클리어셋팅 */
+.inbox::after {
+  content: "";
+  display: block;
+  clear: both;
 }
 
 /* 2-2. 파티션 박스 */
@@ -28,15 +37,15 @@
 float방식으로 구현할 경우
 부모박스의 가상요소로 clear한다. */
 
-.part-box{
-    float: left;
-    
-    /* 임시 최소높이 */
-    /* min-height: 200px; */
+.part-box {
+  float: left;
 
-    /* 임시 외곽선 */
-    outline: 2px dotted #ccc;
-    /* outline은 border와 셋팅법은 같음
+  /* 임시 최소높이 */
+  /* min-height: 200px; */
+
+  /* 임시 외곽선 */
+  outline: 2px dotted #ccc;
+  /* outline은 border와 셋팅법은 같음
     단, 크기를 차지하지 않고 바깥쪽으로
     아무런 영향없이 보이기만 함! */
 }
@@ -44,16 +53,15 @@ float방식으로 구현할 경우
 /* 2-3. 파티션 박스 12그리드 비율 클래스 */
 /* 기본 컬럼 설정 */
 [class*="col-"] {
-    /* [] 대괄호는 속성 선택자
+  /* [] 대괄호는 속성 선택자
     class*="col-" 클래스명이 col-가 
     들어가 있는 클래스찾기 */
 
-    /* 컬럼당 양쪽패딩값 10px */
+  /* 컬럼당 양쪽패딩값 10px */
   padding: 0 10px;
   /* 컬럼크기에 패딩값 포함설정 bxb */
   box-sizing: border-box;
 }
-
 
 /* 12그리드 컬럼 클래스들 */
 /* 

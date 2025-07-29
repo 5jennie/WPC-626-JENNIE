@@ -68,7 +68,34 @@ body{
     line-height: 112px;
 }
 
-/* 2. 메인영역 */
+/* 나의 캐릭터 링크 박스 */
+a.my-cha-link {
+  /* a요소는 위아래 마진 적용안되므로
+  인라인블록으로 display 변경함! */
+  display: inline-block;
+  margin-top: 22px;
+  /* 인라인요소간 진행방향 세로정렬
+  -> 옆에 있는 깃허브로고가 영향을 받으므로
+  이 정렬속성으로 세로위치를 조정함! */
+  vertical-align: -22px;
+}
+/* 처음에 마지막째 이미지는 안보이게함 */
+.my-cha-link img:last-child{
+  display: none;
+}
+/* 마우스 오버시 첫번째 이미지 안보이게함 */
+.my-cha-link:hover img:first-child{
+  display: none;
+}
+/* 마우스 오버시 마지막째 이미지 보이게함 */
+.my-cha-link:hover img:last-child{
+  display: inline;
+}
+
+
+
+
+/* **********2. 메인영역********* */
 .main-area {
     /* 글자색 모두 흰색 */
     color: #fff;

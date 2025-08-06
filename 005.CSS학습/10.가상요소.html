@@ -54,9 +54,44 @@
 
              */
       /* h2요소 맨앞에 이미지 넣기 */
-      
+      h2::before{
+        content: url(./imgs/blogo.png);
+        width: 300px;
+        height: 10px;
+        /* 이미지 크기 설정 불가 */
+
+        /* 마진적용 */
+        margin-right: 20px;
+
+        /* 인라인 요소간 세로 정렬va */
+        vertical-align: -7px;
+      }
 
       /* 맨뒤 추가요소 ::after */
+      h2::after{
+        content: '';
+
+        /* 디자인 적용을 위해 niline-block */
+        display: inline-block;
+        width: 40px;
+        height: 60px;
+        border: 2px solid #ccc;
+        border-radius: 5px;
+
+        /* 배경넣기 */
+        background: #eaeaea
+        url(./imgs/bg_logo_a_01.png)
+        no-repeat center
+        / 60%;
+        
+        /* 그림자 넣기 */
+        box-shadow: 0 0 10px #e8e8e8,
+        2px 2px 10px 2px rgba(0, 0, 0, 0.222);
+
+        /* 인라인 요소간 세로정렬 va */
+        vertical-align: middle;
+        margin-left: 20px;
+      }
       
 
       /* dl요소 디자인 */
@@ -74,35 +109,84 @@
       }
 
       /* 반복되는 요소의 앞에 아이콘 가상요소로 넣기 */
+      dt::before{
+        content: '💜~';
+
+        /* 글자크기 변경 */
+        font-size: 30px;
+        vertical-align: 2px;
+        color: skyblue;
+      }
       
       /* dt아이콘 변경 */
+      dt:nth-of-type(1)::before{
+        content: '🤍'        
+      }
+
       /* dt중 두번째 */
+      dt:nth-of-type(2)::before{
+        content: '🧡';
+      }
       
       /* dt중 세번째 */
+      dt:nth-of-type(3)::before{
+        content: '💚';
+      }
       
       /* dt중 네번째 */
-      
+      dt:nth-of-type(4)::before{
+        content: '💙';
+      }      
 
       /* dd전체 before적용하기 */
+      dd::before{
+        content: '👦';
+        font-size: 20px;
+        margin: 15px;
+      }
       
       /* 여자인 경우 이모지 변경 */
+      dd:nth-of-type(3)::before,
+      dd:nth-of-type(4)::before,
+      dd:nth-of-type(8)::before,
+      dd:nth-of-type(9)::before,
+      dd:nth-of-type(11)::before,
+      dd:nth-of-type(12)::before
+      {      
+        content: '👩‍🦰';
+      }
       
       /* 남자,여자 같이 출력
       "찬열,펀치" */
+      dd:nth-of-type(13)::before{
+        content: '👩‍🦰👦';
+      }
       
 
-      
       /* 스토리의 dd는 가상요소 없애기 */
+      dd.story::before{
+        display:none;
+      }
       
-
       /* 스토리의 dd 아래 h3 이모지넣기 */
-      
+      dd.story h3::before{
+        content: '🧚‍♀️';
+        margin-right: 10px;
+      }
 
       /* .story의 첫번째 p태그의 첫번째 글자 디자인 변경하기 */
-      
+      .story p:nth-of-type(1)::first-letter{
+        font-size: 50px;
+        color: rgb(255, 147, 70);
+        font-weight: bold;
+      }
 
       /* .story의 첫번째 p태그의 첫번째줄 디자인 변경하기 */
-      
+      .story p:nth-of-type(1)::first-line{
+            font-size: 22px;
+            color: blue;
+            font-family: '궁서';
+        }      
 
       /* 두번째 p태그는 태그로 
         첫번째 글자(b태그), 첫번째 줄(span)변경 */
@@ -117,8 +201,15 @@
         }
 
       /* 기타 가상요소 ::selection */
-      /* 드래그 선택시 글자색 배경색 설정변경! */
-      
+      /* 드래그 선택시 글자색, 배경색 효과 주기 */
+        ::selection{
+          color: rgb(255, 255, 255);
+          background-color: rgb(148, 218, 255);
+        }
+        /* 전체에 적용하고 싶으면 ::selection  */
+        /* 특정 요소에 주고 싶으면 p::selection */
+        /* 위에서 사용한 P는 요소를 잡고 있는 부분 */
+        /* h1,h2 이런식으로 다 적용 가능 */
       
     </style>
   </head>

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>트랜지션 연습</title>
+
+<!-- SCC 코드구역 -->
+    <style>
+    html,body
+    {
+    height: 100%;
+    }
+
+        body{
+            background-image: linear-gradient(to bottom, skyblue, rgb(135, 222, 235) 30%, rgb(96, 56, 45) 60%);
+        }
+
+    /* 애니박스 */
+    .ani-box{
+        /* 부모자격 포지션 */
+        position: relative;
+        top: 10%;
+        padding-top: 50%;
+        /* height: 400px; */
+
+        /* 자식요소 숨기기 */
+        overflow: hidden;
+        /* 영역 임의로 보는 중 */
+        outline: 2px dotted blueviolet;
+
+    }
+    /* 자동차 박스 */
+    #car-box {
+        position: absolute;
+        top: 11%;
+
+        /* 자동차 처음에 나가 있음 */
+        left: -60%;
+        bottom: 25%;
+
+        /* width에 사용하는 %는 부모값을 기준으로 부모의 몇 %를 적용한다는 뜻 */
+        width: 60%;
+
+        /* 높이값이 없는 박스에서 패딩값이 %면 본 박스의 width크기에 대한 %비율이다 */
+        padding-top: 45%;
+
+        /* height: 300px; */
+        z-index: 1;
+
+        /* 자동차 배경 이미지 */
+        /* no-repeat = nr */
+        background: url(./images/car.png) no-repeat 0/100%;    
+    }
+
+    /* 바트박스 */
+    #bart-box {
+        /* z-index: 1; */
+        position: absolute;
+        bottom: 40%;
+        left: 50%;
+        width: 15%;
+    }
+    
+    /* 바트이미지 */
+    #bart-box img {
+        width: 100%;
+    }
+
+    /* 라벨디자인 - 버튼용 */
+    .btn-action {
+        display: inline-block;
+        margin-top: 20px;
+        padding: 15px;
+        border: 1px solid rgb(0, 0, 0);
+        border-radius: 15px;
+        background-color: #f3f3f3;
+
+        /* 커서 효과 */
+        cursor: pointer;
+    }
+
+    /* 가상요소로 버튼 글씨 넣기 */
+    .btn-action::before {
+        font-size: 30px;
+        content: '🚕';
+    }
+
+    /* 체크박스 체크 시 버튼 라벨 변경하기 */
+    #chkbx:checked + .btn-action{
+        background-color: rgb(92, 92, 92);
+    }
+
+    #chkbx:checked + .btn-action::before{
+        content: '🚗';
+    }
+
+    /* 체크박스 숨기기 */
+    #chkbx{
+        display: none;
+    }
+
+    /* 체크박스 체크시 car-box 이동애니 */
+    /* 체크박스 체크시 다음 형제요소들 중
+        .ani-box의 자식 #car-box 선택 */
+
+    #chkbx:checked ~ .ani-box #car-box{
+
+        /* 1. 오른쪽 바깥으로 나가기 */
+        left: 100%;
+
+        /* 2. 배경이미지 변경 */
+        background-image: url(./images/car2.png);
+
+        /* 트랜지션 trs*/
+        transition: 
+
+        /* 10초간 동일한(linear) 속도로 이동 */
+        10s linear, 
+
+        /* 배경이미지는 5초 후에 0.2초 만에 변경된다 */
+        background-image .2s 5.5s;
+    }
+
+    /* transition: 속성명 시간 이징 지연시간 -> 속시이지! */
+    /* 이징:애니메이션 가속도 */
+
+    /* 체크박스 체크 시 바트박스 6초 후 투명하게 변경하기 */
+    #chkbx:checked ~ .ani-box #bart-box{
+        /* opacity(투명도) 1은 투명, 0은 불투명, 0.1은 반투명 */
+        opacity: 0;    
+
+        /* 5.5초 후에 0.1초 만에 움직인다 */
+        transition: .1s 5.5s
+    }
+
+    </style>
+  </head>
+
+
+
+<!-- HTML 코드 구역 -->
+<body>
+    <!-- 체크박스 -->
+    <input type="checkbox" id="chkbx">
+    <!-- 체크박스 라벨 -->
+    <label for="chkbx" class="btn-action"></label>
+
+    <!-- 바트심슨 자동차타기 애니박스 -->
+     <div class="ani-box">
+    <!-- 자동차 박스 -->
+     <div id=car-box></div>
+
+    <!-- 바트심슨 박스 -->
+     <div id="bart-box">
+     <img src="./images/Bart_Simpson.png" alt="바트심슨"></div>    
+</body>
+</html>

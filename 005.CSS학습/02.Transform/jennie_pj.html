@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>나의 트렌스폼 작품</title>
+    <!-- 참고 링크 (https://tombap8.github.io/FED-RV-TOM-2024/002.HTML%ED%95%99%EC%8A%B5/05.Transform_PJ/index.html) -->
+
+
+<!-- CSS 코딩영역 -->    
+    <style>
+        body{
+
+/* ----------------------배경 영역---------------------- */
+
+background: url(./images/bg-main2.jpg) no-repeat fixed center top/cover;}
+
+/* ----------------------------------------------------------- */       
+
+/* ----------------------메인 타이틀 영역---------------------- */
+
+  /* 1. 제목 */
+  .main-title{
+   /* 박스 세팅 */
+   text-align: center;
+   background-color: #00000072;
+   border-radius: 50px;
+
+   /* 글자 세팅 */
+   color: #fff;
+   font-size: 50px;
+   line-height: 100px;
+             
+   /* 글자 테두리 */
+   /* 시계 방향 - 위 오른 아래 왼 */
+   text-shadow: 
+   4px 4px rgb(255, 113, 255)
+  }
+
+/* ----------------------------------------------------------- */               
+
+/* ----------------------메인 컨텐츠 영역---------------------- */
+
+.main-contents{
+    max-width: 1500px;
+    margin: 100px auto;
+    border: 5px solid rgb(255, 255, 255);
+    border-radius: 20px;
+    padding-top: 40px;
+    color: #fff;
+
+    /* 기본적으로 박스 크기를 잡으면
+    그 크기는 컨텐트영역의 크기임
+    보더와 패딩은 바깥쪽으로 생김
+    그래서 박스가 커짐
+    보터, 패딩을 크기 셋팅에 포함시키려면
+    box-sizing:border-box 셋팅해야함 */
+    box-sizing: border-box;
+
+    /* 겹쳐지는 부분 배경 흐리게 처리하기 */
+    /* 백드롭 필터 블러 */
+    /* backdrop-filter: blur(2px);
+       backdrop-filter: brightness(60%);
+       backdrop-filter: contrast(40%);
+       backdrop-filter: drop-shadow(4px 4px 10px blue);
+       backdrop-filter: grayscale(30%);
+       backdrop-filter: hue-rotate(120deg);
+       backdrop-filter: invert(70%);
+       backdrop-filter: opacity(20%);
+       backdrop-filter: sepia(90%);
+       backdrop-filter: saturate(80%); */
+       backdrop-filter: blur(10px)
+  }
+
+/* ----------------------------------------------------------- */  
+
+/* ----------------------메인 컨텐츠 영역---------------------- */
+
+  /* 부모 박스 가상요소 clear 셋팅(float때문에) */
+  .main-contents::after{
+      content: "";
+      display: block;
+      clear: both;
+  }
+
+  /* 캐릭터 박스 공통 */
+      .main-contents > div {
+        /* 옆으로 흐르게 */
+        float: left;
+        /* 3등분하기 */
+        width: calc(100% / 3);
+        /* 중앙정렬 tac */
+        text-align: center;
+      }
+      /* 5번째 div 이후 자식 마진탑주기 */
+      .main-contents > div:nth-child(5) ~ div {
+        /* 위쪽 마진 */
+        margin-top: 20px;
+      }
+      /* 캐릭터 이미지 공통 */
+      .main-contents > div img {
+        width: 200px;
+        height: 200px;
+        /* 원형 */
+        border-radius: 50%;
+
+        /* 트랜지션 trs */
+    transition: transform 0.3s ease, filter 0.3s ease;
+      }
+
+      /********************************************** 
+        [ Transform 효과주기 ]
+        - 선택요소의 크기, 회전, 이동, 기울임
+            등 변형을 하기위한 속성
+        - 2D, 3D 지원됨
+      ********************************************
+        1. transform : rotateY(각도deg) - Y축회전
+        - deg 는 각도의 단위(도:degree)
+
+        [ 각도 단위 확장 ]
+        (1) deg: 도 단위 (360 deg는 한 바퀴 회전)
+        (2) grad: 그라디언트 (400 grad는 한 바퀴 회전)
+        (3) rad: 라디안 (2π rad는 한 바퀴 회전)
+        (4) turn: 턴 (1 turn은 한 바퀴 회전)
+
+    **********************************************/
+
+
+/* ************1번 라부부************ */
+  #transform-box1 img {
+  /* 필터블러 */
+    filter: blur(2px);
+  /* 회전하면서 등장하게 */
+    transform: rotateY(180deg);
+  }
+
+  /* 오버시 원상복귀 */
+  #transform-box1:hover img {
+    filter: blur(0px);
+    transform: scale(1.1);
+  }
+
+
+/* ************2번 라부부************ */
+  #transform-box2 img {
+  /* 필터블러 */
+    filter: blur(2px);
+  }
+
+  /* 오버시 원상복귀 */
+  #transform-box2:hover img {
+    filter: blur(0px);
+    transform: scale(1.1);
+  }
+
+
+/* ************3번 라부부************ */
+  #transform-box3 img {
+  /* 필터블러 */
+    filter: blur(2px);
+  }
+
+  /* 오버시 원상복귀 */
+  #transform-box3:hover img {
+    filter: blur(0px);
+    transform: scale(1.1);
+  }
+
+
+/* ************4번 라부부************ */  
+  #transform-box4 img {
+  /* 필터블러 */
+    filter: blur(2px);
+  }
+
+  /* 오버시 원상복귀 */
+  #transform-box4:hover img {
+    filter: blur(0px);
+    transform: scale(1.1);
+  }
+
+
+/* ************5번 라부부************ */  
+  #transform-box5 img {
+  /* 필터블러 */
+    filter: blur(2px);
+  }
+
+  /* 오버시 원상복귀 */
+  #transform-box5:hover img {
+    filter: blur(0px);
+    transform: scale(1.1);
+  }
+
+
+/* ************6번 라부부************ */
+  #transform-box6 img {
+  /* 필터블러 */
+    filter: blur(2px);
+  }
+
+  /* 오버시 원상복귀 */
+  #transform-box6:hover img {
+    filter: blur(0px);
+    transform: scale(1.1);
+  }
+
+    </style>    
+</head>
+
+
+
+<!-- HTML 코딩영역 -->
+<body>
+    <!-- 1. 제목 -->
+     <h1 class="main-title">Labubu</h1>
+
+    <!-- 2. 컨텐츠 박스 -->
+     <!-- #transform-box$*10>img[src=imags/cast0$.jpg alt=캐릭터] -->
+     <!-- 트렌스폼 박스를(#transform-box) 5개를 넘버링 줘서 만들어(box$*10) 
+          이미지 경로는 이거야(src=imags/) 자동으로 넣어줘(cast0$.jpg) 설명은 캐릭터야(alt=캐릭터) -->
+    <section class="main-contents">
+        <div id="transform-box1"><img src="images/Labubu1.jpg" alt="Labubu1"><p>사랑</p></div>
+        <div id="transform-box2"><img src="images/Labubu2.jpg" alt="Labubu2"><p>행복</p></div>
+        <div id="transform-box3"><img src="images/Labubu3.jpg" alt="Labubu3"><p>충성</p></div>
+
+        <div id="transform-box4"><img src="images/Labubu4.jpg" alt="Labubu4"><p>평온</p></div>
+        <div id="transform-box5"><img src="images/Labubu5.jpg" alt="Labubu5"><p>희망</p></div>
+        <div id="transform-box6"><img src="images/Labubu6.jpg" alt="Labubu6"><p>자아</p></div>
+    </search>
+  </body>
+  </html>

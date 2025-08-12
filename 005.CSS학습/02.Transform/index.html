@@ -13,102 +13,102 @@
 
 /* ----------------------배경 영역---------------------- */
 
-            /* 배경을 설정할때는 아래 6가지 조건을 입력한다. */
-            /* 색 이 반 고 윙/크 */
+/* 배경을 설정할때는 아래 6가지 조건을 입력한다. */
+/* 색 이 반 고 윙/크 */
 
-            /* 색 : 컬러 */
+/* 색 : 컬러 */
 
-            /* 이 : 이미지 - url(./images/경로) */
+/* 이 : 이미지 - url(./images/경로) */
 
-            /* 반 : 반복 여부 - 기본값: repeat
-                             - 반복 없음: no-repeat
-                             - 방향 반복: repeat-x, repeat-y */
+/* 반 : 반복 여부 - 기본값: repeat
+                 - 반복 없음: no-repeat
+                 - 방향 반복: repeat-x, repeat-y */
 
-            /* 고 : 고정 여부 fixed(고정) */
+/* 고 : 고정 여부 fixed(고정) */
 
-            /* 윙 : 위치 - 가로 위치: left, center, right
-                         - 세로 위치: top, center, bottom */
+/* 윙 : 위치 - 가로 위치: left, center, right
+             - 세로 위치: top, center, bottom */
 
-            /* 크 : 크기 - auto : 비율 유지
-                         - cover : 화면 꽉 채우기 (빈틈 없음)
-                         - contain : 화면에 맞게 채우기 (빈틈 있을 수 있음) */
+/* 크 : 크기 - auto : 비율 유지
+             - cover : 화면 꽉 채우기 (빈틈 없음)
+             - contain : 화면에 맞게 채우기 (빈틈 있을 수 있음) */
 
-            /* 위치와 크기 사이에는 / 를 필수로 넣어야 한다 */
+/* 위치와 크기 사이에는 / 를 필수로 넣어야 한다 */
 
-            background: url(./images/bg-main.jpg) no-repeat fixed center top/cover;}
-            /* 배경 /    위치 /                      반복 /  고정 / 가로  세로/꽉차게 */
+  background: url(./images/bg-main.jpg) no-repeat fixed center top/cover;}
+/* 배경 /    위치 /                      반복 /  고정 / 가로  세로/꽉차게 */
 
 /* ----------------------------------------------------------- */       
 
 /* ----------------------메인 타이틀 영역---------------------- */
 
-            /* 1. 제목 */
-            .main-title{
-             /* 박스 세팅 */
-             text-align: center;
-             background-color: #00000072;
-             border-radius: 50px;
+  /* 1. 제목 */
+  .main-title{
+   /* 박스 세팅 */
+   text-align: center;
+   background-color: #00000072;
+   border-radius: 50px;
 
-             /* 글자 세팅 */
-             color: #fff;
-             font-size: 50px;
-             line-height: 100px;
+   /* 글자 세팅 */
+   color: #fff;
+   font-size: 50px;
+   line-height: 100px;
              
-             /* 글자 테두리 */
-             /* 시계 방향 - 위 오른 아래 왼 */
-             text-shadow: 
-             4px 0 rgb(0, 0, 0),
-             -4px 0 rgb(0, 0, 0),
-             0 4px rgb(0, 0, 0),
-             0 -4px rgb(0, 0, 0);
-            }
+   /* 글자 테두리 */
+   /* 시계 방향 - 위 오른 아래 왼 */
+   text-shadow: 
+   4px 0 rgb(0, 0, 0),
+   -4px 0 rgb(0, 0, 0),
+   0 4px rgb(0, 0, 0),
+   0 -4px rgb(0, 0, 0);
+  }
 
 /* ----------------------------------------------------------- */               
 
-/* ----------------------메인 타이틀 영역---------------------- */
+/* ----------------------메인 컨텐츠 영역---------------------- */
 
-            .main-contents{
-                max-width: 1500px;
-                margin: 100px auto;
-                border: 10px solid rgb(255, 255, 255);
-                border-radius: 20px;
-                padding:  20px;
+.main-contents{
+    max-width: 1500px;
+    margin: 100px auto;
+    border: 10px solid rgb(255, 255, 255);
+    border-radius: 20px;
+    padding:  20px;
 
-                /* 기본적으로 박스 크기를 잡으면
-                그 크기는 컨텐트영역의 크기임
-                보더와 패딩은 바깥쪽으로 생김
-                그래서 박스가 커짐
-                보터, 패딩을 크기 셋팅에 포함시키려면
-                box-sizing:border-box 셋팅해야함 */
-                box-sizing: border-box;
+    /* 기본적으로 박스 크기를 잡으면
+    그 크기는 컨텐트영역의 크기임
+    보더와 패딩은 바깥쪽으로 생김
+    그래서 박스가 커짐
+    보터, 패딩을 크기 셋팅에 포함시키려면
+    box-sizing:border-box 셋팅해야함 */
+    box-sizing: border-box;
 
-                /* 겹쳐지는 부분 배경 흐리게 처리하기 */
-                /* 백드롭 필터 블러 */
-                /* backdrop-filter: blur(2px);
-                   backdrop-filter: brightness(60%);
-                   backdrop-filter: contrast(40%);
-                   backdrop-filter: drop-shadow(4px 4px 10px blue);
-                   backdrop-filter: grayscale(30%);
-                   backdrop-filter: hue-rotate(120deg);
-                   backdrop-filter: invert(70%);
-                   backdrop-filter: opacity(20%);
-                   backdrop-filter: sepia(90%);
-                   backdrop-filter: saturate(80%); */
-                   backdrop-filter: blur(5px)
-            }
+    /* 겹쳐지는 부분 배경 흐리게 처리하기 */
+    /* 백드롭 필터 블러 */
+    /* backdrop-filter: blur(2px);
+       backdrop-filter: brightness(60%);
+       backdrop-filter: contrast(40%);
+       backdrop-filter: drop-shadow(4px 4px 10px blue);
+       backdrop-filter: grayscale(30%);
+       backdrop-filter: hue-rotate(120deg);
+       backdrop-filter: invert(70%);
+       backdrop-filter: opacity(20%);
+       backdrop-filter: sepia(90%);
+       backdrop-filter: saturate(80%); */
+       backdrop-filter: blur(5px)
+  }
 
 /* ----------------------------------------------------------- */  
 
 /* ----------------------메인 컨텐츠 영역---------------------- */
 
-            /* 부모 박스 가상요소 clear 셋팅(float때문에) */
-            .main-contents::after{
-                content: "";
-                display: block;
-                clear: both;
-            }
+  /* 부모 박스 가상요소 clear 셋팅(float때문에) */
+  .main-contents::after{
+      content: "";
+      display: block;
+      clear: both;
+  }
 
-            /* 캐릭터 박스 공통 */
+  /* 캐릭터 박스 공통 */
       .main-contents > div {
         /* 옆으로 흐르게 */
         float: left;
@@ -230,28 +230,157 @@
         /* translate: 0 -100%; -> y축이동 */
         translate: -100% -100%;/* -> x,y축 동시이동 */
 
-        /************************************************ 
+/************************************************ 
         원래는 translate는 transform하위 셋팅속성임!
         translate의 사용율이 높아짐에 따라 속성값으로 독립됨!
 
         [ translate 속성 ]
-        translate: 값 값; -> x,y축 이동설정값
-        translate: 값; -> x축 이동설정값
-        translate: 0 값; -> y축 이동설정값
-        
-        ************************************************/
+        - translate: 값 값; → x, y축 이동 설정
+        - translate: 값; → x축 이동 설정
+        - translate: 0 값; → y축 이동 설정
 
-        /* 투명도조정 - opacity속성 */
-                     opacity: 0.5;
-      }
-    #transform-box6:hover img {
-        transform: rotate(4587deg);
-        /* 트랜지션 시간 늘리기 */
-            transition-duration: 10s; 
-        }
+        6. **rotate(각도deg)**: 원형 회전
+          - 각도가 양수이면 시계 방향, 음수이면 반시계 방향
+          - 기본 회전축은 정중앙 (변경 가능: transform-origin)
+        
+************************************************/
+
+  /* 투명도조정 - opacity속성 */
+  opacity: 0.5;
+  }
+
+/*********************************************    
+
+  트랜스폼 회전축 변경 속성
+  transform-origin: 가로 세로;
+  - 가로 값: left, right, center, 몇px, 몇%
+  - 세로 값: top, bottom, center, 몇px, 몇%
+  - 기본값: 가로, 세로 center 
+
+*********************************************/        
+
+
+  #transform-box6 img {
+    /* transform-origin: rigft bottom; */
+    transform-origin: 20% 20%;
+  }
+  #transform-box6:hover img {
+    rotate: 4587deg;
+    /* 트랜지션 시간 늘리기 */
+    transition-duration: 10s; 
+  }
+
+/********************************************* 
+
+  [ rotate 속성 ]
+  - rotate: 각도; → 평면 회전
+  - rotate: x 각도; → x축 회전
+  - rotate: y 각도; → y축 회전
+  - rotate: z 각도; → z축 회전
+  - ((축별 조합하기)) 1은 사용, 0은 미사용
+  - rotate: 1 1 0 45deg; → x, y 조합
+  - rotate: 1 1 1 45deg; → x, y, z 조합
+        
+*********************************************/
+
+/****************************************** 
+
+  7. skew - x,y축 기울임
+  - skewX(각도deg), skewY(각도deg)
+  - skew(x축,y축)
+  - 각도가 양수/음수에 따라 기울임 방향이 달라짐
+
+******************************************/     
+
+
+  #transform-box7:hover img { 
+    /* X축 skew */
+    /* transform: skewX(-30deg); */
+    /* X축 skew */                  
+    transform: skewY(-30deg);
+  }
+
+
+/******************************************** 
+
+  8. scale(x축배수, y축배수)
+  - 값을 하나만쓰면 양방향 같은 값 셋팅
+  - 배수가 1보다 크면 확대, 작으면 축소
+  - scaleX(배수), scaleY(배수) - x,y별셋팅
+  - 값이 0이면 사라짐
+  -> 가끔 크기가 정해진 요소를 일정크기로
+  축소, 확대해서 크기를 맞출때도 용이함!
+
+  scale 속성
+  - scale: 값; → 전체 확대
+  - scale: 값 값; → x, y 따로 확대
+  - scale: 값 1; → x 확대
+  - scale: 1 값; → y 확대
+
+********************************************/    
+            
+  #transform-box8:hover img { 
+    /* transform: scale(2,2.5); */
+    scale:1 2;
+  }
+
+/******************************************** 
+
+  9. 복합적용하기
+  transform: 속성1 속성2 속성3 ....; 
+
+********************************************/  
+
+  #transform-box9:hover img { 
+    transform: 
+    scale(5)
+    translate(-200%, -100%)
+    rotate(120deg)
+    skew(50deg)
+    rotate(530deg);
+    transition: 10s;
+  }
+
+  /* #transform-box10:hover img { 
+    transform: 
+    scale(1)
+    translate(-100%, -100%)
+    rotate(4turn)
+    skew(50deg)
+    rotate(530deg);
+    transition: 10s ease-in-out;
+  } */
+
+
+  #transform-box10 img {
+  /* 필터블러 */
+    filter: blur(2px);
+  }
+
+  /* 오버시 원상복귀 */
+  #transform-box10:hover img {
+    filter: blur(0px);
+    transform: scale(1 1);
+  }
+
+  /* 인트로 등장 애니메이션 설정하기 */
+  /* animation를 배우기 전이므로 :hover를 사용; */
+  .main-contents{
+    translate: 110%;
+    transition: .5s ease-in-out .5s;
+  }
+
+  body:hover .main-contents{
+    translate: 0;
+  }
+
+
+
+
+
 
     </style>    
-                    </head>
+</head>
 
 
 
@@ -277,5 +406,5 @@
         <div id="transform-box9"><img src="images/cast04.jpg" alt="김윤성 · 진영"></div>
         <div id="transform-box10"><img src="images/cast05.jpg" alt="조하연 · 채수빈"></div>
     </search>
-</body>
-</html>
+  </body>
+  </html>

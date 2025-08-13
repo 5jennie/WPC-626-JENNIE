@@ -259,44 +259,43 @@ a.my-cha-link {
 
 /* 링크박스 a요소 */
 .link-box a {
-  /* 가상요소 자식이 block이므로 최소한 
-  display를 inline-block로 해야 자신의 크기만큼
-  크기를 가지게 된다! 왜? inline내부의 block은
-  inline부모를 무시하고 바깥박스를 기준하여
-  끝까지 width를 차지한다! */
+  /* 가상요소 자식이 block이므로 최소한
+    display를 inline-block로 해야 자신의 크기만큼
+    크기를 가지게 된다
+    왜? inline내부의 block은 inline부모를 무시하고
+    바깥박스를 기준하여 끝까지 width를 차지한다 */
   display: inline-block;
   font-size: 24px;
   line-height: 37px;
   color: #fff;
 }
-/* 가상요소로 애니메이션 밑줄만들기 */
-.link-box a::before {
+
+/* 가상 요소로 애니메이션 밑줄 만들기 */
+.link-box a::after {
   content: "";
   display: block;
-  /* 처음에 가로크기0 (돌아올때) */
-  width: 0;
-  /* 마진값으로 돌아올때 오른쪽으로 나가는것 처럼 보이기 */
+  /* 처음에 가로크기0 */
+  width: 0%;
+  /* 마진값으로 돌아올때 오른쪽으로 나가는 것 같은 효과 */
+  /* width 마진을 %로 주면 부모박스 기준으로 ~ % 다 */
   margin-left: 100%;
-  /* 마진값의 %는 부모박스(a요소)의 가로크기다! */
-  height: 30px;
-  /* background-color: red; */
-  border-bottom: 2px solid #000;
-  /* 트랜지션 trs */
-  transition: 1.5s linear;
 
-  /* gif애니메이션 이미지 배경으로 넣기 */
-  background: url(../images/train.gif) no-repeat right/auto 100%;
-  /* 이미지 x축 뒤집기(scale값을 -1줌)
-  -> transform: scaleX(-1) 
-  참고) Y축 뒤집기는 transform: scaleY(-1) */
-  transform: scaleX(-1);
+  height: 1px;
+  background-color: #5e70f5;
+  /* 트랜지션 */
+  transition: 0.3s linear;
 }
-/* a에 오버시 가상요소 밑줄 글씨만큼 늘어나기! */
-.link-box a:hover::before {
+
+/* a에 마우스 오버시 가상요소 밑줄 효과 */
+.link-box a:hover::after {
   width: 100%;
-  /* 왼쪽마진값은 오버시 0이 되여야하고
-  애니메이션 처리하지 말아야함! 따라서
-  transition 속성값을 width로 써서 처리한다! */
-  margin-left: 0;
-  transition: width 1.5s linear;
+  height: 1px;
+
+  /* 왼쪽 마진값은 오버시 0 */
+  margin-left: 0%;
+
+  /* 트랜지션 */
+  transition: width 0.3s linear;
+
+  background-color: #5e70f57b;
 }

@@ -191,6 +191,14 @@ a.my-cha-link {
   background-color: #ccc;
 }
 
+/* 파트제목 */
+.part-title{
+  color: #ffffff;
+  font-size: 30px;
+  text-align: center;
+  padding-bottom: 35px;
+}
+
 /* **********2-2-2. 링크 박스********** */
 .link-box {
   /* 가로크기는 레이아웃은 아니지만
@@ -281,7 +289,7 @@ a.my-cha-link {
   margin-left: 100%;
 
   height: 1px;
-  background-color: #5e70f5;
+  background-color: #93a0ff;
   /* 트랜지션 */
   transition: 0.3s linear;
 }
@@ -297,5 +305,5 @@ a.my-cha-link {
   /* 트랜지션 */
   transition: width 0.3s linear;
 
-  background-color: #111642bc;
+  background-color: #1c246c;
 }

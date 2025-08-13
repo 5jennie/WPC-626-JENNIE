@@ -7,65 +7,63 @@
 @import url(./core.css);
 
 /* 전체 배경 */
-body{
-    background-color: #000;
+body {
+  background-color: #000;
 }
-/* 1. 상단영역 */
+/* **********1. 상단영역********** */
 /* 겉박스 */
-#top-area{
-    background-color: #fff;
+#top-area {
+  background-color: #fff;
 }
 
 /* 속박스 */
-.top-area .part-box{
-    /* padding-top: 19px; */
-    /* 상단영역 높이값 동일셋팅! */
-    height: 112px;
-    
+.top-area .part-box {
+  /* padding-top: 19px; */
+  /* 상단영역 높이값 동일셋팅! */
+  height: 112px;
 }
 
 /* 로고박스 */
-.logo-box{
-    text-align: center;
-
+.logo-box {
+  text-align: center;
 }
 /* 로고이미지 */
-.logo{
-    width: 120px;
-    max-width: 100%;
-    /* line-height: 120px; */
-    margin-top: 45px;
-} 
+.logo {
+  width: 120px;
+  max-width: 100%;
+  /* line-height: 120px; */
+  margin-top: 45px;
+}
 
 /* GNB메뉴 */
 
 /* float해제설정 */
-#gnb{
-    max-width: 699px;
-    margin: 0 auto;
-    /* outline: 1px solid red; */
+#gnb {
+  max-width: 699px;
+  margin: 0 auto;
+  /* outline: 1px solid red; */
 }
 #gnb::after {
-    content: "";
-    display: block;
-    clear: both;
+  content: "";
+  display: block;
+  clear: both;
 }
 #gnb li {
-    float: left;
-    /* 높이값 만큼 줄간격셋팅 */
-    line-height: 112px;
+  float: left;
+  /* 높이값 만큼 줄간격셋팅 */
+  line-height: 112px;
 }
 /* 두번째 li부터 끝까지 왼쪽마진 */
 #gnb li + li {
-    margin-left: 18.8%;
-    /* 마진의 %값의 기준은
+  margin-left: 18.8%;
+  /* 마진의 %값의 기준은
     부모박스의 크기이다! */
 }
 /* 깃허브 박스 */
 .git-box {
-    text-align: right;
-    font-size: 47px;
-    line-height: 112px;
+  text-align: right;
+  font-size: 47px;
+  line-height: 112px;
 }
 
 /* 나의 캐릭터 링크 박스 */
@@ -80,65 +78,225 @@ a.my-cha-link {
   vertical-align: -22px;
 }
 /* 처음에 마지막째 이미지는 안보이게함 */
-.my-cha-link img:last-child{
+.my-cha-link img:last-child {
   display: none;
 }
 /* 마우스 오버시 첫번째 이미지 안보이게함 */
-.my-cha-link:hover img:first-child{
+.my-cha-link:hover img:first-child {
   display: none;
 }
 /* 마우스 오버시 마지막째 이미지 보이게함 */
-.my-cha-link:hover img:last-child{
+.my-cha-link:hover img:last-child {
   display: inline;
 }
 
-
-
-
-/* **********2. 메인영역********* */
-.main-area {
-    /* 글자색 모두 흰색 */
-    color: #fff;
+/* **********2. 메인영역********** */
+.intro-box {
+  /* 글자색 모두 흰색 */
+  color: #fff;
 }
 
 /* 2-1. 자기소개 박스 */
 /* 자기소개 겉박스 */
 #intro-box {
-    /* 가로폭 끝까지 그라데이션 나오게 겉박스에 셋팅함! */
-    background-image: 
-    linear-gradient(
-    to bottom, #FFFFFF 0%, #7C88E4 24%, #273068 45%, #000 79%);
+  /* 가로폭 끝까지 그라데이션 나오게 겉박스에 셋팅함! */
+  background-image: linear-gradient(
+    to bottom,
+    #ffffff 0%,
+    #7c88e4 24%,
+    #273068 45%,
+    #000 79%
+  );
 }
 /* 자기소개 속박스 */
-.intro-box{
-    /* 위아래 패딩 */
-    padding: 79px 0;
+.intro-box {
+  /* 위아래 패딩 */
+  padding: 79px 0;
 }
 /* 자기소개글 타이틀 */
 .intro-box .txt-box h2 {
-    font-size: 70px;
-    font-weight: normal;
-    margin-bottom: 60px;
+  font-size: 70px;
+  font-weight: normal;
+  margin-top: 20px;
+  margin-bottom: 60px;
 }
 
 /* 자기소개글 본문내용 */
 .intro-box .txt-box p {
-    font-size: 16px;
-    line-height: 24px;
-    }
+  font-size: 16px;
+  line-height: 24px;
+}
+
+/* 자기소개글 Connect 영역 */
+.connect-box {
+  margin-top: 40px;
+}
+.connect-box a {
+  display: inline-flex;
+  padding: 10px 100px;
+  background: white;
+  border-radius: 50px;
+  color: black;
+  font-weight: bold;
+  font-size: 30px;
+  transition: 0.3s;
+}
+.connect-box a:hover {
+  background: #5e6ff5; /* 보라색으로 바뀌기 */
+  color: white;
+}
 
 /* 자기소개 이미지 박스 */
-.img-box{
-    height: 487px;
-    border-radius: 40px;
-    /* 모퉁이 부분 이미지 숨김 */
-    overflow: hidden;
+.img-box {
+  height: 487px;
+  border-radius: 40px;
+  /* 모퉁이 부분 이미지 숨김 */
+  overflow: hidden;
 }
 
 .img-box img {
-    width: 100%;
-    height: 100%;
-    /* 이미지를 마치 배경처럼 박스에
+  width: 100%;
+  height: 100%;
+  /* 이미지를 마치 배경처럼 박스에
     비율 맞춰서 빈틈없이 보이게 하기! */
-    object-fit: cover;
+  object-fit: cover;
+}
+
+/* **********2-2. 트레이닝 프로젝트 박스********** */
+/* 공통 pj박스 직계 속박스 div */
+.pj-box > div {
+  padding: 18px 0;
+}
+/* ********** 2-2-1.제목박스 ********** */
+.sub-part-title {
+  /* 박스설정 */
+  padding-bottom: 28px;
+  text-align: center;
+
+  /* 글자설정 */
+  font-size: 36px;
+  color: #7c88e4;
+}
+
+/* 구분선은 타이틀박스의 가상요소로 구현함 */
+.sub-part-title::before {
+  content: "";
+  display: block;
+  /* 하단마진28px
+  margin: 위 양쪽 아래 */
+  margin: 0 auto 28px;
+
+  max-width: 865px;
+  height: 1px;
+  background-color: #ccc;
+}
+
+/* **********2-2-2. 링크 박스********** */
+.link-box {
+  /* 가로크기는 레이아웃은 아니지만
+  12그리드 크기를 기준해서 준다! */
+  width: calc(100% / 12 * 10);
+  /* 마영오! - 블록요소 가로중앙 */
+  margin: 0 auto;
+  /* 둥근모서리 20 : bdrs20 */
+  border-radius: 20px;
+
+  /* 배경색 흰색 반투명(80%)
+  rgba형식에서 a는 알파값으로 투명도이며 0.8이면
+  80%를 의미함!
+    예전형식:
+    rgba(숫자,숫자,숫자,알파값)
+    새로운형식:
+    rgba(숫자 숫자 숫자 / 알파값)
+  */
+  /* background-color: rgba(255, 255, 255, 0.8); */
+  background-color: rgba(255, 255, 255, 0.1);
+  display: flex;
+}
+
+/* 플롯팅 설정하기 */
+/* 플롯팅 해제 clear는 core.css의 clb클래스로 처리함 */
+.link-box > div {
+  float: left;
+
+  /* 절반크기 셋팅 */
+  width: 50%;
+
+  /* 패딩 */
+  /* 값을 %로 잡을 경우 부모박스의 width다 */
+  /* 이 기준은 마진도 동일하다 */
+  padding: 5% 10%;
+
+  /* 패딩 보더 포함 박스셋팅 bxb */
+  box-sizing: border-box;
+
+  /* 최소 높이값 설정 */
+  min-height: 540px;
+
+  /* 글자 크기 */
+  font-size: 24px;
+}
+
+/* 왼쪽 */
+.left-part {
+  /* 부모자격 : 가상요소 after의 앱솔루트 자식의 부모 */
+  position: relative;
+}
+
+.left-part::after {
+  content: "";
+  position: absolute;
+
+  /* 앱솔루트는 자동 block */
+  top: 15%;
+  right: 0;
+
+  /* 부모는 : .left-part */
+  width: 1px;
+  height: 70%;
+  background-color: #5e6ff5;
+}
+
+/* 링크박스 a요소 */
+.link-box a {
+  /* 가상요소 자식이 block이므로 최소한 
+  display를 inline-block로 해야 자신의 크기만큼
+  크기를 가지게 된다! 왜? inline내부의 block은
+  inline부모를 무시하고 바깥박스를 기준하여
+  끝까지 width를 차지한다! */
+  display: inline-block;
+  font-size: 24px;
+  line-height: 37px;
+  color: #fff;
+}
+/* 가상요소로 애니메이션 밑줄만들기 */
+.link-box a::before {
+  content: "";
+  display: block;
+  /* 처음에 가로크기0 (돌아올때) */
+  width: 0;
+  /* 마진값으로 돌아올때 오른쪽으로 나가는것 처럼 보이기 */
+  margin-left: 100%;
+  /* 마진값의 %는 부모박스(a요소)의 가로크기다! */
+  height: 30px;
+  /* background-color: red; */
+  border-bottom: 2px solid #000;
+  /* 트랜지션 trs */
+  transition: 1.5s linear;
+
+  /* gif애니메이션 이미지 배경으로 넣기 */
+  background: url(../images/train.gif) no-repeat right/auto 100%;
+  /* 이미지 x축 뒤집기(scale값을 -1줌)
+  -> transform: scaleX(-1) 
+  참고) Y축 뒤집기는 transform: scaleY(-1) */
+  transform: scaleX(-1);
+}
+/* a에 오버시 가상요소 밑줄 글씨만큼 늘어나기! */
+.link-box a:hover::before {
+  width: 100%;
+  /* 왼쪽마진값은 오버시 0이 되여야하고
+  애니메이션 처리하지 말아야함! 따라서
+  transition 속성값을 width로 써서 처리한다! */
+  margin-left: 0;
+  transition: width 1.5s linear;
 }

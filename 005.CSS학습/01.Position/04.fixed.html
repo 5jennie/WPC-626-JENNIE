@@ -185,9 +185,9 @@
       .span-fixed {
         /* 포지션 픽스트 pof */
         position: fixed;
-        bottom: 50%;
+        bottom: 30%;
         right: 0;
-  
+
         /* 부모 : 브라우저 전체 화면 */
         z-index: 1;
 
@@ -214,19 +214,70 @@
         하단 여백이 사라진다!
         (baseline값은 적용안됨!) */
 
-      /* 앱솔루트 : 판타롱스타킹! */
-      .a5 {
-        position: absolute;
-        top: 23%;
-        right: 36%;
-        /* 나의 부모는? 보이는 화면! */
+      /* 포스터 미리보기 : 픽스드 포지션 */
+      .poster-fixed {
+        position: fixed;
+        top: 20%;
+        /* 부모 : 픽스드 보이는 화면! */
+        
+        /* 오른쪽에 박스 붙히고 translate로
+        내 크기만큼 오른쪽 방향(x축)으로 이동 */
+        right: 0%;
+        translate: 100%;
 
-        /* 아웃 라인 */
-        outline: 10px ridge rgb(30, 0, 255);
+        /* 맨뒤로 고정하기 */
+        z-index: 100;
+
+        /* 보더 */
+        border: 10px ridge skyblue;
+
+        /* 트렌지션 */
+        transition: .5s ease-out;
       }
 
-      .a5 img {
+      /* 포스터박스 오버시 translate 효과*/
+      .poster-fixed:hover{
+        translate: 0;
+      }
+
+      /* 포스터보기 타이틀 */
+      .poster-fixed h3 {
+        /* 앱솔루트 포지션 */
+        position: absolute;
+        /* 위치값 사용시 부모는? .poster-fixed */
+        /* 보더크기는 앱솔루트에서 제외되므로 보더크기만큼 -10px */
+        top: -10px;
+        /* 오른쪽기준선으로부터 밀기
+        부모박스 보더제외한 내부크기100% + 한쪽보더10px */
+        right: calc(100% + 10px);
+
+        /* 기본마진 없앰 */
+        margin: 0;
+        /* color: white; */
+        /* 글자중앙정렬은 글자 wrighting-mode에서 진행되는
+        글자방향의 중앙을 뜻함! */
+        text-align: center;
+        /* 높이값 = 부모100% + 위아래보더값20px */
+        height: calc(100% + 20px);
+        /* 글자배치 세로방향 &  진행방향left -> right */
+        writing-mode: vertical-lr;
+        letter-spacing: 30px;
+        font-size: 24px;
+        color: white;
+        text-shadow: 2px 2px 2px #00000070;
+        padding: 0 10px;
+        background-color: skyblue;
+        border-radius: 10px 0 0 10px;
+      }
+
+      /* 이미지가 박스에 단독으로 들어갈 경우
+      하단에 생기는 공백 없애기 */
+      .poster-fixed img {
         vertical-align: middle;
+        /* 인라인요소가 세로정렬 속성인 vertical-align의
+        값을 top/middle/bottom 중 어떤값을 사용해도
+        하단공백을 없애는 효과가 있다!
+        (단,baseline값 효과없음) */
       }
 
       /* 앱솔루트끼리는 서로 겹친다 */
@@ -319,9 +370,11 @@
     <!-- 두번째 fixed 박스 : 젠들 fixed -->
     <div class="bx" id="f2">f2</div>
 
-    <!-- 앱솔루트 판타롱스타킹 -->
-    <div class="a5" title="앱솔루트 판타롱스타킹">
-      <img src="./images/ab0.jpg" alt="타노스" />
+    <!-- 픽스드로 포스터 미리보기 -->
+    <div class="poster-fixed" title="포스터 미리보기">
+      <img src="./images/ab0.jpg" alt="포스터" />
+      <!-- 포스터 보기 타이들 박스 -->
+      <h3>포스터 보기</h3>
     </div>
 
     <!-- 앱솔루트끼리는 서로 겹친다 -->

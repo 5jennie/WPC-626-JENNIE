@@ -44,7 +44,7 @@ float방식으로 구현할 경우
   /* min-height: 200px; */
 
   /* 임시 외곽선 */
-  outline: 2px dotted #ccc;
+  /* outline: 2px dotted #ccc; */
   /* outline은 border와 셋팅법은 같음
     단, 크기를 차지하지 않고 바깥쪽으로
     아무런 영향없이 보이기만 함! */

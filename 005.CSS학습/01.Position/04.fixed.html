@@ -15,63 +15,55 @@
         line-height: 300px;
       }
 
-      /* 첫번째 앱솔루트 박스 */
-      #a1 {
-        position: absolute;
-        /******************************** 
-        [ 3. absolute 포지션 ]
-        - 절대적인 부모를 기준으로
-        위치를 잡는 포지션
-        - 부모자격을 따져서 기준을 삼는다!
-        (단, 위치속성을 쓴 경우에만!!!)
+      /* 첫번째 픽스트 박스 */
+      #f1 {
+        position: fixed;
 
-        1. absolute 포지션은 위치이동값을 쓰기전과
-        쓴후로 나눌 수 있다!
+        /* 화면 정중앙 위치하기 */
+        top: 50%;
+        left: 50%;
 
-          (1) 위치이동값을 쓰지 않은 경우
+        /* 중앙이동 translate */
+        translate: -50% -50%;
 
-          - 자기보다 위에 있는 static한 요소를 
-          존중하여 그 아래 위치함!!!
-          (->>>> 젠틀앱솔루트!!!)
+        /* 위치 올리기 z-index */
+        z-index: 999;
 
-          - 어떤 요소의 자식요소로 앱솔루트가 셋팅된 경우
-          그 부모박스에 부모자격이 없을지라도!!!!!!
-          그 위치를 그대로 유지한다!
-          (->>>> 젠틀앱솔루트!!!)
+        /***************************************************************** 
+       
+        [ 4. fixed 포지션 ] 
 
-          + 앱솔루트 요소보다 아랫쪽에 위치하고 있는
-          static한 요소는 앱솔루트를 인식하지 못하여
-          같은 자리에 올라와 자리를 차지한다!
-          (줄서있다가 날아오른 아이언맨!)
+        1. 보이는 화면을 기준한 포지션이다!
+        -> 대부분의 속성은 absolute와 같으나
+        부모만 다르다고 보면 된다!
 
-          (2) 위치 이동값을 사용한 경우
+        2. 스크롤이 내려갈때 요소가 그대로 화면에 멈춰있다!
 
-          - 위치 이동값을 사용한 부분에 대해서만!!!
-          앱솔루트가 위치를 잡을때 기준이 되는
-          부모는? static이 아닌 요소가 부모다!
+        3. 위치속성값을 설정하지 않으면 젠틀하다!
+        -> 젠틀픽스드!!! (젠틀앱솔루트와 같음!)
 
-          static이 아닌 포지션은?
-          relative / absolute / fixed / sticky
+        4. 크기설정을 하지 않으면 내용만큼 자동크기설정됨!
+        -> 픽스드 판타롱스타킹!!! (앱솔루트와 같음)
 
-          -> 위치 이동값을 쓰지 않는 부분에 대해서는
-          부모를 찾지 않는다!!!(젠틀함!!!)
+        5. 인라인요소도 fixed를 주면 block으로 자동전환됨!
 
-          -> 부모자격이 있는 부모요소들 중 가장 가까운 것이 부모다!
+        6. 부모요소가 아무리 많이 싸여있어도 
+        fixed를 주면 화면을 기준하여 위치를 잡는다!
 
-          -> 만약 부모자격이 모두 없으면 보이는 화면
-          (window)을 기준한다!
-          (보이는 화면은 body가 아니다! 스크롤이
-          생겨도 스크롤 위쪽 보이는 화면을 지칭한다!)
+        7. 이미 부모가 fixed이면 자손요소는 fixed를 
+        할 필요가 없다!
 
-          -> 또한!
-          width나 height 값을
-          %단위로 줄 경우 부모자격을 가진 요소를
-          기준으로 그 크기를 잡는다!
-          (일반적으로 %단위의 크기는 바로 싸고 있는
-          직계부모박스를 기준한다!)
+        8. 활용도
+        1) 스크롤에 관계없이 화면고정시
+        2) 화면바깥에 숨겼다가 나타나기를 할때
+        3) 보이는 화면을 기준하는 구현의 모든경우
 
-          
-      ********************************/
+        (유의: 배경고정과는 다르다! 배경고정은
+        보이는 화면을 기준한 박스의 배경이미지를
+        고정해 주는 것! 박스가 움직이면 배경이미지도
+        안보이게됨! 반명  fixed포지션은 요소를 고정함!)
+
+*****************************************************************/
 
         height: 500px;
 
@@ -102,7 +94,10 @@
         background: url(./images/ab5.jpg) no-repeat center/cover;
       }
       #r2 {
-        /* 포지션 relative */
+        /* 두번째 pixed 박스 */
+        /* 젠틀 픽스드 원래 있던 위치에서 화면 고정 */
+        position: fixed;
+        z-index: 1;
 
         background: url(./images/ab4.jpg) no-repeat center/cover;
       }
@@ -115,19 +110,25 @@
         background-color: lightcoral;
       }
 
-      /* 제목넣기 : 렐러티브로! */
+      /* 제목넣기 : 픽스트로! */
       h1.tit {
-        position: relative;
-        left: 30%;
-        width: 40%;
+        position: fixed;
+        left: 0%;
+        width: 100%;
         text-align: center;
         margin: 0;
         padding: 20px;
         border: 4px solid rgb(255, 94, 94);
-        border-radius: 20px;
         background-color: rgb(255, 208, 208);
         box-shadow: 5px 5px 5px #ffa8a86b;
         font-size: 45px;
+        z-index: 1;
+        border-radius: 0 0 100% 100%;
+        /* border-radius 여러값 세팅하기 */
+        /* border-radius : 값 값 값 값; (왼쪽위 오른쪽위 오른쪽아래 왼쪽아래) */
+        /* border-radius : 값 값 값; (왼쪽위 오른쪽위대각선 오른쪽아래) */
+        /* border-radius : 값 값; (왼쪽위대각선 오른쪽위대각선) */
+        /* border-radius : 값; (모든 모서리) */
       }
 
       /* 부모를 찾는 앱솔루트! */
@@ -180,12 +181,21 @@
         border: 10px dotted darkblue;
       }
 
-      /* span을 앱솔루트로 만들경우 */
-      .spabs {
-        /* 포지션 앱솔루트 poa */
-        position: absolute;
-        bottom: 0;
+      /* span을 fixed로 만들경우 */
+      .span-fixed {
+        /* 포지션 픽스트 pof */
+        position: fixed;
+        bottom: 50%;
         right: 0;
+  
+        /* 부모 : 브라우저 전체 화면 */
+        z-index: 1;
+
+        font-size: 40px;
+        font-weight: bold;
+        padding: 30px;
+        color: #fff;
+        background-color: magenta;
 
         /* 아웃 라인 */
         /* 두종색 */
@@ -262,9 +272,8 @@
 
         /* 보더 */
         border: 2px solid red;
-        border-radius: 20px; 
+        border-radius: 20px;
       }
-
 
       /* 자동차 이미지 */
       /* 이미지는 한쪽 크기만 주면 나머지 방향의 크기는 자동 비율 유지된다 */
@@ -273,14 +282,14 @@
       }
 
       /* 자동차 앱솔루트 타이틀 박스 */
-      .car-box h3{
+      .car-box h3 {
         /* 부모 : 보이는 화면 */
         position: absolute;
         /* 위치값으로 부모가로크기를 채우게함 */
         /* 동적 크기 생성 */
         left: 0;
         right: 0;
-        
+
         bottom: 0;
         border: 1px solid skyblue;
         border-radius: 20px;
@@ -291,26 +300,24 @@
 
         /* 기본 마진 없애기 */
         margin: 0;
-
       }
-      
     </style>
   </head>
   <body>
     <!-- 제목 -->
-    <h1 class="tit">Absolute 포지션</h1>
+    <h1 class="tit">fixed 포지션</h1>
 
     <div class="bx" id="r1">r1</div>
     <div class="bx" id="s1">s1</div>
 
-    <!-- 첫번째 앱솔루트 박스 -->
-    <div class="bx" id="a1">a1</div>
+    <!-- 첫번째 fixed 박스 -->
+    <div class="bx" id="f1">f1</div>
 
     <div class="bx" id="r2">r2</div>
     <div class="bx" id="s2">s2</div>
 
-    <!-- 두번째 앱솔루트 박스 -->
-    <div class="bx" id="a2">a2</div>
+    <!-- 두번째 fixed 박스 : 젠들 fixed -->
+    <div class="bx" id="f2">f2</div>
 
     <!-- 앱솔루트 판타롱스타킹 -->
     <div class="a5" title="앱솔루트 판타롱스타킹">
@@ -327,7 +334,7 @@
     <div class="car-box">
       <img src="./images/car.png" alt="자동차" />
       <!-- 위치값으로 크기 만들 타이틀 박스 -->
-       <h3>💖레드 스포츠 카💖</h3>
+      <h3>💖레드 스포츠 카💖</h3>
     </div>
 
     <!-- 부모를 찾는 앱솔루트! -->
@@ -344,8 +351,8 @@
 
             <div class="abs a4" title="나는 부모찾아 올라간다!">a4</div>
 
-            <span class="spabs" title="자동블록전환!">
-              나는 span앱솔루트다!
+            <span class="span-fixed" title="자동블록전환!">
+              나는 span fixed 다!
             </span>
           </div>
         </div>

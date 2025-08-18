@@ -1,0 +1,52 @@
+@charset "utf-8";
+/* 심슨 가족 인사 애니메이션 CSS - simpson.css */
+
+@import url("https://fonts.googleapis.com/css2?family=Black+And+White+Picture&display=swap");
+
+/* 전체 박스 */
+.house {
+  position: relative;
+  /* position: relative를 줘서
+    밑에 있는 하위 absolute들의 부모자격 지정 */
+
+  width: 800px;
+  height: 441px;
+
+  margin: 0 auto;
+
+  /* 배경이미지 */
+  background: url(../images/house.png) no-repeat;
+
+  /* 문(.door)을 원근 입체로 보이기 위해
+   부모 요소인 .house에 원근 설정 적용 */
+  /* perspactive: 수치값;
+   > 수치값의 의미는 기준축으로부터 소실점까지의 거리
+   > 이 값이 어떤 기준 수치값 보다 작으면 원근이 커진다. */
+}
+/* 임시로 숨기기 */
+.door ~ * {
+  display: none;
+}
+
+/* 1.심슨 */
+.simpson {
+  position: absolute;
+  top: 297px;
+  left: 355px;
+  /* 부모 : .house (position: relative를 갖고있기 때문에) */
+  width: 35px;
+}
+
+/* 2.문 */
+.door {
+  position: absolute;
+  top: 283px;
+  left: 358px;
+  /* 부모 : .house (position: relative를 갖고있기 때문에) */
+
+  /* 문 회전축 오른쪽 끝으로 설정 */
+  transform-origin: right;
+
+  /* 문 Y축 회전 */
+  rotate: y 130deg;
+}

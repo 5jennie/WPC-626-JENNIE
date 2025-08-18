@@ -1,0 +1,35 @@
+@charset "utf-8";
+
+/* 심슨 가족 애니메이션 코드 : simpson_ani.css */
+/* 트렌스폼 사용법
+    y축회전
+     transform: rotateY(각도deg)
+    > 같은 셋팅
+     rotate: y 각도deg */
+
+/* 1.문 열기 애니 키프레임 */
+
+/* 1-1 문에 애니메이션 호출 적용 */
+/* animation: name(이름) duration(시간) timing-function(애니메이션의 가속도) 
+   delay(지연) iteration-count(반복 여부) direction(방향) 
+   fill-mode(마지막 상태); */
+   
+.door {
+  animation: door-ain 2s ease-in-out 4s;
+}
+
+/* 1-2. 문 열기 애니 키프레임 */
+@keyframes door-ani {
+  0% {
+    rotate: y 0deg;
+  }
+  30% {
+    rotate: y 130deg;
+  }
+  70% {
+    rotate: y 130deg;
+  }
+  100% {
+    rotate: y 0deg;
+  }
+}

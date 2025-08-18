@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JS1. 자바스크립트 기본 + DOM선택법</title>
+
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        /* 보이는 화면에 채우기 */
+      }
+      body {
+        overflow: hidden;
+      }
+      .pbox {
+        position: absolute;
+        top: 0;
+        left: 0;
+        /* 부모는? window(보이는화면) */
+        margin: 0;
+        padding: 0;
+
+        width: 500px;
+        height: 500px;
+        padding-top: 200px;
+
+        /* 글자 */
+        line-height: 50px;
+        font-size: 30px;
+        text-align: center;
+        /* 줄바꿈방지 */
+        white-space: nowrap;
+
+        border: 4px solid purple;
+        /* 보더박스:보더,패딩포함 */
+        box-sizing: border-box;
+      }
+    </style>
+
+  </head>
+  <body>
+    <!-- 드라마 소개박스 -->
+    <p 
+    class="pbox"
+    title="클릭!"
+    onclick="
+    // 이 구역은 js코드 구역
+    // 이 구역에서는 js문법만 적용된다
+    // Js주석
+    // 경고창 띄우기
+    alert('김비서가 왜이럴까');
+    // js는 전체html의 지도를 갖고있다
+    // 지도 = 도큐먼트 document
+    document.getElementById('name').innerHTML='ㅎㅎ';
+    "
+    >
+      나는 요즘 매일 생각한다. <br />
+      도대체 <span id="name"></span>
+    </p>
+  </body>
+</html>

@@ -1,24 +1,31 @@
 @charset "utf-8";
 
 /* 심슨 가족 애니메이션 코드 : simpson_ani.css */
-/* 트렌스폼 사용법
-    y축회전
-     transform: rotateY(각도deg)
-    > 같은 셋팅
-     rotate: y 각도deg */
 
-/* 1.문 열기 애니 키프레임 */
+/* 
+    [ 트랜스폼 사용법 ]
+    ((y축회전))
+    transform: rotateY(각도deg)
+    -> 같은셋팅 
+    rotate: y 각도deg
+*/
 
-/* 1-1 문에 애니메이션 호출 적용 */
-/* animation: name(이름) duration(시간) timing-function(애니메이션의 가속도) 
-   delay(지연) iteration-count(반복 여부) direction(방향) 
-   fill-mode(마지막 상태); */
-   
+/* 1-1. 문짝에 애니메이션 호출적용! */
 .door {
-  animation: door-ain 2s ease-in-out 4s;
-}
+  /* 애니메이션 - animation:이시이지반방마 */
+  animation: door-ani 2s ease-in-out;
 
-/* 1-2. 문 열기 애니 키프레임 */
+  /* animation: door-ani 1s ease-in-out 1s 3 alternate forwards; */
+  /* 
+        alternate는 from->to 경로 애니를
+        반대방향도 진행해주는 옵션값임
+
+        forwards는 애니가 끝나면 처음값으로
+        돌아가는 기본값(backwards)이 아닌
+        끝나는 값으로 유지하게 하는 옵션값임
+    */
+}
+/* 1-2. 문열기 애니 키프레임 */
 @keyframes door-ani {
   0% {
     rotate: y 0deg;
@@ -31,5 +38,111 @@
   }
   100% {
     rotate: y 0deg;
+  }
+}
+
+/* 2-1. 심슨 애니호출 설정 */
+.simpson {
+  /* 애니메이션 - animation: 이시이지반방마 */
+  animation: simpson-ani 5s 0.5s forwards;
+}
+
+/* 2-2. 심슨 걸어나오기 키프레임 */
+@keyframes simpson-ani {
+  0% {
+    top: 305px;
+    left: 351px;
+    width: 30px;
+  }
+  20% {
+    top: 307px;
+    left: 356px;
+    width: 35px;
+    /* 문짝보다위 */
+    z-index: 1;
+  }
+  40% {
+    top: 313px;
+    left: 376px;
+    width: 45px;
+    rotate: 0deg;
+    /* 문짝보다위 */
+    z-index: 1;
+  }
+  60% {
+    top: 322px;
+    left: 385px;
+    width: 55px;
+    rotate: -10deg;
+    /* 문짝보다위 */
+    z-index: 1;
+  }
+  70% {
+    top: 336px;
+    left: 368px;
+    width: 100px;
+    rotate: 3deg;
+    /* 문짝보다위 */
+    z-index: 1;
+  }
+  80% {
+    top: 338px;
+    left: 357px;
+    width: 150px;
+    rotate: -8deg;
+    /* 문짝보다위 */
+    z-index: 1;
+  }
+  90% {
+    top: 343px;
+    left: 333px;
+    width: 200px;
+    rotate: 5deg;
+    /* 문짝보다위 */
+    z-index: 1;
+  }
+  95% {
+    top: 319px;
+    left: 310px;
+    width: 250px;
+    rotate: -8deg;
+    /* 문짝보다위 */
+    z-index: 1;
+  }
+  100% {
+    top: 130px;
+    left: 238px;
+    width: 300px;
+    rotate: 0deg;
+    /* 문짝보다위 */
+    z-index: 1;
+  }
+}
+
+/* 3-1. 마지 애니호출 설정 */
+.marge {
+  /* 애니메이션 - animation: 이시이지반방마 */
+  animation: marge-ani 0.8s ease-out 5.5s forwards;
+}
+
+/* 3-2. 마지 나오기 키프레임 */
+@keyframes marge-ani {
+  to {
+    right: -230px;
+    rotate: -18deg;
+  }
+}
+
+/* 4-1. 리사 애니호출 설정 */
+.lisa {
+  /* 애니메이션 - animation: 이시이지반방마 */
+  animation: lisa-ani 0.8s ease-out 5.5s forwards;
+}
+
+/*4-2. 리사 나오기 키프레임 */
+@keyframes lisa-ani {
+  to {
+    left: 200px;
+    width: 50px;
   }
 }

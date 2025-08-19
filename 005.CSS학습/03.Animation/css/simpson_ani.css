@@ -50,19 +50,19 @@
 /* 2-2. 심슨 걸어나오기 키프레임 */
 @keyframes simpson-ani {
   0% {
-    top: 305px;
+    top: 300px;
     left: 351px;
     width: 30px;
   }
   20% {
-    top: 307px;
+    top: 310px;
     left: 356px;
     width: 35px;
     /* 문짝보다위 */
     z-index: 1;
   }
   40% {
-    top: 313px;
+    top: 320px;
     left: 376px;
     width: 45px;
     rotate: 0deg;
@@ -70,7 +70,7 @@
     z-index: 1;
   }
   60% {
-    top: 322px;
+    top: 330px;
     left: 385px;
     width: 55px;
     rotate: -10deg;
@@ -78,7 +78,7 @@
     z-index: 1;
   }
   70% {
-    top: 336px;
+    top: 320px;
     left: 368px;
     width: 100px;
     rotate: 3deg;
@@ -86,7 +86,7 @@
     z-index: 1;
   }
   80% {
-    top: 338px;
+    top: 330px;
     left: 357px;
     width: 150px;
     rotate: -8deg;
@@ -94,7 +94,7 @@
     z-index: 1;
   }
   90% {
-    top: 343px;
+    top: 300px;
     left: 333px;
     width: 200px;
     rotate: 5deg;
@@ -102,7 +102,7 @@
     z-index: 1;
   }
   95% {
-    top: 319px;
+    top: 200px;
     left: 310px;
     width: 250px;
     rotate: -8deg;
@@ -110,7 +110,7 @@
     z-index: 1;
   }
   100% {
-    top: 130px;
+    top: 150px;
     left: 238px;
     width: 300px;
     rotate: 0deg;
@@ -136,13 +136,35 @@
 /* 4-1. 리사 애니호출 설정 */
 .lisa {
   /* 애니메이션 - animation: 이시이지반방마 */
-  animation: lisa-ani 0.8s ease-out 5.5s forwards;
+  animation: lisa-ani 0.8s ease-out 6s forwards;
 }
 
 /*4-2. 리사 나오기 키프레임 */
 @keyframes lisa-ani {
   to {
-    left: 200px;
-    width: 50px;
+    left: 20px;
   }
 }
+
+/* 5-1. 메기심슨 애니메이션 호출설정 */
+.maggie{
+    /* 애니메이션 - animation: 이시이지반방마 */
+    animation: 
+    /* 등장애니 */
+    maggie-ani .8s ease-out 6.5s forwards,
+    /* 업다운애니 */
+    maggie-updown-ani .5s ease-in-out 7.3s infinite alternate;
+}
+/* 5-2-1. 메기심슨 애니 키프레임 : 등장애니 */
+@keyframes maggie-ani {
+  to{
+    bottom: -55px;
+  }
+}
+/* 5-2-2. 메기심슨 애니 키프레임 : 오르락내리락 애니 */
+@keyframes maggie-updown-ani {
+  to{
+    translate: 0 5%;
+  }
+}
+

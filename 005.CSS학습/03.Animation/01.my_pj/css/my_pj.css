@@ -16,8 +16,9 @@ body {
 
 .tit {
   position: absolute;
+  bottom: 10%;
   left: 50%;
-  translate: -50% 50%;
+  translate: -50%;
   font-family: "Black And White Picture", sans-serif;
   color: #fff;
   white-space: nowrap;
@@ -29,10 +30,9 @@ body {
 .house {
   position: absolute;
   /* 부모자격 - 하위 앱솔루트 요소들 */
-  top: 50%;
+  top: 92px;
   left: 50%;
-  translate: -50% -50%;
-
+  translate: -50%;
   width: 800px;
   height: 441px;
 
@@ -213,8 +213,8 @@ body {
 
 #tv {
   position: absolute;
-  top: 50%;
+  top: 44px;
   left: 55%;
-  translate: -50% -50%;
+  translate: -50%;
   width: 1052px;
 }

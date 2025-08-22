@@ -48,24 +48,96 @@
       // 함수만들기 //////////
       // 함수형식 >> function 함수명(){코드구역}
 
-      function 김비서나와라(){
-
+      function 김비서나와라(주머니) {
         // 1. 함수 호출 확인!
-        console.log('로고등장');
+        console.log("아이스크림사와", 주머니);
 
         // 2. 변경대상에 반영하기
 
+        // 반복되는 변경대상을 특정 메모리공간에 넣기
+        // 봐 여기 = 값
+        // > = 오른쪽의 값을 여기에 넣는다 (할당한다)
+        // var 여기 = 값
+        var 피박스 = document
+          // 클래스 가져오기
+          // get 가져와라 Elements 요소들을
+          // by class Name 클래스 명으로
+          .getElementsByClassName("pbox")
+          // 클래스는 여러개이므로 0부터 시작
+          .item(0);
+
+        // 피박스 라는 저장공간주소에 .pbox요소를 넣음
+        //console.log(값, 값, 값) > +기호대신 콤마(,)사용 가능
+        console.log("내가 담은 것이 뭐지?:", 피박스);
+        //("값", 메모리공간이름);
+
+        // [문자에 대한 매우 중요한 구분]
+        // 일반적으로 변수라고 하는 메모리 공간 주소는 문자열로 되어있다
+        // 문자 데이터와 헤깔릴 수있다.
+        // 메모리 공간 주소 이름은 따옴표로 싸지 않는다.
+        // 반면 문자 데이터는 따옴표로 반드시 싼다
+        // "" 따옴표는 = 값
+        // 아무것도 없으면 = 변수(메모리공간, 이름)
+
         // 2-1. 배경 이미지 넣기
-        document
-        // 클래스 가져오기
-        .getElementsByClassName('pbox')
-        
-        // 클래스는 여러개이므로 0부터 시작
-        .item(0)
-        
         // CSS 배경 변경
-        .style
-        .background = 'url(./images/kimbs.jpg) no-repeat top/cover'
+        // style 객체안에 각종 CSS속성이 모두 만들어져있음
+        피박스.style.background = "url(./images/kimbs.jpg) no-repeat top/cover";
+
+        // 2-2 글자색 변경하기
+        피박스.style.color = "white";
+
+        // 2-3 글자 그림자 넣기
+        피박스.style.textShadow = "2px 2px 2px black";
+
+        // 2-4 박스 둥글게
+        피박스.style.borderRadius = "50%";
+
+        // 2-5 트랜지션
+        피박스.style.transition = "2s";
+
+        // 2-6 두바퀴 회전하기
+        피박스.style.rotate = "720deg";
+        // '2turn' or '000deg' 두개의 방법으로 사용할 수 있다.
+
+        // 2-7 중앙으로 이동하기
+        // 기본적으로 스크린을 가로세로 4등분으로 자동으로 나뉘어 이동하는데
+        // 하단으로 약간 치우침 그래서 트랜스폼으로 위치 이동을 다시 해줘야함
+        피박스.style.top = "50%";
+        피박스.style.left = "50%";
+
+        // 2-8 트랜스폼으로 중앙 이동하기
+        피박스.style.translate = "-50% -50%";
+
+        // body요소를 메모리 공간주소에 넣기
+        var 바디 = document.body;
+        // var = 이름을 지어줄거야
+        // 바디 = 바디로
+        // 이제 효과를 줄때 앞에 바디 라고 넣으면
+        // document.body에 넣어줄거야
+
+        // 2-9 body에 배경색 넣기
+        바디.style.backgroundColor = "pink";
+
+        // 2-10 body에 배경색 트랜지션 넣기
+        바디.style.transition = "3s";
+
+        // 요청class 요소를 메모리 공간주소에 넣기
+        var 요청 = document.getElementsByClassName("요청").item(0);
+
+        // 2-11 김비서의 요청 내용 찍기 > 주머니 사용
+        // innerText 속성은 요소 내부 데이터로 문자열을 넣는 역할
+        요청.innerText = 주머니;
+
+        요청.style.cssText = `
+        position: absolute;
+        top: 0;
+        right: -30px;
+        border: 4px solid darkgreen;
+        background-color: white;
+        padding: 20px;
+        rotate: 15deg;
+        color: darkorange`;
 
       } ////////// 김비서나와라 함수 //////////
       ////////////////////////////////////////
@@ -90,15 +162,17 @@
     // alert('김비서');
 
     // console 콘솔 찍기
-    console.log('클릭');
+   console.log('클릭했네~!');
 
     // JS는 전체 HTML의 지도를 가지고 있음
     // 그 지도명은 document다!
     document
+
     // 가져온 요소들 중 id명으로된 요소를 선택한다!
     // -> getElementById(아이디명)
     // document하위 요소선택시 점(.)을 찍는다!
     // -> get 가져와! Element 요소를! By Id 아이디로!
+
     .getElementById('name')
     // 하위로 내려갈때 점(.)
     // innerHTML = 코드
@@ -109,6 +183,7 @@
     // 오른쪽값을 감싸줄때 백틱(`)으로 싸고
     // 내부 속성값은 홑따옴표를 사용하여 
     // 가장 바깥쪽의 쌍따옴표와 충돌을 막는다!
+
     .innerHTML=
       `<img
       src='./images/kim.png'
@@ -127,12 +202,15 @@
       // 호출은 함수 이름으로 소환한다
       // 호출시 소괄호()를 뒤에 사용한다
 
-      김비서나와라();
+    김비서나와라('아이스크림 사와!');
 
     "
     >
       나는 요즘 매일 생각한다! <br />
       도대체 <span id="name"></span>
+
+      <!-- 김비서에 전달된 요청찍기 -->
+      <b class="요청"></b>
     </p>
   </body>
 </html>

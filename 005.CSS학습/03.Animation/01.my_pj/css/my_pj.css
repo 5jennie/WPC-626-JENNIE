@@ -27,27 +27,27 @@ body {
      5px -5px 0 rgb(0, 0, 0),
     -5px  5px 0 rgb(0, 0, 0),
      5px  5px 0 rgb(0, 0, 0);
-  color: #ff139d;
+  color: #fff713;
   white-space: nowrap;
   font-weight: normal;
 }
 
 /* 전체박스 */
-.hart {
+.house {
   position: absolute;
   /* 부모자격 - 하위 앱솔루트 요소들 */
   top: 50%;
   left: 50%;
   translate: -50% -50%;
 
-  width: 850px;
-  height: 461px;
+  width: 800px;
+  height: 441px;
 
   /* 배경이미지 */
   background: url(../images/nj_bg2.jpg) no-repeat;
 
   /* 문짝(.door)을 원근 입체로 보이게 하기위해
-    부모요소인 .hart에 원근 설정을 한다!
+    부모요소인 .house에 원근 설정을 한다!
         perspective: 수치값;
         -> 수치값의 의미는 기준축으로 부터 소실점까지의 거리!
         -> 이 값이 어떤 기준수치값 보다 작으면 원근이 커진다!
@@ -59,35 +59,39 @@ body {
 }
 
 /* 임시로 숨기기 */
-.hyein ~ * {
+.minji ~ * {
   display: none;
 }
 
 /* 1.민지 */
 .minji {
   position: absolute;
-  top: 280px;
-  left: 350px;
-  /* 부모는? .hart */
-  width: 100px;
+  top: 305px;
+  left: 351px;
+  /* 부모는? .house */
+  width: 31px;
 }
 
-/* 2. 혜인 */
-.hyein {
+/* 2. 문짝 */
+.door {
   position: absolute;
-  top: 238px;
-  left: 463px;
-  /* 부모는? .hart */
-  width: 109px;
+  top: 284px;
+  left: 356px;
+  /* 부모는? .house */
+
+  /* 문 회전축 오른쪽끝으로 변경 */
+  transform-origin: right;
+  /* 문 y축회전 테스트 */
+  /* rotate: y 130deg; */
 }
 
-/* 말풍선 */
+/* 2.말풍선 */
 .words {
   /* 앱솔루트 */
   position: absolute;
   top: 30px;
   left: 130px;
-  /* 부모: .hart */
+  /* 부모: .house */
 
   /* 트랜스폼 스케일로 축소 */
   scale: 0.85;
@@ -181,8 +185,8 @@ body {
   border-right: 20px solid transparent;
 }
 
-/* 3. 마지 */
-.marge {
+/* 3.혜인 */
+.hyein {
   position: absolute;
   bottom: -210px;
   right: -300px; /* -230px; */
@@ -191,8 +195,8 @@ body {
   rotate: 0deg; /* -18deg; */
 }
 
-/* 4. 리사 */
-.lisa {
+/* 4.하니 */
+.hanni {
   position: absolute;
   top: 205px;
   left: -236px; /* 20px; */
@@ -200,16 +204,16 @@ body {
   rotate: 0deg;
 }
 
-/* 5. 메기 */
-.maggie {
+/* 5.다니엘 */
+.danielle {
   position: absolute;
   bottom: -230px; /* -55px; */
   left: 140px;
   width: 165px;
 }
 
-/* 6. 바트 */
-.bart {
+/* 6.해린 */
+.haerin {
   position: absolute;
   top: -323px; /* -149px; */
   right: 146px;

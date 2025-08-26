@@ -22,18 +22,15 @@ body {
   translate: -50%;
   font-family: "Gochi Hand", cursive;
   font-size: 100px;
-  text-shadow:
-    -5px -5px 0 rgb(0, 0, 0),
-     5px -5px 0 rgb(0, 0, 0),
-    -5px  5px 0 rgb(0, 0, 0),
-     5px  5px 0 rgb(0, 0, 0);
+  text-shadow: -5px -5px 0 rgb(0, 0, 0), 5px -5px 0 rgb(0, 0, 0),
+    -5px 5px 0 rgb(0, 0, 0), 5px 5px 0 rgb(0, 0, 0);
   color: #fff713;
   white-space: nowrap;
   font-weight: normal;
 }
 
 /* 전체박스 */
-.house {
+.hart {
   position: absolute;
   /* 부모자격 - 하위 앱솔루트 요소들 */
   top: 50%;
@@ -45,14 +42,6 @@ body {
 
   /* 배경이미지 */
   background: url(../images/nj_bg2.jpg) no-repeat;
-
-  /* 문짝(.door)을 원근 입체로 보이게 하기위해
-    부모요소인 .house에 원근 설정을 한다!
-        perspective: 수치값;
-        -> 수치값의 의미는 기준축으로 부터 소실점까지의 거리!
-        -> 이 값이 어떤 기준수치값 보다 작으면 원근이 커진다!
-    */
-  perspective: 480px;
 
   /* 넘치는 자식요소 숨기기 */
   overflow: hidden;
@@ -70,19 +59,6 @@ body {
   left: 351px;
   /* 부모는? .house */
   width: 31px;
-}
-
-/* 2. 문짝 */
-.door {
-  position: absolute;
-  top: 284px;
-  left: 356px;
-  /* 부모는? .house */
-
-  /* 문 회전축 오른쪽끝으로 변경 */
-  transform-origin: right;
-  /* 문 y축회전 테스트 */
-  /* rotate: y 130deg; */
 }
 
 /* 2.말풍선 */

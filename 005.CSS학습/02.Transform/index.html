@@ -31,6 +31,9 @@
                 3) 모두 채운후 비율없이 만드는 방법 100% 100%
             */
         background-size: cover;
+
+        /* 자식 요소 가로방향 스크롤 숨기기 */
+        overflow-x: hidden;
       }
 
       /* 1. 제목 */
@@ -310,33 +313,90 @@
         transform: 속성1 속성2 속성3 ....;
     *****************************************/
       #transform-box9:hover img {
-        transform: scale(5) translate(-200%, -100%) rotateX(1200deg)
-          skewX(50deg) rotate(5300deg);
+        transform: 
+        scale(5) 
+        translate(-200%, -100%) 
+        rotateX(1200deg)
+        skewX(50deg) 
+        rotate(5300deg);
 
         /* 트랜지션 시간 늘리기 */
         transition: 30s;
       }
       /* 내가 여러개 주기! */
       #transform-box10:hover img {
-        transform: scale(2) translate(-100%, -100%) rotateY(4turn)
-          rotate(360deg);
+        transform: 
+        scale(2) 
+        translate(-100%, -100%) 
+        rotateY(4turn)
+        rotate(360deg);
 
         /* 트랜지션 시간 늘리기 */
         transition: 10s ease-in-out;
       }
 
       /* 인트로 등장 애니메이션 설정하기 */
-      /* animate를 배우기 전이므로 :hover를 사용! */
       .main-contents {
         /* 오른쪽 바깥에 나가있게 셋팅함! translate사용! */
-        /* translate: 110%; */
-        /* 트랜지션 trs */
-        transition: 0.8s ease-out 1s;
+        translate: 150%;
+        /* 나가있기 애니메이션 */
+        animation: first-ani .8s ease-out 1s forwards;
       }
-      /* 오버시 등장
-      body:hover .main-contents {
+
+      /* 오버시 등장 키프레임 */
+    @keyframes first-ani {
+      to{
         translate: 0;
-      } */
+      }
+    }
+        /* 뒤집어 애니 박스 */
+    #transform-special {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      /* 부모는? 보이는화면! */
+    }
+    /* 이미지가 겹치게 앱솔루트 셋팅 */
+    #transform-special img{
+      position: absolute;
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+    }
+    /* 1.첫번째 img자식 - 유정이 원본(돌아올때) */
+    #transform-special img:first-child{
+      /* 처음에 90도로 숨겨짐 */
+      transform: rotateY(90deg);
+      /* 트랜지션 trs : 바로출발, 처음만 천천히 ease-in */
+      transition: .4s ease-in;
+    }
+    /* 2.첫번째 img자식 - 유정이 오버시 */
+    #transform-special:hover img:first-child{
+      /* 처음에 90도로 숨겨짐 */
+      transform: rotateY(0deg);
+      /* 트랜지션 trs : 
+      보거미돌동안 0.4초 기다려 / 
+      그대로 받아서 끝에 천천히 ease-out */
+      transition: .4s ease-out .4s;
+    }
+
+    /* 3.마지막째 img자식 - 보거미 원본(돌아올때) */
+    #transform-special img:last-child{
+      /* 처음에 0도로 보임 */
+      transform: rotateY(0deg);
+      /* 트랜지션 trs : 
+      돌아올때 유정이 0.4초 기다려 / 
+      그대로 받아서 끝에 천천히 ease-out */
+      transition: .4s ease-out .4s;
+    }
+    /* 4.마지막째 img자식 - 보거미 오버시 */
+    #transform-special:hover img:last-child{
+      /* 오버시 90도로 숨겨짐 */
+      transform: rotateY(90deg);
+      /* 트랜지션 trs : 바로출발, 처음만 천천히 ease-in */
+      transition: .4s ease-in;
+    }
+    
     </style>
   </head>
   <body>

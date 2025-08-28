@@ -262,11 +262,17 @@
     </p>
 
     <!-- 원모양박스 -->
+    <!-- onclick : 기본 클릭 -->
+    <!-- ondblclick : 더블 클릭 -->
+    <!-- oncontextmenu : 오른쪽 마우스 버튼 -->
+
     <div class="박스야">
       <div
         class="원이야"
         onclick="돌아랏(0,'pink')"
-        ondblclick="멈춰라(this)"
+        ondblclick="멈춰라(this)//this는 이벤트발생 요소 자신" 
+        oncontextmenu="this.style.right ='50%';
+        "
       ></div>
       <div
         class="원이야"

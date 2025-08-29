@@ -1,0 +1,195 @@
+@charset "utf-8";
+/* Open Door CSS - opendoor.css */
+
+/* 웹폰트 */
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&display=swap");
+/* font-family: 'Comfortaa', cursive; */
+
+/* 초기화 */
+html,
+body,
+h1 {
+  margin: 0;
+  padding: 0;
+}
+
+/* 공사중 표시 */
+/* body * {
+  outline: 2px dashed rgb(152, 152, 152);
+} */
+
+body {
+  height: 100vh;
+  overflow: hidden;
+  background-color: rgb(186, 223, 233);
+}
+
+.tit {
+  font-family: "Comfortaa";
+  font-size: 42px;
+  margin: 20px auto;
+  text-align: center;
+  text-shadow: 2px 2px 2px #58a0cd;
+}
+
+/* 전체 랩핑 박스 */
+.wrap {
+  padding: 50px, 0;
+}
+
+/* 전체 문 부모 */
+.cont {
+  width: 400px;
+  height: 600px;
+  margin: 0 auto;
+  background-color: #fff;
+}
+
+/* 문 프레임 */
+.frame {
+  position: relative;
+  top: 18px;
+  width: 350px;
+  height: 580px;
+  margin: 0 auto;
+  background: url(../images/seashore.jpg) no-repeat center/auto 100%;
+
+  /*********************************** 
+  
+         [ 3D 원근설정 ]
+         1. 셋팅위치:
+         3D원근 설정을 할 대상의 부모요소
+         2. 설정방법:
+         perspective: 수치px
+         -> 수치는 px단위 또는 구체적인
+         상대단위(em,rem,vw,vh등)로 설정.
+         -> 기준축으로 부터 소실점까지의 거리
+         -> 사용자가 보고 있는 화면과 수직축 사이의 거리
+         -> 이값이 커지면 원근각도가 완만해짐
+         
+     ***********************************/
+
+  perspective: 1000px;
+
+  perspective-origin: 50% 50%;
+
+  /*********************************************** 
+
+        [ 뷰포인트(관찰자위치) 변경옵션 ]
+        perpective-origin : 가로 세로;
+        - 가로축: left, center, right, px, % 등 단위
+        - 세로축: top, center, bottom, px, % 등 단위
+        -> 두 값 중에 하나만 쓸 수 있고 복합일 경우
+        2가지를 같이 셋팅함!
+
+    ***********************************************/
+
+  /* 문 프레임 배경 애니메이션 호출 */
+  animation: bg-ani 5s ease-in-out infinite alternate;
+}
+
+/* 문 프레임 배경 애니메이션 키브레임 */
+@keyframes bg-ani {
+  to {
+    background-size: auto 120%;
+  }
+}
+/* 문 */
+.door {
+  position: relative;
+  width: 350px;
+  height: 580px;
+  background-color: rgb(227, 227, 227);
+  z-index: 1;
+
+  /* Y축 회전 */
+  rotate: y 0deg;
+  /* 축 변경 : 왼쪽 */
+  transform-origin: left;
+
+  /* 애니메이션 호출 */
+  animation: 
+  /* (1) 2초 동안 문 스르륵 열리기 */ first-open-ani 
+     3s ease-in-out 3s forwards,
+    /* (2) 2초 동안 처음과 끝 천천히 1초 동안 기다림 계속 반복 반대방향 애니 셋팅 */
+      door-ani 3s ease-in-out 3s infinite alternate;
+
+  /* 애니메이션 멈추기 */
+  /* animation-play-state:
+     (1) 재생 상태값 : running; 
+     (2) 멈춤 상태값 :paused*/
+  animation-play-state: paused;
+}
+
+/* 문에 마우스 오버시 애니메이션 재생하기 */
+.cont:hover .door {
+  animation-play-state: running;
+}
+
+/* 문 열기 애니메이션 */
+@keyframes first-open-ani {
+  to {
+    rotate: y 90deg;
+  }
+}
+/* 문 열고 닫기 반복 애니메이션 */
+@keyframes door-ani {
+  from {
+    rotate: y 90deg;
+  }
+  to {
+    rotate: y -70deg;
+  }
+}
+
+/* 문고리 */
+.handle {
+  position: absolute;
+  top: 50%;
+
+  /* Y축 중앙이동 */
+  transition: 0 -50%;
+  right: 10px;
+
+  /* 부모는 door */
+  width: 20px;
+  height: 50px;
+  background-color: #294e64;
+  border-radius: 50px;
+}
+
+/* 엘사박스 */
+.elsa-box {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+
+  /* 부모는? .frame */
+  width: 350px;
+  height: 580px;
+
+  /* 자식요소 숨기기 */
+  overflow: hidden;
+}
+
+/* 엘사 */
+.elsa {
+  position: absolute;
+  right: -201px;
+  bottom: 0;
+
+  /* 부모는? .elsa-box */
+  rotate: 0deg;
+  transform-origin: bottom;
+
+  /* 애니메이션 호출 */
+  animation: elsa-ani 2s ease-in-out 2s infinite alternate;
+}
+
+/* 엘사 애니 키프레임 */
+@keyframes elsa-ani {
+  to {
+    right: -150px;
+    rotate: -6deg;
+  }
+}

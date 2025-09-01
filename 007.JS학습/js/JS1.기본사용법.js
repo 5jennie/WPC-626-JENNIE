@@ -107,6 +107,23 @@ function 마무리해(나야나){
   나야나.style.transition = 
   '3s ease-in-out 2s,top 2s ease-out';
 
+  // 추가 글자 넣기
+  // innerText
+  나야나.innerText = 'JS의 세계에 오신것을 환영합니다!';
+  // innerHTML을 사용해도 무관
+  // 만약 태그가 들어갈 경우 innerText를 쓰면
+  // 태그가 화면에 그대로 출력된다.
+  // 그래서 innerHTML을 사용하는것을 추천한다.
+
+  // 글자 관련 CSS 추가하기 //
+  나야나.style.fontSize = '50px';
+  나야나.style.fontWeight = 'bold';
+  나야나.style.color = 'White';
+  나야나.style.textShadow = '2px 2px 0 #000';
+
+  // vh 단위는 보이는 화면의 실제 높이값을 가져옴
+  나야나.style.lineHeight = '15vh';
+ 
 
 
 

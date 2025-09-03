@@ -39,26 +39,33 @@ body {
 
 /* float해제설정 */
 #gnb {
+  /* 디스플레이 플렉스 */
+  display: flex;
+
+  /* 진행 방향 정렬 : 사이간격 일정 */
+  justify-content: space-between;
+
   max-width: 699px;
   margin: 0 auto;
   /* outline: 1px solid red; */
 }
-#gnb::after {
+/* #gnb::after {
   content: "";
   display: block;
   clear: both;
-}
+} */
 #gnb li {
-  float: left;
+  /* float: left; */
   /* 높이값 만큼 줄간격셋팅 */
   line-height: 112px;
 }
 /* 두번째 li부터 끝까지 왼쪽마진 */
-#gnb li + li {
+/* #gnb li + li {
   margin-left: 18.8%;
-  /* 마진의 %값의 기준은
-    부모박스의 크기이다! */
-}
+  마진의 %값의 기준은
+    부모박스의 크기이다!
+} */
+
 /* 깃허브 박스 */
 .git-box {
   text-align: right;
@@ -201,6 +208,8 @@ a.my-cha-link {
 
 /* **********2-2-2. 링크 박스********** */
 .link-box {
+  /* 플렉스 박스 */
+  display: flex;
   /* 가로크기는 레이아웃은 아니지만
   12그리드 크기를 기준해서 준다! */
   width: calc(100% / 12 * 10);
@@ -225,7 +234,7 @@ a.my-cha-link {
 /* 플롯팅 설정하기 */
 /* 플롯팅 해제 clear는 core.css의 clb클래스로 처리함 */
 .link-box > div {
-  float: left;
+  /* float: left; */
 
   /* 절반크기 셋팅 */
   width: 50%;

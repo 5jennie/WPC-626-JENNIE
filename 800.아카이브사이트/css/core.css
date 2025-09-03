@@ -11,25 +11,31 @@ font-family: "Roboto", sans-serif;
 
 /* 2. 웹폰트 전체 적용 */
 body {
-    font-family: "Roboto", sans-serif;
+  font-family: "Roboto", sans-serif;
 }
-
 
 /* 2. 공통 클래스 */
 /* 2-1. 속박스 */
 .inbox {
+  /* 디스플레이 플렉스 : df */
+  display: flex;
+
+  /* 플렉스 랩핑 */
+  flex-wrap: wrap;
+
   /* 최대크기지정 */
   max-width: 1580px;
+
   /* 마영오! */
   margin: 0 auto;
 }
 
 /* 인박스 클리어셋팅 + 클리어 클래스 세팅 */
-.inbox::after, .clb::after {
+/* .inbox::after, .clb::after {
   content: "";
   display: block;
   clear: both;
-}
+} */
 
 /* 2-2. 파티션 박스 */
 /* 클래스 인박스 내부에 옆으로 흘러가는
@@ -38,8 +44,6 @@ float방식으로 구현할 경우
 부모박스의 가상요소로 clear한다. */
 
 .part-box {
-  float: left;
-
   /* 임시 최소높이 */
   /* min-height: 200px; */
 

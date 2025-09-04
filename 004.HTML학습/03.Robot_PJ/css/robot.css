@@ -12,15 +12,20 @@ body {
 }
 
 /* 공사중 표시 */
-body * {
+/* body * {
   outline: 2px dashed #ccc;
-}
+} */
 
 /************* 1. 상단영역 *************/
 
 /************* 2. 메인영역 *************/
 .main-area {
   padding-top: 150px;
+}
+
+/* 로봇박스 */
+.robot-box {
+  padding-bottom: 360px; 
 }
 
 /* 로봇머리 */
@@ -57,41 +62,41 @@ body * {
 
 /* 눈공통 */
 .eye {
-  top: 65px;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  border: 4px double #000;
+  top: 78px;
+  width: 75px;
+  height: 54px;
+  /* border-radius: 50%; */
+  /* border: 3px double #000; */
   /* 배경공통 */
-  background-color: #fff;
+  /* background-color: #fff; */
   background-repeat: no-repeat;
   background-size: 100% 100%;
 }
 
 /* 왼눈 */
 .eye1 {
-  left: 50%;
+  left: 60%;
   translate: -120%;
-  background-image: url(../images/e1.jpg);
+  background-image: url(../images/e1.png);
 }
 /* 오른눈 */
 .eye2 {
-  right: 50%;
+  right: 57%;
   translate: 120%;
-  background-image: url(../images/e2.jpg);
+  background-image: url(../images/e2.png);
 }
 
 /* 코 */
 .nose {
-  top: 112px;
+  top: 115px;
 
   /* 가로 중앙 셋팅 */
   left: 50%;
   translate: -50%;
-  width: 40px;
-  height: 55px;
+  width: 50px;
+  height: 70px;
   border-radius: 15px;
-  background: url(../images/nose.png) no-repeat -3px / 121% 110%;
+  background: url(../images/nose2.png) no-repeat -3px / 121% 110%;
 }
 
 /* 입 */
@@ -104,7 +109,7 @@ body * {
   width: 80px;
   height: 38px;
   border-radius: 14px;
-  background: url(../images/mouth1.png) no-repeat 5px / 88% 85%;
+  background: url(../images/mouth2.png) no-repeat 5px / 88% 85%;
 }
 
 /* 귀 공통 */
@@ -201,11 +206,11 @@ body * {
 }
 
 /* 팔 다리 관절 가상요소 */
-.arm::before, 
+.arm::before,
 .arm::after,
 .leg::before,
-.leg::after{
-  content: '';
+.leg::after {
+  content: "";
   position: absolute;
   top: 90%;
   left: 0%;
@@ -219,14 +224,15 @@ body * {
 }
 
 /* 팔관절 가상요소 after변경 */
-.arm::after, .leg::after{
+.arm::after,
+.leg::after {
   background-image: linear-gradient(to top, #ccc, #5c5c5c);
 
   /* 보더없앰 */
   border: none;
 
   /* 크기y축 축소 */
-  scale: .8 .5;
+  scale: 0.8 0.5;
 }
 
 /* 왼팔 */
@@ -311,6 +317,33 @@ body * {
   height: 100%;
 }
 
+/* 로봇 부츠 다리상단 before span의 가상요소 만들기 */
+.leg span::before {
+  content: "";
+  position: absolute;
+  top: 24%;
+  left: -10%;
+  width: 58px;
+  height: 130px;
+  background-image: linear-gradient(to bottom, #b1fffd, #00c6c6);
+  border-top: 10px solid #008d8d;
+}
+
+/* 로봇 부츠 다리하단 after span의 가상요소 만들기 */
+.leg span::after {
+  content: "";
+  position: absolute;
+  bottom: 0%;
+  top: 99%;
+  left: -16%;
+  width: 82px;
+  height: 30px;
+  padding-top: 50%;
+  border-radius: 30% 30% 0 0;
+  background-image: linear-gradient(to bottom, #1cfffe, #2e2e2e);
+  border-bottom: 10px solid #000;
+}
+
 /* TV */
 .tv {
   top: 20px;
@@ -320,4 +353,131 @@ body * {
   height: 120px;
   background: url(../images/tv.png) no-repeat 0/100%;
   z-index: 1;
+}
+
+.screen {
+  position: absolute;
+  top: 14%;
+  left: 5%;
+  width: 104px;
+  height: 79px;
+  border-radius: 13px;
+  background: #000000;
+}
+
+.screen iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  overflow: hidden;
+}
+/* 2-2. 설명박스 */
+.text-box{
+  max-width: 800px;
+  margin: 0 auto;
+  color: #fff;
+  background-color: #00000067;
+  border-radius: 20px;
+  padding: 15px 30px;
+  /* 박스 2중 글로우효과(그림자로줌) */
+  box-shadow: 
+  inset 0 0 20px blue,
+  inset 0 0 50px 10px cyan;
+
+  /* 백드롭 블러효과주기 */
+  backdrop-filter: blur(6px);
+  /* 
+  [백드롭 필터효과] 
+  - filter속성과 동일한 셋팅을 가지며
+  적용대상이 겹쳐지는 하단의 그래픽을 변경한다!
+
+  backdrop-filter: blur(2px); -> 흐림
+  backdrop-filter: brightness(60%); -> 밝기
+  backdrop-filter: contrast(40%); -> 대비
+  backdrop-filter: drop-shadow(4px 4px 10px blue);->그림자
+  backdrop-filter: grayscale(30%);-> 흑백
+  backdrop-filter: hue-rotate(120deg); -> 색상변경
+  backdrop-filter: invert(70%); -> 반전색
+  backdrop-filter: opacity(20%); -> 투명도
+  backdrop-filter: sepia(90%); -> 세피아효과
+  backdrop-filter: saturate(80%); -> 채도
+
+  -> 복합적용 가능!
+  backdrop-filter: blur(4px) saturate(150%);
+  */
+}
+
+/* 2-2-1. 제목 */
+.text-box h2{
+  /* 스티키 포지션 */
+  position: sticky;
+  top: 10px;
+  /* top값이 고정위치값임! */
+
+  font-family: 'Chakra Petch', sans-serif;
+  font-size: 35px;
+  text-align: center;
+  background-color: #ffffff8d;
+  color: cyan;
+  text-shadow: 2px 2px 2px #0000007b;
+  border-radius: 20px;
+  /* 기존 두꺼운체 해제 : fwn */
+  font-weight: normal;
+}
+/* 2-2-2. 출처 */
+.text-box small{
+  font-family: 'Chakra Petch', sans-serif;
+  font-size: 12px;
+  text-shadow: 1px 1px 1px #000000b3;
+  color: #ff0;
+
+  /* 블록으로 변경해야 tac먹힘! */
+  display: block;
+  text-align: center;
+  padding: 10px;
+}
+
+/* 2-2-3.내용단락 */
+.text-box p{
+  font-family: 'Barlow', sans-serif;
+  font-size: 17px;
+  /* 줄간격 */
+  line-height: 1.7;
+  /* 자간 */
+  letter-spacing: 1px;
+  /* 단어간격 */
+  word-spacing: 2px;
+
+  /* 다단설정하기
+    -> 다중열속성
+    column-count : 다중열개수
+    column-rule : 다중열구분선
+    column-gap : 다중열사이간격
+  */
+  column-count: 3;
+  column-rule: 5px dotted cyan;
+  /* 다중열 구분선 값은 보더와 같음
+  -> 두종색! -> 두께 종류 색상 */
+  column-gap: 55px;
+
+  /* 양쪽정렬 : justify */
+  text-align: justify;
+  /* 영문에서 양쪽 정렬일 경우
+  단어단위로 줄바꿈이 되므로 중간에
+  구멍이 생김. 따라서 단어깨기설정필요! */
+  /* 단어깨기 : 모두깨기(break-all) */
+  word-break: break-all;
+
+  /* 첫줄 들여쓰기 : text-indent (ti) */
+  text-indent: 40px;
+
+}
+/* 가상요소 첫글자 적용하기 */
+.text-box p::first-letter{
+  font-size: 30px;
+  font-weight: bold;
+  color: hotpink;
 }

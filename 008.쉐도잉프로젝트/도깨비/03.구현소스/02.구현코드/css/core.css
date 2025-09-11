@@ -31,13 +31,17 @@ body{
 /* 임시표시타이틀 */
 .temp-tit{
     position: absolute;
-    font-size: 2vw;
+    font-size: min(3vmax,43px);
     color: #ccc;
+    width: 100%;
+    text-align: center;
+    padding: 3vh 0;
+    background-color: #0000007a;
 }
 /* 중앙속박스 */
 .inbox{
     /* 최대가로크기 */
-    max-width: 1360px;
+    max-width: 1920px;
     /* padding: 0 20px; */
     /* 블록박스 중앙정렬 -> 마.영.오! */
     margin: 0 auto;    

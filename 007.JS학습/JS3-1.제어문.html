@@ -29,11 +29,7 @@
       }
       .tit {
         text-align: center;
-        background-image: linear-gradient(
-          to bottom,
-          rgb(155, 144, 238),
-          lightsalmon
-        );
+        background-image: linear-gradient(to bottom, lightgreen, lightsalmon);
       }
 
       body {
@@ -48,7 +44,7 @@
         /* 부모는? .bx-if */
         width: 15vw;
         height: 15vw;
-        outline: 5px dotted rgb(144, 146, 238);
+        outline: 5px dotted lightgreen;
         border-radius: 50%;
         background: url(./images/ifshow.jpg) no-repeat;
         /* 배경위치 : 처음에 안보임 */
@@ -114,13 +110,12 @@
       <h2 class="tit">if문 연습</h2>
       <h3 class="jexp">평가출력</h3>
       <label for="jumsu">점수입력:</label>
-
       <input
         type="text"
         id="jumsu"
         placeholder="점수를 입력하세요!"
         maxlength="3"
-        onkeypress="if(event.keyCode===13) 점수보여줘();"
+        onkeypress="if(event.keyCode===13) 점수보여줘()"
       />
       <!-- 
         [ onkeypress 이벤트 속성 ]
@@ -129,7 +124,7 @@
         조건식 : event.keyCode === 13
         -> 키보드의 키코드가 13번이냐? 엔터키 눌렀냐?
         -> 엔터키의 키코드는 13번이다!
-        -> true이면 showJumsu() 라는 함수를 호출해라!
+        -> true이면 점수보여줘() 라는 함수를 호출해라!
         -> event 브라우저 내장객체 : 이벤트관련 객체
         -> event.keyCode는 키코드
         -> event.key는 키이름
@@ -149,7 +144,8 @@
             - placeholder  -> 안내문구출력
             - maxlength -> 최대입력 글자수 제한
          -->
-      <button class="sbtn" onclick="점수보여줘()">평가하기</button>
+      <button class="sbtn" onclick="점수보여줘()">
+        평가하기</button>
       <!-- 칭찬스티커 박스 -->
       <div class="jshow"></div>
     </div>
@@ -166,9 +162,11 @@
       id="local"
       placeholder="지역명을 '도'를 빼고 쓰세요!"
       maxlength="10"
-      onkeypress="if(event.keyCode===13) 국번보여줘();"
+      onkeypress="if(event.keyCode===13) 국번보여줘()"
     />
-    <button class="국번보여줘">국번문의</button>
+    <button class="btn-local"
+    onclick="국번보여줘()"
+    >국번문의</button>
 
     <br /><br />
     <hr />
@@ -176,8 +174,12 @@
     <!-- for문 연습 -->
     <h2 class="tit">for문 연습</h2>
     <h3>구구단 출력하기</h3>
-    <!-- 선택박스로 구구단 선택만들기 -->
-    <select name="selbx" id="selbx" opt>
+    <!-- 선택박스로 구구단 선택만들기 
+    onchange이벤트 속성은 선택박스의 값이 바꾸을 때
+    함수를 실행
+    this키워드는 선택박스 자신을 함수에 전달-->
+    <select name="selbx" id="selbx" 
+    onchange="구구단보여줘(this)">
       <option value="1">구구단을 선택하세요!</option>
       <option value="2">2단</option>
       <option value="3">3단</option>
@@ -229,7 +231,8 @@
     <!-- while문 연습 -->
     <h2 class="tit">while문 연습</h2>
     <!-- 선택박스로 구구단 선택만들기 -->
-    <select name="selbx2" id="selbx2">
+    <select name="selbx2" id="selbx2"
+    onchange="와일구구단(this)">
       <option value="1">구구단을 선택하세요!</option>
       <option value="2">2단</option>
       <option value="3">3단</option>

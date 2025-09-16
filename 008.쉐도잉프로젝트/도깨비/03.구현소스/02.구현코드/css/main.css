@@ -74,16 +74,16 @@ body * {
 }
 
 /* 타이틀 바 */
-.tit-bar{
-  display: flex;
-  justify-content: space-between;
+.title-bar{
+    display: flex;
+    justify-content: space-between;
 }
 /* 서브리스트 ul */
-.sud-list ul{
-  display: flex;
-  font-display: column;
-  flex-wrap: wrap;
-  height: 100px;
+.sub-list ul{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    height: 100px;
 }
 
 /***************** 1.5. 드라마파트메뉴 *****************/

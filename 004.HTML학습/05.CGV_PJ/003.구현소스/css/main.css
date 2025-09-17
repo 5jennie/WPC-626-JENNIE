@@ -15,10 +15,10 @@ body {
 
 /* 공사중 표시 : 구현시 박스표시 */
 /* *별표시는 모든요소를 선택함 */
-body * {
-  /* 아웃라인은 아무런 영향이 없음 */
-  outline: 2px dashed #ccc;
-}
+/* body * { */
+/* 아웃라인은 아무런 영향이 없음 */
+/* outline: 2px dashed #ccc; */
+/* } */
 
 /*************** 1. 상단영역 ***************/
 .top-area {
@@ -29,7 +29,14 @@ body * {
 .main-area {
   position: relative;
   /* 부모자격 - 자식요소들 */
-  height: 788px;
+  /* height: 788px; */
+
+  /* 최대높이값 지정 */
+  max-height: 788px;
+
+  /* 높이값을 주지않고 비율설정을 해서 비율박스 생성 */
+  aspect-ratio: 1200/788;
+
   /* 극장 배경이미지 넣기 */
   background: url(../images/bg.jpg) no-repeat center top/cover;
 }
@@ -47,6 +54,87 @@ body * {
   width: 100%;
   height: 100%;
   border: none;
+}
+
+/* 2-2. 포스터 메뉴박스 */
+.poster-menu-box {
+  position: absolute;
+  bottom: 5%;
+  width: 75%;
+  /* 가로방향중앙 */
+  left: 50%;
+  translate: -50%;
+}
+/* 포스터 메뉴박스 ul */
+.poster-menu-box ul {
+  display: flex;
+  gap: 3%;
+  /* 자식 li 입체를 위한 원근설정 */
+  perspective: 70vh;
+}
+
+/* 포스터 이미지 */
+.poster-menu-box img {
+  width: 100%;
+  aspect-ratio: 99/140;
+}
+
+/* 영화 정보 박스 부모 li */
+.poster-menu-box li {
+  position: relative;
+  overflow: hidden;
+
+  rotate: x 5deg;
+  transform-origin: bottom;
+
+  /* 트랜지션 */
+  transition: rotate 0.3s ease-out;
+}
+
+/* li에 오버시 변경 */
+.poster-menu-box li:hover {
+  rotate: x 0deg;
+
+  outline: 1px solid #ffffff60;
+}
+
+
+/* 영화 정보 박스 */
+.movie-info {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(0 0 0 / 0.7);
+  text-align: center;
+
+  /* 플랙스 박스 */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5%;
+
+  /* 웹폰트 적용 */
+  font-family: "Orbit", sans-serif;
+
+  /* 글자크기 */
+  font-size: min(1vw, 14px);
+  
+
+  /* 영화 정보 박스에 마우스오버 효과 애니메이션 출력 */
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+/* 영화 정보 박스에 마우스오버 효과 애니메이션 */
+.poster-menu-box li:hover .movie-info {
+  opacity: 1;
+}
+
+/* 영화정보 중 타이틀 */
+.movie-info h3 {
+  color: rgb(233, 218, 52);
+  font-size: min(1.2vw, 16px);
 }
 
 /*************** 3. 하단영역 ***************/

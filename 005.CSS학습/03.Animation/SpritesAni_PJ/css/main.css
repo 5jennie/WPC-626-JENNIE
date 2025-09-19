@@ -11,121 +11,121 @@
 */
 html,
 body {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-    background-color: #8cc63e;
+  background-color: #8cc63e;
 }
 
 /* 공통class */
 .ir {
-    /* IR(배경설명숨기기) */
-    display: block;
-    width: 0;
-    height: 0;
-    overflow: hidden;
+  /* IR(배경설명숨기기) */
+  display: block;
+  width: 0;
+  height: 0;
+  overflow: hidden;
 }
 
 /* 1. 타이틀 */
-.mtit{
-    position: absolute;
-    top: 2vh;
-    left: 50%;
-    transform: translateX(-50%);
-    color: #fff;
-    font-family: 'Gloria Hallelujah', cursive;
-    font-size: 52px;
-    z-index: 1;
+.mtit {
+  position: absolute;
+  top: 2vh;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #fff;
+  font-family: "Gloria Hallelujah", cursive;
+  font-size: 52px;
+  z-index: 1;
 }
 
 /* 2.메뉴 */
-.gnb{
-    position: absolute;
-    top: 15vh;
-    left: 2vw;
-    z-index: 1;
+.gnb {
+  position: absolute;
+  top: 15vh;
+  left: 2vw;
+  z-index: 1;
 }
-.gnb ul{
-    margin: 0;
-    padding: 0;
-    list-style: none;
+.gnb ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
-.gnb a{
-    color: #fff;
-    text-decoration: none;
-    font-family: 'ZCOOL KuaiLe', cursive;
-    font-size: 32px;
-    line-height: 3;
+.gnb a {
+  color: #fff;
+  text-decoration: none;
+  font-family: "ZCOOL KuaiLe", cursive;
+  font-size: 32px;
+  line-height: 3;
 }
 /* 마우스 오버시 */
-.gnb a:hover{
-    color: #f00;
-    text-decoration: line-through;
+.gnb a:hover {
+  color: #f00;
+  text-decoration: line-through;
 }
 
 /* 3. TV셋 */
-.tvset{
-    position: relative;
-    /* 부모자격 - .screen */
-    width: 1280px;
-    height: 720px;
-    background: url(../images/tvset.png) no-repeat;
-    /* 배경위치조정 */
-    background-position: -36px 0;
-    /* 마영오! */
-    margin: 0 auto;
+.tvset {
+  position: relative;
+  /* 부모자격 - .screen */
+  width: 1280px;
+  height: 720px;
+  background: url(../images/tvset.png) no-repeat;
+  /* 배경위치조정 */
+  background-position: -36px 0;
+  /* 마영오! */
+  margin: 0 auto;
 }
 
 /* 스크린 */
-.screen{
-    position: absolute;
-    top: 212px;
-    left: 414px;
-    width: 453px;
-    height: 228px;
+.screen {
+  position: absolute;
+  top: 212px;
+  left: 414px;
+  width: 453px;
+  height: 228px;
 
-    /* 배경넣기 */
-    background: url(../images/street.jpg) repeat-x;
-    background-size: auto 100%;
+  /* 배경넣기 */
+  background: url(../images/street.jpg) repeat-x;
+  background-size: auto 100%;
 
-    /* 애니메이션: 이시이지반방마 */
-    /* animation: street 4s linear infinite; */
+  /* 애니메이션: 이시이지반방마 */
+  animation: street 4s linear infinite;
 }
 
 /* 스크린배경이동 키프레임 */
 @keyframes street {
-    to{
-        background-position: -388px 0;
-    }
+  to {
+    background-position: -388px 0;
+  }
 }
 /* 키프레임 */
 
 /* 3-1.걷는존 */
-.spani1{
-    position: relative;
-    width: 100px;
-    height: 176px;
-    margin: 0 auto;
-    margin-top: 25px;
+.spani1 {
+  position: relative;
+  width: 100px;
+  height: 176px;
+  margin: 0 auto;
+  margin-top: 25px;
 
-    background: url(../images/spAni03.png) no-repeat;
-    background-size: auto 100%;
+  background: url(../images/spAni03.png) no-repeat;
+  background-size: auto 100%;
 
-    /* 애니메이션: 이시이지반방마 */
-    animation: spani1 1s steps(8) infinite;
+  /* 애니메이션: 이시이지반방마 */
+  animation: spani1 1s steps(8) infinite;
+  /* animation: spani1 1s linear infinite; */
 
-
-    /* outline: 5px solid red; */
+  /* outline: 5px solid red; */
 }
 
 /* 걷는존 키프레임 */
 @keyframes spani1 {
-    to{
-       background-position-x: -797px;
-    }
-    /* 배경이미지 x축 이동일 경우
+  to {
+    background-position-x: -797px;
+  }
+  /* 배경이미지 x축 이동일 경우
     줄였을때 이미지 전체 가로크기를
     마이너스 값으로 써주면된다! */
 }
@@ -171,108 +171,166 @@ body {
  */
 
 /* 3-2.꼬마 */
-.spani2{
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 50px;
-    height: 72px;
-    background: url(../images/spAni01.png) no-repeat;
+.spani2 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 50px;
+  height: 72px;
+  background: url(../images/spAni01.png) no-repeat;
 
-    /* 애니메이션: 이시이지반방마 */
-    /* animation: spani2 1s steps(10) infinite; */
-   
+  /* 애니메이션: 이시이지반방마 */
+  animation: spani2 1s steps(10) infinite;
 }
 
 /* 꼬마 키프레임 */
 @keyframes spani2 {
-    to{
-        background-position-x: -500px;
-    }
+  to {
+    background-position-x: -500px;
+  }
 }
 /* 키프레임 */
 
 /* 3-3.몬스터 */
-.spani3{
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    width: 118px;
-    height: 118px;
-    background: url(../images/spAni02.png) no-repeat;
+.spani3 {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 118px;
+  height: 118px;
+  background: url(../images/spAni02.png) no-repeat;
 
-    /* 애니메이션: 이시이지반방마 */
-    animation: 
-    spani3X 1s steps(6) infinite,
-    spani3Y 3s steps(3) infinite;
-    /* 
+  /* 애니메이션: 이시이지반방마 */
+  animation: spani3X 1s steps(6) infinite, spani3Y 3s steps(3) infinite;
+  /* 
         x축은 6장면을 1초간 작동
         y축은 3줄을 3초간 작동
     */
-    
 }
 
 /* 몬스터 키프레임 X축 */
 @keyframes spani3X {
-    to{
-        background-position-x: -710px;
-    }
-    /* x축은 가로크기를 마이너스로 씀 */
+  to {
+    background-position-x: -710px;
+  }
+  /* x축은 가로크기를 마이너스로 씀 */
 }
 /* 몬스터 키프레임 Y축 */
 @keyframes spani3Y {
-    to{
-        background-position-y: -355px;
-    }
-    /* y축은 세로크기를 마이너스로 씀 */
+  to {
+    background-position-y: -355px;
+  }
+  /* y축은 세로크기를 마이너스로 씀 */
 }
 
 /* 웃는여자 */
-.spani4{
-    position: absolute;
-    top: 7vh;
-    right: 0;
-    width: 256px;
-    /* 전체 width 1280px / 5장면 */
-    height: 407px;
-    /* 전체 height 1222px / 3줄 */
-    background: url(../images/girl_frames.png) no-repeat;
+.spani4 {
+  position: absolute;
+  top: 7vh;
+  right: 0;
+  width: 256px;
+  /* 전체 width 1280px / 5장면 */
+  height: 407px;
+  /* 전체 height 1222px / 3줄 */
+  background: url(../images/girl_frames.png) no-repeat;
 
-    border: 20px ridge brown;
-    transform: scale(.5);
+  border: 20px ridge brown;
+  transform: scale(0.5);
 
-    /* 애니메이션: 이시이지반방마 */
-    animation: 
-    spani4X .8s steps(5) infinite,
-    spani4Y 2.4s steps(3) infinite;    
+  /* 애니메이션: 이시이지반방마 */
+  animation: spani4X 0.8s steps(5) infinite, spani4Y 2.4s steps(3) infinite;
 }
-
 /* 웃는여자 키프레임 X축 */
 @keyframes spani4X {
-    to{
-       background-position-x: -1280px;
-    }
+  to {
+    background-position-x: -1280px;
+  }
 }
 /* 웃는여자 키프레임 Y축 */
 @keyframes spani4Y {
-    to{
-        background-position-y: -1222px;
-    }
+  to {
+    background-position-y: -1222px;
+  }
+}
+
+/* 나의애니 */
+.spani5 {
+  position: absolute;
+  top: .2vh;
+  left: 7vw;
+  width: calc(2048px / 4);
+  /* 한장면의 가로크기를 계산해서 넣음 */
+  height: calc(512px / 2);
+
+  border: 20px ridge brown;
+  transform: scale(0.5);
+}
+
+/* 달리는 치타 애니메이션 */
+.spani5::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* 한장면의 세로크기를 계산해서 넣음 */
+  background: url(../images/chita_ani.png) no-repeat;
+  /* 애니메이션: 이시이지반방마 */
+  animation: spani5X 0.4s steps(4) infinite, spani5Y 0.8s steps(2) infinite;
+}
+
+/* 나의애니 키프레임 X축 */
+@keyframes spani5X {
+  to {
+    background-position-x: -2048px;
+  }
+}
+/* 나의애니 키프레임 Y축 */
+@keyframes spani5Y {
+  to {
+    background-position-y: -512px;
+  }
+}
+
+/* 치타배경 애니메이션 */
+.spani5::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url(../images/field_bg.jpg) repeat-x -100% 0 / auto 130%;
+  animation: field-ani 3s linear infinite;
+}
+@keyframes field-ani {
+  to {
+    background-position-x: 150%;
+  }
 }
 
 /* 확대애니메이션 class */
-.big{
-    transition: .8s;
+.big {
+  transition: 0.8s;
 }
-.big:hover{
-    /* 오버시 확대,멈춤,위로 */
-    transform: scale(3);
-    animation-play-state: paused;
-    z-index: 1;
+.big:hover {
+  /* 오버시 확대,멈춤,위로 */
+  transform: scale(3);
+  animation-play-state: paused;
+  z-index: 1;
 }
-/* 웃는여자용 */
-.big2:hover{
-    transform: scale(.7);
+
+/* 가상요소에 넣은 치타용 추가코드
+-> 애니멈춤을 가상요소에 줘야 멈춘다! */
+.big:hover::before,
+.big:hover::after {
+  animation-play-state: paused;
+}
+
+/* 웃는여자+나의애니용 */
+.big2:hover {
+  transform: scale(0.7);
 }
 
 /* 
@@ -287,98 +345,50 @@ body {
 */
 
 /* 3-4. 흐르는 자막 */
-.fcap{
-    position: absolute;
-    /* 가로크기는 스크린만큼 */
-    width: 100%;
-    /* 넘치는 자식요소 숨기기 */
-    overflow: hidden;
+.fcap {
+  position: absolute;
+  /* 가로크기는 스크린만큼 */
+  width: 100%;
+  /* 넘치는 자식요소 숨기기 */
+  overflow: hidden;
 }
 /* 이동애니메이션은 ol */
-.fcap ol{
-    position: relative;
-    left: 0;
-    /* 플렉스박스 */
-    display: flex;
-    /* 두배크기 */
-    width: 200%;
+.fcap ol {
+  position: relative;
+  left: 0;
+  /* 플렉스박스 */
+  display: flex;
+  /* 두배크기 */
+  width: 200%;
 
-    /* 줄바꿈방지 */
-    white-space: nowrap;
+  /* 줄바꿈방지 */
+  white-space: nowrap;
 
-    margin: 0;
-    padding: 0;
-    list-style: none;
+  margin: 0;
+  padding: 0;
+  list-style: none;
 
-    /* 애니메이션: 이시이지반방마 */
-    animation: fcap 5s linear infinite;
+  /* 애니메이션: 이시이지반방마 */
+  animation: fcap 5s linear infinite;
 
-    /* outline: 4px dashed red; */
+  /* outline: 4px dashed red; */
 }
-.fcap li{
-    flex: 1;
-    /* 플렉스자식요소 등분할 */
-    text-align: center;
+.fcap li {
+  flex: 1;
+  /* 플렉스자식요소 등분할 */
+  text-align: center;
 
-    font: bold 14px/20px Verdana;
-    color: #fff;
-    text-shadow: 1px 1px 1px #000;
+  font: bold 14px/20px Verdana;
+  color: #fff;
+  text-shadow: 1px 1px 1px #000;
 
-    /* outline: 2px dotted lime; */
+  /* outline: 2px dotted lime; */
 }
 
 /* 흐르는 글자 키프레임 */
 @keyframes fcap {
-    to{
-        left: -100%;
-    }
+  to {
+    left: -100%;
+  }
 }
 /* 키프레임 */
-
-
-.spani5{
-    position: absolute;
-    top: 1vh;
-    left: 10vw;
-    /* 한장면 크기를 계산해서 넣음 */
-    width: calc(680px / 6);
-    height: calc(369px/2);
-
-    background: url(../images/spAni04.png) no-repeat;
-
-    border: 20px ridge brown;
-    transform: scale(1);
-
-    /* 애니메이션: 이시이지반방마 */
-    animation: 
-    spani4X .8s steps(2) infinite,
-    spani4Y 2.4s steps(2) infinite;    
-}
- 
-/* 나의애니 키프레임 X축 */
-@keyframes spani5X {
-    to{
-       background-position-x: -680px;
-    }
-}
-/* 나의애니 키프레임 Y축 */
-@keyframes spani5Y {
-    to{
-        background-position-y: -369px;
-    }
-}
-
-/* 확대애니메이션 class */
-.big{
-    transition: .8s;
-}
-.big:hover{
-    /* 오버시 확대,멈춤,위로 */
-    transform: scale(3);
-    animation-play-state: paused;
-    z-index: 1;
-}
-/* 나의애니용 */
-.big2:hover{
-    transform: scale(.7);
-}

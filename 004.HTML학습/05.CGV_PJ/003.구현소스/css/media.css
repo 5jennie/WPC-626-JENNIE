@@ -53,7 +53,7 @@
 /********** 최대크기 840px 이하 시작 **********/
 @media screen and (max-width: 840px) {
   /* 하단 영역 플렉스 박스 세로정렬 */
-  .footer-area {
+  .bottom-area {
     gap: 14px 20px;
     flex-direction: column;
   }
@@ -80,28 +80,33 @@
   }
 
   /* 포스터 박스 비율 및 크기변경  */
-  .poster-menu {
+  .poster-menu-box {
     width: 68%;
     aspect-ratio: 1;
     bottom: 0;
   }
   /* 플렉스 박스 랩핑설정, 갭조정 */
-  .poster-menu ul {
+  .poster-menu-box ul {
     gap: 2%;
     flex-wrap: wrap;
   }
   /* 한줄에 3개씩 오도록 가로크기설정 */
-  .poster-menu ul > li {
+  .poster-menu-box ul > li {
     flex-basis: 31.3%;
   }
   /* 영화정보 패딩, 글자크기 조정 */
-  .mv-info {
-    padding-top: 7vw;
-    font-size: 3vw;
+  .movie-info {
+    /* padding-top: 7vw; */
+    font-size: 2.5vw;
   }
   /* 제목 글자크기 조정 */
-  .mv-info ol li:first-child {
-    font-size: 4vw;
+  .movie-info h2 {
+    font-size: 3vw;
+  }
+
+  /* 오시는길 숨기기 */
+  .goMV, .gmap{
+    display: none;
   }
 }
 /********** 최대크기 700px 이하 종료 **********/

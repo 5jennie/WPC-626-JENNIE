@@ -8,6 +8,15 @@
     <link rel="shortcut icon" href="./images/favicon.ico" />
     <!-- 메인 CSS -->
     <link rel="stylesheet" href="./css/main.css" />
+
+    <!-- 제이쿼리 라이브러리 불러오기 
+     제이쿼리를 사용하는 JS파일 위에 불러와야한다! -->
+     <script src="./js/jquery-3.6.3.min.js"></script>
+
+     <!-- 외부JS 제이쿼리버전 - defer필수! -->
+    <script src="./js/main1_jquery.js" defer></script>
+
+
     <!--  메인 JS -->
     <script src="./js/main.js" defer></script>
   </head>
@@ -156,11 +165,6 @@
       </header>
     </div>
 
-    <!-- 1.5. 드라마파트메뉴 -->
-    <div id="drama-part-menu">
-      <nav class="drama-part-menu inbox"></nav>
-    </div>
-
     <!-- 2. 메인영역 -->
     <div id="main-area">
       <main class="main-area">
@@ -187,6 +191,14 @@
                 /></a>
               </li>
             </ul>
+
+            <!--이동버튼-->
+            <a href="#" class="abtn ab1">
+              <img src="./images/banner/etc/left_btn.png" alt="왼쪽이동버튼" />
+            </a>
+            <a href="#" class="abtn ab2">
+              <img src="./images/banner/etc/right_btn.png" alt="오른쪽이동버튼" />
+            </a>
           </div>
         </section>
 
@@ -337,10 +349,127 @@
           </article>
         </section>
 
+        <!-- 2-2.5. 드라마파트메뉴 : 스티키메뉴 -->
+        <div id="spart-menu">
+          <nav class="spart-menu inbox">
+            <ul>
+              <li class="on">
+                <a href="#">메인</a>
+              </li>
+              <li class="be-sub">
+                <a href="#intro-part">프로그램 소개</a>
+                <!-- 서브메뉴 -->
+                <div class="spart-sub-menu">
+                  <ol>
+                    <li>
+                      <a href="#intro-part">프로그램 소개</a>
+                    </li>
+                    <li>
+                      <a href="#">인물 소개</a>
+                    </li>
+                    <li>
+                      <a href="#">인물 관계도</a>
+                    </li>
+                  </ol>
+                </div>
+              </li>
+              <li>
+                <a href="#preview-part">미리보기</a>
+              </li>
+              <li>
+                <a href="#clip-area">동영상</a>
+              </li>
+              <li class="be-sub">
+                <a href="#live-photo-area">사진첩</a>
+                <!-- 서브메뉴 -->
+                <div class="spart-sub-menu">
+                  <ol>
+                    <li>
+                      <a href="#live-photo-area">현장 포토</a>
+                    </li>
+                    <li>
+                      <a href="#poster-area">대표 포스터</a>
+                    </li>
+                  </ol>
+                </div>
+              </li>
+              <li>
+                <a href="#clip-area">OST</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+
         <!-- 2-3. 드라마소개영역 -->
         <section class="intro-part inbox">
-          <h2 class="temp-tit">2-3. 드라마소개영역</h2>
+          <h2 class="temp-tit blind">2-3. 드라마소개영역</h2>
+          <div class="cont-box">
+            <!-- 3-1.드라마 요약정보 파트 -->
+            <div class="col-6 col-2nd-12">
+              <!-- 드라마소개파트 제목 -->
+              <h2 class="stit">도깨비</h2>
+              <!-- 하위제목+아이콘 -->
+              <div class="intro-desc">
+                <h3>[종영] 2016.12.02 ~ 2017.01.21</h3>
+                <ul>
+                  <li>
+                    <a href="#" class="fa-brands fa-instagram">
+                      <span class="ir"> 인스타그램 </span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" class="fa-brands fa-facebook">
+                      <span class="ir"> 페이스북 </span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" class="fa-brands fa-twitter">
+                      <span class="ir"> 트위터 </span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" class="fa-brands fa-youtube">
+                      <span class="ir"> 유튜브 </span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" class="fa-solid fa-play">
+                      <span class="ir"> 네이버 TV </span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <!-- 설명박스 -->
+              <p class="intro-txt">
+                불멸의 삶을 끝내기 위해 인간 신부가 필요한 도깨비, 그와 기묘한
+                동거를 시작한 기억상실증 저승사자. 그런 그들 앞에 '도깨비
+                신부'라 주장하는 '죽었어야 할 운명'의 소녀가 나타나며 벌어지는
+                神비로운 낭만 설화.
+              </p>
+              <!-- 인트로 버튼 -->
+              <button class="intro-btn">방송편성보기</button>
+            </div>
+
+            <!-- 3-2.인트로 동영상 파트 -->
+            <div class="col-6 col-2nd-12">
+              <figure class="intro-mv-box">
+                <div class="intro-mv-img off">
+                  <img src="./images/intro_mv_img.jpg" alt="인트로 동영상 이미지">
+                </div>
+                <figcaption>
+                  [예고]끝나지 않은 깨요일! 공동재부터 깨비.저승 커플 키스신
+                  비하인드까지! #하드털이 #스페셜
+                </figcaption>
+              </figure>
+            </div>
+          </div>
         </section>
+
+
+
+
+
+        
 
         <!-- 2-4. 미리보기영역 -->
         <section class="view-part inbox">

@@ -3,16 +3,30 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Grid Display 2 - Layout</title>
+    <title>Grid Display 3 - Layout 세로영역설정</title>
     <style>
-      /* CSS변수 셋팅하기 */
-      :root {
-        /* 
-            1. 설정시 :root{} 안에
-            --변수명:값; 
-            2. 호출시 var(--변수명)
-        */
+      /**************************************** 
+            [ CSS에서 변수 사용하기 ]
 
+            1. 변수 셋팅법
+            :root{
+                --변수명1: 값1;
+                --변수명2: 값2;
+                --변수명3: 값3;
+            }
+
+            2. 변수 호출 사용법
+            var(--변수명)
+
+            ->>> 변수는 언제 사용하나?
+            - 같은 값이 여러부분에서 사용될때
+            미디어쿼리 등에서 변경이 필요한 경우
+            변수값만 변경하면 복잡한 값변경이 대체됨!
+
+        ****************************************/
+
+      /* 변수셋팅 */
+      :root {
         /* 영역별 높이값 */
         --ht1: 200px;
         --ht2: 400px;
@@ -29,6 +43,7 @@
         font-size: 3vw;
       }
 
+      /* 그리드 박스 */
       .grid {
         /* 그리드 박스 */
         display: grid;
@@ -45,7 +60,7 @@
         outline: 2px dashed #ccc;
       }
 
-      /* 컨텐츠 영역 박스 공통 */
+      /* 컨텐츠 영역박스 공통 */
       .grid > div {
         border: 2px solid #ccc;
         font-size: 40px;
@@ -53,59 +68,77 @@
         color: #888;
       }
 
-      /* 각 라인영역별 셋팅 */
       /* 첫째줄 */
       .rw1 {
         line-height: var(--ht1);
         background-color: var(--bc1);
       }
+
       /* 둘째줄 */
       .rw2 {
         line-height: var(--ht2);
         background-color: var(--bc2);
       }
+
       /* 셋째줄 */
       .rw3 {
         line-height: var(--ht3);
         background-color: var(--bc3);
       }
 
-      /* ((중요: 각 컨텐츠 박스 그리드 위치영역 설정하기!!!)) */
+      /* 각 컨텐츠 박스의 그리드 위치영역 설정하기 */
 
-      /* 각 그리드 영역 표시는 grid-column
-            속성을 사용하여 표시함
-            -> 시작라인번호 / 끝라인번호
-            -> 브라우저 grid버튼을 클릭하면
-            화면에 영역별 그리드 라인번호표시됨! */
-
-      /* 1. 로고 - 2개영역 */
+      /* 각 그리드 영역 표시는
+                grid-column 속성을 사용하여 표시함
+                값 -> 시작라인번호 / 끝라인번호 */
+      /* 1.로고 - 2개영역 */
       .logo {
         grid-column: 1/3;
       }
+
       /* 2. GNB - 7개영역 */
       .gnb {
         grid-column: 3/10;
       }
-      /* 3. 상단사이드 - 3개영역 */
+
+      /* 3. 상단 사이드 - 3개영역 */
       .side {
         grid-column: 10/13;
+        /* 세로영역을 아랫쪽으로 설정 */
+        line-height: 610px;
+        /* 
+        그리드는 
+        같은 줄에 올 경우 가장 큰 높이값을 박스를 기준으로
+        나머지 같은 줄의 박스의 높이값을 강제로 늘려준다! */
+
+        grid-row: 1 / 3;
+        /* 앞의 박스는 grid-row설정이 없고 이박스에만
+        1~3까지를 설정하면 이박스는 두 줄에 걸쳐서 셋팅됨
+        앞의 박스는 자동으로 한줄만 셋팅됨! */
       }
-      /* 4. 배너 - 10개영역 */
+
+      /* 4. 배너 -10개영역 */
       .ban {
-        grid-column: 1/11;
+        grid-column: 1/10;
       }
-      /* 5. 배너사이드 - 2개영역 */
+
+      /* 5. 배너 사이드 - 2개영역 */
       .bnside {
-        grid-column: 11/13;
+        grid-column: 4/13;
+        line-height: 300px;
       }
+
       /* 6. 하단좌측 - 3개영역 */
       .bleft {
         grid-column: 1/4;
+        grid-row: 3/4;
       }
+
       /* 7. 하단정보 - 6개영역 */
       .binfo {
-        grid-column: 4/10;
+        grid-column: 1/10;
       }
+
       /* 8. 하단우측 - 3개영역 */
       .bright {
         grid-column: 10/13;
@@ -133,62 +166,13 @@
             grid-row를 설정해야 한다!
         
         *************************************/
-      /* 미디어쿼리 1024px이하 시작 */
-      @media screen and (max-width: 1024px) {
-        /* CSS변수값 변경하기 */
-        :root {
-          /* 영역별 높이값 */
-          --ht1: 100px;
-          --ht2: 300px;
-          --ht3: 200px;
-          /* 영역별 배경색 */
-          --bc1: rgb(251, 253, 112);
-          --bc2: rgb(255, 122, 248);
-          --bc3: rgb(170, 255, 148);
-        }
-
-        /* 1. 로고 - 2개영역 */
-        .logo {
-          grid-column: 1/5;
-        }
-        /* 2. GNB - 7개영역 */
-        .gnb {
-          grid-column: 5/13;
-        }
-        /* 3. 상단사이드 - 3개영역 */
-        .side {
-          display: none;
-        }
-        /* 4. 배너 - 10개영역 */
-        .ban {
-          grid-column: 1/13;
-        }
-        /* 5. 배너사이드 - 2개영역 */
-        .bnside {
-          display: none;
-        }
-        /* 6. 하단좌측 - 3개영역 */
-        .bleft {
-          display: none;
-        }
-        /* 7. 하단정보 - 6개영역 */
-        .binfo {
-          grid-column: 1/9;
-        }
-        /* 8. 하단우측 - 3개영역 */
-        .bright {
-          grid-column: 9/13;
-        }
-      }
-
-      /* 미디어쿼리 1024px이하 끝 */
-
       /* 미디어쿼리 700px이하 시작 */
       @media screen and (max-width: 700px) {
-        /* 7. 하단정보, 하단우측  */
-        .binfo,
-        .bright {
+        .grid > div {
+          /* 컬럼을 한줄 다 차지하게 변경 */
           grid-column: 1/13;
+          /* 기존에 조정된 로를 auto로 변경 */
+          grid-row: auto;
         }
       }
 
@@ -197,7 +181,7 @@
   </head>
 
   <body>
-    <h1 class="tit">그리드2 - 사이트 레이아웃1</h1>
+    <h1 class="tit">그리드3 - 사이트 레이아웃 (세로영역)</h1>
 
     <!-- 그리드 적용박스 -->
     <div class="grid">

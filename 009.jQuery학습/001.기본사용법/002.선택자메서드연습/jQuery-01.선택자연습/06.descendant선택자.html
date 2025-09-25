@@ -6,6 +6,54 @@
     <!-- jQuery library -->
     <script src="../jquery-3.6.3.min.js"></script>
     <script>
+      $(() => {
+        // 미션:
+        // (1) 아래의 각 li에 미니언즈 이미지를 웹으로 찾아서 html로 넣고
+        // '<img src="https://hercanberra.com.au/wp-content/uploads/2019/06/Minions_feature.jpg" alt="미니언즈">';
+        // '<img src="https://www.partyrama.co.uk/wp-content/uploads/2017/06/minions-kevin-lifesize-cardboard-cutout-180cms-product-image.jpg" alt="미니언즈">';
+        // '<img src="https://5.imimg.com/data5/XQ/KP/MY-40305254/kids-toy-500x500.jpg" alt="미니언즈">';
+
+
+        //  대상: #first, #second, #third
+        //  메서드: html()
+        $("#first").html(
+          '<img src="https://hercanberra.com.au/wp-content/uploads/2019/06/Minions_feature.jpg" alt="미니언즈" width="100px">'
+        );
+        $("#second").html(
+          '<img src="https://www.partyrama.co.uk/wp-content/uploads/2017/06/minions-kevin-lifesize-cardboard-cutout-180cms-product-image.jpg" alt="미니언즈" width="100px">'
+        );
+        $("#third").html(
+          '<img src="https://5.imimg.com/data5/XQ/KP/MY-40305254/kids-toy-500x500.jpg" alt="미니언즈" width="100px">'
+        ); 
+
+        // 모든 이미지 크기 width="20vw"로 고정
+        $("img").css({ width: "20vw" });
+
+        // 클릭 할때마다 각 이미지가 1vw씩 크기가 커진다
+        // 클릭시 한번은 오른쪽, 한번은 왼쪽으로 10도씩 기울어지게 애니메이션을 준다
+        // 대상 img
+        // 이벤트 click
+        // 변경내용 css()
+        $("img").click(function () {
+          // 기존 회전 각도를 읽어옴
+          let ang = $(this).css("rotate");
+          console.log('각도:',ang);
+          // 처음에 아무것도 없을땐 'none'로 나옴
+          // 이후엔 '10deg' 이런식으로 나옴
+          // 만약 'none'이거나 '-10deg' 로 변경
+          // 삼항연산자를 사용한다
+          // $(this).css("rotate", ang == 'none' ? '10deg' : '-10deg');
+
+          // 클릭된 이미지 css변경
+          $(this).css({
+            width: "+=1vw",
+            rotate: ang == '10deg' ? '-10deg' : '+10deg',
+            
+            // 트랜지션
+            transition: "rotate 0.5s ease-in-out",
+          });
+        })
+      });
     </script>
   </head>
 

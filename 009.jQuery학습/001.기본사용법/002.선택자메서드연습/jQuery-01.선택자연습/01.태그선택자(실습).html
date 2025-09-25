@@ -10,8 +10,7 @@
       // 공식적인 제이쿼리 함수이름은 jQuery
       // $(()=>{}) : 제이쿼리로딩구역
 
-      $(() => {
-        // 아래쪽 html이 모두 로딩되면 본구역실행!
+      $(()=>{ // 아래쪽 html이 모두 로딩되면 본구역실행!
         // [ 제이쿼리 사용법1 ]
         // 1. 요소 선택법 : $(선택자)
         // 2. 메서드 사용법 : $(선택자).메서드()
@@ -19,22 +18,33 @@
         // (2) css변경 메서드는? css(속성명,값)
         // -> 여러개의 속성을 셋팅하려면?
         // css({속성명1:값1,속성명2:값2})
-        // 단, 속성명은 문자형/변수형 모두 가능함
-        // 그러나 객체가 아닌 하나만 쓰면 css에서는
-        // 속성을 반드시 문자로만 써야한다
-        
-        $("h2").click(() => {
-          // #container 배경색 변경하라! pink색으로!
-          $("#container").css("background-color", "pink");
+        // 단, 속성명은 문자형/변수형 모두 가능함!
+        // 그러나 객체가 아닌 하나만 쓰면 CSS에서는
+        // 속성을 반드시 문자로만 써야함!
 
-          // body를 선택하여 배경색을 #ccc, font-size 5vw, 트렌지션은 2s로 설정하시오
-          $("body").css({
-            "background-color": "#ccc",
-            "font-size": "5vw",
-            transition: "2s",
+
+        $('h2').click(()=>{
+          // #container 배경색 변경하라! pink색으로!
+          $('#container').css('background-color','pink');
+
+          // 미션: body를 선택하여
+          // 배경색은 #ccc, 글자크기는 5vw
+          // 트랜지션은 2s 로 설정하시오.
+          $('body').css({
+            backgroundColor:'#ccc',
+            fontSize:'5vw',
+            transition:'2s'
           });
 
+
+          // $('body').css({
+          //   'background-color':'#ccc',
+          //   'font-size':'5vw',
+          //   'transition':'2s'
+          // });
+
         }); /// click ///
+
       }); /// jQuery //////////////
     </script>
   </head>

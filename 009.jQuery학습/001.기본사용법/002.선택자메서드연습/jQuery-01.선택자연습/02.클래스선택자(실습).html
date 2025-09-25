@@ -5,6 +5,8 @@
     <title>클래스 선택자</title>
     <!-- 제이쿼리 기본 라이브러리 -->
     <script src="../jquery-3.6.3.min.js"></script>
+    <!-- 제이쿼리 UI는 색상애니, 드래그기능 등 추가모듈 -->
+    <script src="../jquery-ui.min.js"></script>
     <style>
       body {
         font-size: 4vw;
@@ -28,7 +30,7 @@
       $(()=>{
         // 대상: .group li
         // 이벤트 : click
-        // 제이쿼리는 for문 없이 클릭이벤트 셋팅이 가능하다
+        // -> 제이쿼리는 for문 없이 이벤트 셋팅이 가능함!
         $(".group li").click(function(){
           // this : .group li
           // -> this는 클릭된 li인데 function(){}
@@ -42,10 +44,11 @@
             "font-size":"6vw",
             "transition":"all .6s"
           }).text(emoji[idx]);
-          // text() : 태그의 데이터 글자를 변경
+          // text() : 태그이 데이터글자를 변경함!
         })
 
       }); ///// jQuery ////////
+
 
 
       // ((추가요구사항))

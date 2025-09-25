@@ -198,8 +198,8 @@ h1.logo::before {
 
 /* 서브표시 화살표 */
 .gnb-menu i {
-    font-size: 1rem;
-    vertical-align: 0.3rem;
+  font-size: 1rem;
+  vertical-align: 0.3rem;
 }
 
 /* 서브메뉴 */
@@ -361,6 +361,8 @@ h1.logo::before {
   /* 비율적용을 위해 높이값을 없앤다! */
   height: auto;
   aspect-ratio: 1320/190;
+  /* 상단마진 */
+  margin-top: 10px;
 }
 /* 캐릭터박스 */
 .cat-box {
@@ -731,10 +733,176 @@ h1.logo::before {
   padding-top: 1.4rem;
 }
 /***************** 2-7. 최신동영상영역 *****************/
-.video-part {
-  height: 409px;
+.video-part .cont-box {
+  position: relative;
+  /* 부모자격 - 이동버튼의 부모 */
 }
+.clip-box ul {
+  position: relative;
+  left: 0; /* 이동초기값 */
+  display: flex;
+  /* gap: 0 2%; */
+  /* 트랜지션 */
+  transition: left 0.3s ease-out;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.clip-box li {
+  flex-basis: 25%;
+  flex-shrink: 0;
+  /* 플렉스 gap 속성대신 패딩으로 처리!
+    이유는? 드래그시 영역아웃현상때문! */
+  padding: 0 1.1%;
+  box-sizing: border-box;
+}
+
+/* 동영상 이미지박스 */
+.clip-mv-box {
+  position: relative;
+  /* 부모자격 */
+}
+/* 동영상 이미지박스 이미지 */
+.clip-mv-box img {
+  width: 100%;
+  border-radius: 6px;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+/* 동영상 이미지박스 가상요소로 플레이버튼 */
+.clip-mv-box::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 62px;
+  height: 62px;
+  background: url(../images/icon_play.png) no-repeat 0/100%;
+  cursor: pointer;
+}
+
+.clip-box h4 {
+  font-size: 18px;
+  font-weight: normal;
+
+  /* 2줄 말줄임 셋팅 */
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.clip-box h3 {
+  font-size: 1.5rem;
+  font-weight: normal;
+  color: #555;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.clip-box {
+  overflow: hidden;
+}
+
+/* 양쪽버튼만들기 */
+.btn-box button {
+  position: absolute;
+  z-index: 999;
+  top: 43%;
+  border-radius: 50%;
+  width: 70px;
+  height: 70px;
+  line-height: 65px;
+  font-size: 30px;
+  font-weight: bold;
+  color: #fff;
+  border: none;
+  background-color: rgba(0, 0, 0, 0.6);
+  cursor: pointer;
+}
+/* 왼쪽버튼 */
+.btn-box button:first-child {
+  left: 0;
+}
+/* 오른쪽버튼 */
+.btn-box button:last-child {
+  right: 0;
+}
+/* 클래스를 추가하여 한쪽버튼만 안보이게 처리 */
+/* 왼쪽버튼만 보이기 */
+.btn-box.left button:first-child {
+  display: inline-block;
+}
+.btn-box.left button:last-child {
+  display: none;
+}
+/* 오른쪽버튼만 보이기 */
+.btn-box.right button:last-child {
+  display: inline-block;
+}
+.btn-box.right button:first-child {
+  display: none;
+}
+
 /***************** 3. 하단영역 *****************/
 .bottom-area {
-  height: 391px;
+  border-top: 1px solid #ccc;
+  padding-top: 20px;
+  padding-bottom: 80px;
+  background: url(../images/footer_bg_tvn-pc.png) no-repeat center/cover;
+}
+
+/* 하단링크박스 */
+.info-link ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 15px;
+}
+.info-link a {
+  font-size: 1.4rem;
+  line-height: 2.5;
+  white-space: nowrap;
+}
+/* 바로가기 콤보박스 영역 */
+.combo-area {
+  text-align: right;
+}
+.combo-area select {
+  width: 170px;
+  height: 35px;
+  border-radius: 5px;
+  border: none;
+  background-color: rgb(230, 230, 230);
+  font-size: 1.5rem;
+  margin: 5px;
+}
+/* 하단로고박스 */
+.footer__logo {
+  padding: 20px 0;
+}
+/* 회사주소박스 */
+.corp-info {
+  font-style: normal;
+  font-size: 1.5rem;
+  line-height: 1.8;
+}
+/* SNS박스 */
+.sns-box ul {
+  display: flex;
+  gap: 0 5px;
+}
+.sns-box li {
+  width: 35px;
+  height: 35px;
+  /* 플렉스 강제줄이기 해제 */
+  flex-shrink: 0;
+  line-height: 38px;
+  font-size: 1.8rem;
+  text-align: center;
+  border-radius: 50%;
+  border: 1px solid gray;
 }

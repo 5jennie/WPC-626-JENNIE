@@ -6,9 +6,36 @@
     <!-- jQuery library -->
     <script src="../jquery-3.6.3.min.js"></script>
     <script>
+      // 제이쿼리 코드블록
+      $(() => {
+        // 미션
+        // #container를 클릭하면 직계자식 p요소만 배경색 : 노란색, 글자크기 : 5vw, 아웃라인 : 10px solid red 로 변경하시오
+        $("#container").click((e) => {
+          $(">p", e.currentTarget).css({
+            backgroundColor: "yellow",
+            fontSize: "3vw",
+            outline: "10px solid red",
+          });
+        });
+
+        // [자손선택 3가지 방법]
+        // 1. $('#container p')
+        // 2. $('#container').find('p')
+        // 3. $('p', '#container')
+
+        // [ 직계자식선택 3가지 방법 ]
+        // 1. $('#container > p')
+        // 2. $('#container').children('p')
+        // 3. $('>p', '#container')
+        //
+      }); // jQuery code End
     </script>
   </head>
-
+  <style>
+    body {
+      font-size: 2vw;
+    }
+  </style>
   <body>
     <div id="container">
       <header>

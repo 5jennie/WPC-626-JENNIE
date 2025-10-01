@@ -6,9 +6,9 @@
 html {
   /* 부드러운 스크롤 셋팅 */
   scroll-behavior: smooth;
-  /* 글자체 셋팅 */
+  /* 전체 글자 크기 셋팅
+    -> rem단위 계산편의를 위해 10px로 셋팅 */
   font-size: 10px;
-  /* rem단위 계산편의를 위함 */
 }
 
 body {
@@ -363,6 +363,7 @@ h1.logo::before {
   top: 0;
   background-color: #fff;
   z-index: 999;
+  margin-top: 40px;
 }
 /* 인박스 높이값 초기화 */
 .spart-menu.inbox {

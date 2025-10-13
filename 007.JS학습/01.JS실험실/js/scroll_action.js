@@ -14,6 +14,7 @@ import startSS from "./smoothScroll23.js";
 // 부드러운 스크롤 함수호출
 startSS();
 
+
 // 글자등장함수 호출하기
 callLetter(".stage", "신카이 마코토", 1500);
 
@@ -65,33 +66,36 @@ callLetter(".stage", "신카이 마코토", 1500);
 const daesang = myFn.qsa(".scroll-act");
 
 // 등장위치값 계산변수
-let gijun = (window.innerHeight / 3) * 2;
+let gijun = window.innerHeight/3*2;
 
 // 기준검사함수
 const checkFn = (el) => {
-  // el - 위치대상요소
+    // el - 위치대상요소
 
-  // 등장위치값
-  let pos = el.getBoundingClientRect().top;
+    // 등장위치값
+    let pos = el.getBoundingClientRect().top;
+    
+    // 기준검사 조건에 맞으면 on 클래스추가
+    if(pos < gijun){
+        el.classList.add("on");
+    } //// if //////////////////
+    // 기준검사 조건에 맞지 않을 때 on 클래스 제거
+    else{
+        el.classList.remove("on");
+    } //// else //////////////
 
-  // 기준검사
-  if (pos < gijun) {
-    el.classList.add("on");
-  } //// if //////////////////
-  // 기준검사 조건에 맞지 않을때 on클래스 제거
-  else {
-    el.classList.remove("on");
-  } //// else /////////////////
+    
 }; ///////// checkFn //////////////
 
-// 2. 이벤트 함수 설정하기
-window.addEventListener("scroll", () => {
-  console.log("스크롤~~~!");
 
-  // 대상의 개수만큼 하나씩 반복하여
-  // checkFn 함수로 보내준다!
-  // 그러면 함수에서 해당 대상에게 on 클래스를 더해준다!
-  daesang.forEach((el) => {
-    checkFn(el);
-  });
+// 2. 이벤트 함수 설정하기 
+window.addEventListener('scroll',()=>{
+
+    console.log('스크롤~~~!');
+
+    // 대상의 개수만큼 하나씩 반복하여
+    // checkFn 함수로 보내준다!
+    // 그러면 함수에서 해당 대상에게 on 클래스를 더해준다!
+    daesang.forEach(el=>checkFn(el));
+
 }); /////// scroll 이벤트 /////////////////////

@@ -3,18 +3,17 @@
 /* 상단, 배너, 드라마파트메뉴, 하단 모듈 */
 
 /* 공통 요소 셋팅 */
-html {
-  /* 부드러운 스크롤 셋팅 */
-  scroll-behavior: smooth;
-  /* 전체 글자 크기 셋팅
+html{
+    /* 부드러운 스크롤 셋팅 */
+    scroll-behavior: smooth;
+    /* 전체 글자 크기 셋팅
     -> rem단위 계산편의를 위해 10px로 셋팅 */
-  font-size: 10px;
+    font-size: 10px;
 }
 
-body {
-  /* 글자체 */
-  font-family: "Noto Sans KR", Malgun Gothic, dotum, "돋움", Arial, AppleGothic,
-    Sans-serif;
+body{
+    /* 글자체 */
+    font-family: "Noto Sans KR", Malgun Gothic, dotum, "돋움", Arial, AppleGothic, Sans-serif;
 }
 
 /***************** 1. 상단영역 *****************/
@@ -228,17 +227,17 @@ h1.logo::before {
   transition: 0.4s ease-out;
 }
 
-/* 1020px 셋팅 시작 */
-/* 1020px 이상인 DT에서만 오버 셋팅 적용 */
-/* 미디어 쿼리 구역으로 감싸준다 (min-width:1020px) */
-@media screen and (min-width: 1020px) {
+/* 1024px 이상인 DT에서만 오버 셋팅적용 시작
+-> 미디어쿼리 구역으로 감싸준다! (min-width:1024px) */
+@media screen and (min-width: 1024px) {
   /* 부모 li에 마우스 오버시 .sub-menu 높이값 변경하기 */
   .gnb-menu > ul > li:hover .sub-menu {
     max-height: 400px;
     /* 최대 높이값을 컨텐츠 높이값 보다 좀 더 크게 잡으면
       오버시 높이값이 내용만큼만 커지게 된다! */
   }
-} /* 1020px 셋팅 종료 */
+  
+}/* 1024px 이상인 DT에서만 오버 셋팅적용 종료 */
 
 /* 패딩만 내부에 다른 블록요소를 사용함!
 -> 자식요소 숨기기 부모박스엔 패딩을 줄 수 없다! */
@@ -258,6 +257,17 @@ h1.logo::before {
   font-size: 3.6rem;
   margin-bottom: 2.4rem;
 }
+
+/* 타이틀바 소속 버튼 */
+.title-bar button {
+  background-color: transparent;
+  border: none;
+  font-size: 2.5vh;
+  cursor: pointer;
+  /* DT에서 안보임 */
+  display: none;
+}
+
 /* 서브리스트 ul */
 .sub-list ul {
   display: flex;
@@ -294,37 +304,36 @@ h1.logo::before {
 }
 
 /* 모바일용 버튼 그룹박스 */
-.btn-group {
+.btn-group{
   position: absolute;
-  top: 25px;
-  transition: 0 -50%;
-  right: 50px;
-  /* 플랙스 */
+  top: 50%;
+  translate: 0 -50%;
+  right: 3vw;
+  /* 플렉스 */
   /* display: flex; */
   display: none;
   gap: 20px;
 }
-
-/* 버튼디자인 */
-.btn-group button {
+/* 버튼 디자인 */
+.btn-group button{
   background-color: transparent;
   border: none;
-
-  /* 아이콘 설정(글자와 같음) */
-  font-size: 2rem;
-  color: #636363;
+  /* 아이콘설정(글자와 같음) */
+  font-size: 3rem;
   cursor: pointer;
+  color: #222;
 }
 /* 햄버거 버튼 셋팅 : 처음에 두번째 i태그인 x버튼 안보임 */
-.btn-ham i:nth-child(2) {
+.btn-ham i:nth-child(2){
   display: none;
 }
+
 /* 상단영역 최상위 부모인  #top-area에 클래스 on을 주면
   x버튼보이기/햄버거숨기기 */
-#top-area.on .btn-ham i:nth-child(2) {
+  #top-area.on .btn-ham i:nth-child(2){
   display: block;
 }
-#top-area.on .btn-ham i:nth-child(1) {
+#top-area.on .btn-ham i:nth-child(1){
   display: none;
 }
 
@@ -389,14 +398,12 @@ h1.logo::before {
 
 /*왼쪽버튼*/
 .ab1 {
-  opacity: 60%;
-  left: 30px;
+  left: 50px;
 }
 
 /*오른쪽버튼*/
 .ab2 {
-  opacity: 60%;
-  right: 30px;
+  right: 50px;
 }
 
 /************* 2-2.5. 드라마파트메뉴 : 스티키메뉴 ***************/
@@ -406,11 +413,12 @@ h1.logo::before {
   top: 0;
   background-color: #fff;
   z-index: 999;
-  margin-top: 40px;
 }
 /* 인박스 높이값 초기화 */
 .spart-menu.inbox {
   height: auto;
+  /* 모바일 화면에서 좁아질때 가로스크롤생성 */
+  overflow-x: auto;
 }
 .spart-menu ul {
   /* 플렉스박스 */

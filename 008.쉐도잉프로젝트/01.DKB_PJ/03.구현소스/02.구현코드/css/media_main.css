@@ -1,7 +1,7 @@
 @charset "utf-8";
 
 /* 도깨비 PJ 메인 페이지 미디어쿼리 - media_main.css */
-/* *********************************************************************** */
+
 /* 1360px 이하 미디어쿼리 시작 */
 @media screen and (max-width: 1360px) {
   /* 전체 inbox 양쪽패딩 */
@@ -10,9 +10,7 @@
   }
 }
 /* 1360px 이하 미디어쿼리 종료 */
-/* *********************************************************************** */
 
-/* *********************************************************************** */
 /* 1200px 이하 미디어쿼리 시작 */
 @media screen and (max-width: 1200px) {
   /* 전체 글자 크기 변경 */
@@ -21,9 +19,7 @@
   }
 }
 /* 1200px 이하 미디어쿼리 종료 */
-/* *********************************************************************** */
 
-/* *********************************************************************** */
 /* 1024px 이하 미디어쿼리 시작 */
 @media screen and (max-width: 1024px) {
   /* 전체 글자 크기 변경 */
@@ -36,7 +32,7 @@
     height: 60px;
   }
 
-  /* 로고박스 스케일 변경 */
+  /* 로고박스 스케일변경 */
   .logo-box {
     scale: 0.5;
   }
@@ -49,12 +45,15 @@
   /* 전체 메뉴 박스 변경 */
   .menu-box {
     position: fixed;
+    /* z-index: 1; */
+    /* 상단 로고와 메뉴보다 위에 오도록 설정
+    -> 그러나 하위메뉴 클릭전엔 상단이 보여야한다!
+    따라서 여기서 주지말고 JS에서 처리하도록 하자! */
     top: 0;
     /* 오른쪽 바깥에 나가있음! 
     -> 햄버거 버튼 클릭시 0으로 변경*/
     left: 100%;
     width: 100vw;
-    /* width: 0; */
     height: 100vh;
     background-color: #fff;
     padding-right: 0;
@@ -63,8 +62,8 @@
     transition: left 0.5s ease-in-out;
   }
 
-  /* 상단영역 최상위 부모인 #top-area에 클래스 on을 주면
-  메뉴박스인 .meun-box의 left값을 0으로 변경한다. */
+  /* 상단영역 최상위 부모인  #top-area에 클래스 on을 주면
+  메뉴박스인 .menu-box의 left값을 0으로 변경한다! */
   #top-area.on .menu-box {
     left: 0;
   }
@@ -84,12 +83,56 @@
     margin-top: 5vh;
     border-bottom: 5px solid #e5e5e5;
   }
-
   /* GNB 메뉴 변경 */
   .gnb-menu ul {
     margin-top: 5vh;
     flex-direction: column;
     font-size: 2.5vh;
+  }
+
+  /* GNB메뉴 가로크기 변경 */
+  nav.gnb-menu {
+    width: 100%;
+  }
+
+  /* GNB 메뉴 아이콘 크기위치변경 */
+  .gnb-menu i {
+    float: right;
+    rotate: -90deg;
+    scale: 2;
+    translate: 0 150%;
+  }
+
+  /* 서브메뉴 화면 채우기 설정변경 */
+  .sub-menu {
+    position: fixed;
+    top: 0;
+    left: 100%;
+    /* 왼쪽 바깥에 나가있음! */
+    z-index: 1;
+    width: 100vw;
+    height: 100vh;
+    background-color: white;
+    max-height: none;
+  }
+
+  /* 서브메뉴에 클래스 on을 주면 left값을 0으로 변경 */
+  .sub-menu.on {
+    left: 0;
+  }
+
+  /* GNB메뉴 기존 높이값 해제 */
+  .gnb-menu ul {
+    height: auto;
+  }
+  /* GNB메뉴 li 기존 가로값 해제 */
+  .sub-list li {
+    width: auto;
+  }
+
+  /* 타이틀바 소속 버튼 - 모바일에서 보임 */
+  .title-bar button {
+    display: block;
   }
 
   /* 배너버튼 스케일변경 */
@@ -103,11 +146,10 @@
   }
 
   /* 현장포토 & 대표포스터 : 한줄에 3개씩 */
-  .live-photo ul,
+  .live-box ul,
   .poster-box ul {
     grid-template-columns: repeat(3, 1fr);
   }
-
   /* 대표포스터 li 그리드 설정 초기화! */
   .poster-box ul li {
     /* 가상클래스로 설정된 li도 강제적용위해
@@ -122,11 +164,45 @@
   }
 }
 /* 1024px 이하 미디어쿼리 종료 */
-/* *********************************************************************** */
 
-/* *********************************************************************** */
 /* 800px 이하 미디어쿼리 시작 */
 @media screen and (max-width: 800px) {
+  /* 캐릭터 소개 파트 */
+  /* 캐릭터박스 */
+  .cat-box {
+    flex-wrap: wrap;
+  }
+  /* 직계자식요소 div 4개 */
+  .cat-box > div {
+    flex-basis: 49.5%;
+  }
+
+  /* 캐릭터 이미지박스 변경 */
+  .cat-box > div:hover figure {
+    margin-top: 0;
+    opacity: 0.3;
+  }
+
+  /* 캐릭터 글자박스 변경 */
+  .cat-box > div:hover aside {
+    /* 글자박스가 캐릭터 박스보다 위! */
+    position: relative;
+    z-index: 1;
+    background: none;
+    height: 27vw;
+    margin-top: -27vw;
+  }
+
+  /* 캐릭터 타이틀 변경 */
+  .cat-box > div:hover aside h3 {
+    font-size: 3.5vw;
+  }
+
+  /* 캐릭터 설명 변경 */
+  .cat-box > div:hover aside p {
+    font-size: 2.6vw;
+  }
+
   /* 드라마소개파트 : 한줄에 하나씩 세로방향 */
   .intro-part .cont-box {
     flex-direction: column;
@@ -138,10 +214,9 @@
   }
 
   /* 현장포토 & 대표포스터 : 한줄에 2개씩 */
-  .live-photo ul,
+  .live-box ul,
   .poster-box ul {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 /* 800px 이하 미디어쿼리 종료 */
-/* *********************************************************************** */

@@ -1,6 +1,7 @@
 // 쇼핑몰 배너 JS -> 제이쿼리버전!
 // 01.가로방향 배너 슬라이드 - 무한이동 //
 
+export default function main1_jquery() {
 // 1. 대상선정 //////////////////
 // (1) 전체 슬라이드 박스 : .slide-box
 const $slideBox = $(".banner-box");
@@ -179,3 +180,5 @@ function clearAuto() {
   // 3. 타임아웃 셋팅하기(일정시간후 다시 자동호출)
   autoT = setTimeout(slideAuto, TO_TIME);
 } ////// clearAuto 함수 //////
+
+} ///////// 전체 함수 끝 ///////////////////

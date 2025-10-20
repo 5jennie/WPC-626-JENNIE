@@ -1,7 +1,7 @@
 // 도깨비 PJ 공통 JS - common.js /////////
 
 // 배너 슬라이드 함수 불러오기
-// import bannerFn from "./main1_jquery.js";
+import bannerFn from "./main1_jquery.js";
 // default로 내보냈으므로 아무이름으로 받아도됨!
 
 // 같은 이름의 변수의 충돌을 막기위해 지역변수화를 해준다!
@@ -31,7 +31,7 @@
   $bottomArea.load("./inc/footer.html");
 
   // (2-3) 배너부 html넣기 : 로딩후 배너함수호출!
-  $bannerPart.load("./inc/banner.html");
+  $bannerPart.load("./inc/banner.html", bannerFn);
 
   // (2-4) 드라마 파트메뉴 html넣기
   $spartMenu.load("./inc/part_menu.html");
@@ -40,6 +40,27 @@
 
 /// 2. 상단파트에서 실행할 함수 /////////////
 function headerFn() {
+ /***************************** 
+    JS 로 링크 시스템 만들기
+ *****************************/
+// 대상 : 상단영역 a요소
+const $topLink = $("#top-area a");
+$topLink.click(function(e){ // e - 이벤트 객체
+  // 기본이동 막기
+  e.preventDefault();
+  // 클릭된 a요소의 글자 읽기
+  let aTxt = $(this).text();
+  console.log(aTxt);
+  // 분기하여 이동
+  // 이동은 location.href = '링크주소';
+  switch(aTxt){
+    case "로그인" : location.href = 'login.html'; break;
+    case "회원가입" : location.href = 'member.html'; break;
+  } //// switch문 //////////
+}); /////// click 이벤트 //////////////
+
+
+
   ///////////////////////////////////////////////////
   // 1. 큐브로고박스 일정간격으로 클래스 넣었다 빼기 ///
   //////////////////////////////////////////////////

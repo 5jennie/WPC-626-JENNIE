@@ -41,9 +41,9 @@ myFn.addEvt(myFn.qs("a"), "click", mySon);
 // 추가기능함수
 function mySon(e) {
   // 이벤트 버블링 막기
-  // e.stopPropagation();
+  //   e.stopPropagation();
 
-  // e.stopImmediatePropagation();
+  //   e.stopImmediatePropagation();
   // 이벤트 버블링 막기에서
   // stopImmediatePropagation 다른점은
   // 버블링 막기 + 나중에 등록된 같은 이벤트실행 막기
@@ -57,7 +57,7 @@ function mySon(e) {
 myFn.qs("a").onclick = (e) => {
   // e - 이벤트 전달변수
   // 이벤트 버블링 막기
-  // event.stopPropagation();
+  //   e.stopPropagation();
 
   e.currentTarget.style.backgroundColor = "red"; // 이벤트발생요소
 
@@ -65,15 +65,15 @@ myFn.qs("a").onclick = (e) => {
   showEvtLog("아들방(a)", e);
 
   // 기본기능막기(a요소는 이동특성이 있음. 이것을 막음!)
-  // event.preventDefault();
-  return false;
+  e.preventDefault();
+  //   return false;
   // 리턴시 false를 쓰면 기본기능막기가 됨!
 }; /// click ///
 
 // 2. 엄마집 ///////
 myFn.qs("p").onclick = function (e) {
   // e - 이벤트 전달변수
-  // e.stopPropagation();
+  //   e.stopPropagation();
   e.currentTarget.style.backgroundColor = "yellow"; // 이벤트발생요소
   // return false;
 
@@ -219,9 +219,9 @@ myFn.qs(".clear").onclick = (e) => {
 // 휠 이벤트 막기 테스트 ////
 window.addEventListener(
   "wheel",
-  () => {
+  (e) => {
     // 기본기능막기
-    event.preventDefault();
+    e.preventDefault();
 
     console.log("휠~~~~");
     // 배경색 변경

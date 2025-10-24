@@ -73,6 +73,12 @@ demo.innerHTML = hCode;
 const mvBox = 헐.qs('.mvpart');
 
 console.log("데이터:",영화정보);
+// 객체는 {key:value} 로 구성된다!
+// 따라서 Object에서 key값 배열 만들기는 keys()
+// 그리고 value값 배열 만들기는 values()
+console.log("객체데이터를 key값 배열화:",Object.keys(영화정보));
+console.log("객체데이터를 value값 배열화:",Object.values(영화정보));
+
 // 제목출력
 mvBox.innerHTML = "<h2>🎃영화위시리스트🎃</h2>";
 

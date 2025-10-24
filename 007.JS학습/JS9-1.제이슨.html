@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="ko">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>JS9-3. 제이슨 연습</title>
-        <!-- 제이슨 불러오기! -->
-        <script src="./JS9-1.Data.json"></script>
-        <script>
-            /**************************************************
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JS9-3. 제이슨 연습</title>
+    <!-- 제이슨 불러오기! -->
+    <script src="./js/JS9-1.불완전제이슨.json"></script>
+    <script>
+      /**************************************************
          *  
             [ 제이슨(JSON) 이란? ]
             객체형식의 데이터 저장파일
@@ -72,8 +72,23 @@
              
         *****************************************************/
 
-            
-        </script>
-    </head>
-    <body></body>
+      let myJson = JSON.parse(JSON.stringify(jsonData));
+      console.log(myJson);
+      // shopping -> 메뉴 찍기
+      console.log(myJson.shopping.메뉴);
+
+      // 화면에 출력하기
+      // -> 객체이므로 Object.keys()로 배열화하며
+      // forEach()로 반복처리하면서 화면에 출력하기
+      Object.keys(myJson).forEach((v) => {
+        document.write(`<h2>${v} : ${myJson[v].메뉴}</h2>`);
+      }); ///// forEach ///
+    </script>
+    <!-- 외부 JS를 모듈형식으로 호출하여 사용! -->
+    <script type="module" src="./js/JS9-1.제이슨.js"></script>
+  </head>
+  <body>
+    <!-- 출력박스 -->
+    <div class="exp-box"></div>
+  </body>
 </html>

@@ -1,89 +1,89 @@
-// 자동 스크롤 JS -auto_scroll.js /////////
+// 자동 스크롤 JS - auto_scroll.js /////////
 
 // 나의 함수 불러오기
 import myFn from "./my_function.js";
 
 // 1. 사용할 이벤트 : wheel
-// -> scroll 이벤트는 스크롤바가 움직일때 발생
+// -> scroll 이벤트는 스크롤바기 움직일때 발생
 // -> wheel 이벤트는 마우스 휠이 움직일때 발생
 
 // 2. 이벤트 대상 : window
 
-// 3. body에 overflolw:hidden 셋팅
+// 3. body에 overflow:hidden 셋팅
 document.body.style.overflow = "hidden";
 
-// 4. html에 scroll-behavior: smooth 셋팅
+// 4. html에 scroll-behavior:smooth 셋팅
 document.documentElement.style.scrollBehavior = "smooth";
+// -> html 최상위 요소는 document.documentElement 로 선택함!
 
-// 5. 새로고침시 스크롤 최상단으로 이동
+// 5. 새로고침시 스크롤위치 맨위로 이동하기
 setTimeout(() => {
   window.scrollTo(0, 0);
 }, 400);
 
-// 6. 전역페이지번호
+// 6. 전역 페이지번호
 let pgNo = 0;
 
-// 7. 이동단위 -> window 높이값
+// 7. 이동단위 -> 윈도우 높이값
 let winH = window.innerHeight;
 
-// 8. 전체 .page수 자동으로 구하기
+// 8. 전체 .page인 페이지개수 구하기 - 페이지 증가 한계값으로 사용
 const page = document.querySelectorAll(".page");
 const pageCnt = page.length;
 
-console.log("페이지수:", pageCnt);
+console.log("페이지개수:", pageCnt);
 
-// 9. 메뉴 및 인디케이터 요소 li 수집하기
+// 9. 메뉴 및 인디케이터 요소 li수집
 const gnb = document.querySelectorAll(".gnb li");
 const indic = document.querySelectorAll(".indic li");
 
-// 10. 휠 이벤트를 window에 적용하여 기본 휠 작동 막기
-// -> 기본 휠 작동을 막아야 원하는 자동 스크롤을 구현할 수 있다
+// 10. 휠 이벤트를 window에 적용하여 기본 휠작동 막기
+// -> 그래야 우리가 원하는 자동 스크롤 기능을 구현할 수 있다
 window.addEventListener(
   "wheel",
   (e) => {
     // e - 이벤트 전달변수
-
     // (1) 기본 기능 막기
     e.preventDefault();
-    // -> window, document, body 기본 기능을 막을때
-    // passive 모드 값을 false로 셋팅해야 에러가 발생하지 않는다.
+    // -> window / document / body 에서 기본기능막기를 할때
+    // passive 모드값을 false로 설정해야 에러가 발생하지 않음
 
-    // (2) 광 휠막기
-    if (blockwheel()) return;
+    // (1.5) 광휠막기
+    if (blockWheel()) return;
 
-    // (3) 휠 방향 알아내기
+    // (2) 휠 방향 알아내기
     // 이벤트객체.wheelDelta
     let dir = e.wheelDelta;
-    // 아래쪽은 -, 윗쪽은 +
+    // 아래쪽은 음수, 윗쪽은 양수
 
-    // (4) 방향에 따른 페이지 번호 증감
+    // (3) 방향에 따른 페이지번호 증감
     if (dir < 0) {
-      // 페이지번호 1씩 증가
-      pgNo++;
-      if (pgNo > pageCnt) pgNo = pageCnt - 1; // 한계값 고정
-    } ///// if //////////
+      //  아랫방향 음수
+      pgNo++; // 페이지번호 증가
+      if (pgNo >= pageCnt) pgNo = pageCnt - 1; // 한계값 고정
+    } /// if ///
     else if (dir > 0) {
-      // 페이지번호 1씩 감소
-      pgNo--;
+      // 윗방향 양수
+      pgNo--; // 페이지번호 감소
       if (pgNo < 0) pgNo = 0; // 한계값 고정
-    } ///// else if //////////
+    } /// else if ///
 
-    console.log("휠~~~~", pgNo);
+    console.log("휠~~~~!", pgNo);
 
-    // (5) 전체 포지션 이동
+    // (4) 전체 포지션이동
     window.scrollTo(0, pgNo * winH);
 
-    // (6) 메뉴 클래스 on 넣기
+    // (5) 메뉴 클래스 on 넣기
     for (let x of gnb) x.classList.remove("on");
     gnb[pgNo].classList.add("on");
     for (let y of indic) y.classList.remove("on");
     indic[pgNo].classList.add("on");
   },
   { passive: false }
-); //////////////////// wheel 이벤트 ////////////////////
-// addEventListener(이벤트명, 함수, {passive:fals});
+); //////////// wheel 이벤트 //////////////
+// addEventListener(이벤트명,함수,{passive:false});
 
-// 11. 메뉴 클릭시 클래스 on 넣기
+// 11. 메뉴 클릭시 이동 및 클래스 on 넣기
 gnb.forEach((x, i) => {
   // x - 요소, i - 순번
   x.addEventListener("click", (e) => {
@@ -104,9 +104,9 @@ gnb.forEach((x, i) => {
     for (let y of indic) y.classList.remove("on");
     indic[pgNo].classList.add("on");
   });
-}); //////// forEach //////////
+}); ///////////// forEach //////////////
 
-// 12. 인디케이터 클릭시 클래스 on 넣기
+// 12. 인디케이터 클릭시 이동 및 클래스 on 넣기
 indic.forEach((x, i) => {
   // x - 요소, i - 순번
   x.addEventListener("click", (e) => {
@@ -127,28 +127,27 @@ indic.forEach((x, i) => {
     for (let y of indic) y.classList.remove("on");
     indic[pgNo].classList.add("on");
   });
-}); ////// forEach //////////
+}); ///////////// forEach //////////////
 
-/********************************************************* 
-////////////////////// 광휠금지함수 //////////////////////
-*********************************************************/
+/******************************** 
+////////// 광휠금지함수 //////////
+********************************/
+// [1] 광휠금지상태변수 ///////////
+let stopWheel = false;
+// 값이 true일때 휠릭허용/ false면 불허용
 
-// (1) 광휠금지상태변수 ///////////
-let stopwheel = false;
-// 값이 true일때 휠허용/ false면 불허용
-
-// (2) 광휠금지해제시간 상수셋팅 //////
+// [2] 광휠금지해제시간 상수셋팅 //////
 const TIME_GAP = 400;
 
-// (3) 광휠금지함수 //////////////////
-function blockwheel() {
+// [3] 광휠금지함수 //////////////////
+function blockWheel() {
   // 1. 광휠이면 true 를 리턴함!
-  if (stopwheel) return true;
+  if (stopWheel) return true;
 
   // 2. 휠가능상태이면 전역변수 셋팅
-  stopwheel = true;
+  stopWheel = true;
   setTimeout(() => {
-    stopwheel = false;
+    stopWheel = false;
   }, TIME_GAP);
 
   // 3. 상태값 리턴 (휠가능상태 false)
@@ -171,7 +170,6 @@ function blockwheel() {
     3. pageX, pageY : 
         스크롤을 포함한 브라우저 화면을 기준한 x,y 좌표
 *********************************************************/
-
 // 1. 모바일 이벤트 등록하기 //////////
 myFn.addEvt(window, "touchstart", touchStartFn);
 myFn.addEvt(window, "touchend", touchEndFn);
@@ -212,7 +210,7 @@ function touchEndFn(e) {
 
   // 4. 한계값 체크 (0과 페이지끝번호 기준) ///////
   if (pgNo < 0) pgNo = 0;
-  else if (pgNo > pageCnt - 1) pgNo = pgNo = pageCnt - 1;
+  else if (pgNo > pageCnt - 1) pgNo = pageCnt - 1;
 
   // 5. 페이지 이동하기 /////////
   window.scrollTo(0, winH * pgNo);

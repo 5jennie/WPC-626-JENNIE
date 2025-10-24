@@ -89,6 +89,7 @@ function insertMini() {
 
   // 1. 호출한 요소의 개수속성 읽어오기 : data-num
   let num = this.getAttribute('data-num');
+
   
   // [속성값 읽어오기 2가지]
   // 1) 선택요소.속성명

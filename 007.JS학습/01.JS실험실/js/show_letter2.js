@@ -19,7 +19,7 @@ const myText =
 // - 기준: 띄어쓰기 공백
 // - 잘라서 배열만드는 메서드는? split(자를문자기준)
 const newText = myText.split(" ");
-console.log('잘라서배열:', newText);
+console.log("잘라서배열:", newText);
 
 // forEach() 메서드를 사용하는 방법 //////
 // 배열값 만큼 반복시킨다!
@@ -41,19 +41,20 @@ console.log('잘라서배열:', newText);
 // 5. 글자데이터 변환하기
 // - span태그로 싸서 대상박스에 넣기
 // 대상: stage
-stage.innerHTML = 
-newText.map((v,i)=>`
-<span
-style="transition-delay: ${i * 0.1}s"
->${v}</span>
-`).join('');
+stage.innerHTML = newText
+  .map(
+    (v, i) =>
+      `<span
+            style="transition-delay: ${i * 0.1}s"
+        >${v}</span>`
+  )
+  .join("");
 // map의 결과는 배열이기때문에 그 값을 문자화하여
 // 콤마를 없애면 된다! 이때 쓰는 배열 메서드는?
 // 배열.join('') -> 구분자를 빈것으로 하면 깨끗한
 // 태그만 남는다!!!
 // 객체는 맵쪼잉!
 // 배열객체.map().join('')
-
 
 // 사용할 수 있는 방법은?
 // 1) for of문
@@ -89,7 +90,6 @@ console.log("다시 aa배열:", aa);
 // 배열.map().join('')
 // 배열값 변형 맵죠잉~!
 
-
 // 등장액션 기준값설정(윈도우화면 절반크기)
 const CRITERIA = window.innerHeight / 2;
 console.log("기준값:", CRITERIA);
@@ -107,4 +107,3 @@ myFn.addEvt(window, "scroll", () => {
   if (pos < CRITERIA) stage.classList.add("on");
   // else stage.classList.remove('on');
 }); /////// addEvt /////////////
-

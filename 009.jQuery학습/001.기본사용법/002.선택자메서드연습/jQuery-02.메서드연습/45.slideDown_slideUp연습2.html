@@ -97,7 +97,27 @@
     <!-- jQuery library -->
     <script src="../jquery-3.6.3.min.js"></script>
     <script>
+      $(function () {
+        /// jQB ////////////
 
+        // 1. 슬라이드 업/다운할 서브메뉴 모두 숨기기!
+        $(".smenu").hide();
+
+        // 2. 슬라이드 애니 설정하기
+        // 이벤트대상: .gnb>ul>li
+        // 변경대상: .smenu
+        $(".gnb>ul>li").hover(
+          function () {
+            // over ///
+            // $(this).find('.smenu')
+            $(".smenu", this).stop().slideDown(400);
+          }, /// over ///
+          function () {
+            // out ///
+            $(".smenu", this).stop().slideUp(400);
+          } /// out ///
+        ); /// hover ///
+      }); /// jQB /////////////////////////////////
     </script>
   </head>
 

@@ -6,7 +6,30 @@
     <!-- jQuery library -->
     <script src="../jquery-3.6.3.min.js"></script>
     <script>
+      $(document).ready(function () {
+        $("body,button").css({ fontSize: "40px" });
+        $("img").css({ width: "200px" });
 
+        // 변경대상
+        const $target = $("#container");
+        // 이벤트대상
+        const $btnPre = $("#prepend");
+        // -> 변수명 앞에 $를 붙이면 제이쿼리 선택자로
+        // 할당한 변수라는 표시로 사용되기도 한다!(개인자유!)
+
+        // 이벤트대상
+
+        // 미션: prepend버튼을 클릭하면
+        // #container안에있는 이미지 중
+        // 마지막 이미지를 맨앞으로 이동시키시오.
+        $btnPre.click(() => {
+          // 맨끝이미지
+          let last = $target.find("img").last();
+
+          // 맨뒤 이미지 맨앞으로 이동!
+          $target.prepend(last);
+        }); /// click ///
+      }); //////// jQB ////////////////////
     </script>
 
     <style>
